@@ -6,8 +6,7 @@
         http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<mapped-superclass class="es.diverplan.Valoracion"
-		access="FIELD">
+	<mapped-superclass class="es.diverplan.Valoracion" access="FIELD">
 		<attributes>
             <basic name="comentario" optional="false">
             	<column name="COMENTARIOS" />

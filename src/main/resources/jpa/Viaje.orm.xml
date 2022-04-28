@@ -6,8 +6,7 @@
         http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<mapped-superclass class="es.diverplan.trex.Viaje"
-		access="FIELD">
+	<mapped-superclass class="es.diverplan.trex.Viaje" access="FIELD">
 		<attributes>
 			<basic name="fechaSalida" optional="false">
 				<column name="FECHA_SALIDA" />

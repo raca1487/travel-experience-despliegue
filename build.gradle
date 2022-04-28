@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'com.github.raca1487:travel-experience:v1.0.0'
+	implementation 'com.github.raca1487:travel-experience-libreria:v1.0.2'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
@@ -32,23 +32,9 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-}
-
-test {
-	useJUnitPlatform()
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
-}
-
-task cloneJvmProfile {
-    ext.profile = System.getProperty("spring.profiles.active")
-    if (profile != null) {
-        println "Setting $profile profile in bootRun"
-        bootRun.systemProperties.put("spring.profiles.active", profile)
-    }
 }
