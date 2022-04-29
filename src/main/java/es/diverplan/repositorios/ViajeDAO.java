@@ -12,7 +12,7 @@ import es.diverplan.entidades.ViajeConId;
 @RepositoryRestResource(path = "viajes", itemResourceRel = "viaje", collectionResourceRel = "viajes")
 public interface ViajeDAO extends JpaRepository<ViajeConId, Long> {
 	
-	@RestResource(path = "por-precio")
-	List<ViajeConId> findByPrice(@Param("precio") float precio);
+//	@RestResource(path = "por-precio")
+//	List<ViajeConId> findByPrice(@Param("precio") float precio);
 
 }

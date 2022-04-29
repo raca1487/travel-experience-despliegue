@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
-			     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
-			     				     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
-			     version="1.0">
+<entity-mappings
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+        http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
 
-    <mapped-superclass class="es.diverplan.trex.Entretenimiento" access="FIELD">
-        	<attributes>
-            	<basic name="titulo" optional="false">
-            		<column name="TITULO" length="32 "/>
-            	</basic>
-            	<basic name="descripcion" optional="false">
-            		<column name="DESCRIPCION" length="160" />
-                </basic>
-        	</attributes>
-    </mapped-superclass>
+	<mapped-superclass class="es.diverplan.trex.Entretenimiento" access="FIELD">
+		<attributes>
+			<id name="id" />
+			<basic name="titulo" optional="false">
+				<column name="NOMBRE" />
+			</basic>
+			<transient name="descripcion" />
+			<transient name="valoraciones" />
+		</attributes>
+	</mapped-superclass>
 </entity-mappings>

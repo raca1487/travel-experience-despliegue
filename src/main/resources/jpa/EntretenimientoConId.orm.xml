@@ -6,17 +6,12 @@
         http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<entity class="es.diverplan.trex.Valoracion" access="FIELD">
-		<table name="VALORACIONES" />
+	<entity class="es.diverplan.entidades.EntretenimientoConId" access="FIELD">
+		<table name="EXPERIENCIAS" />
+		<inheritance strategy="SINGLE_TABLE"/>
+		<discriminator-column name="TIPO"/>
 		<attributes>
-			<id name="id" />
-			<basic name="comentario" optional="false">
-				<column name="COMENTARIOS" />
-			</basic>
-			<basic name="puntuacion" optional="false">
-				<column name="PUNTUACIONES" />
-			</basic>
-			<transient name="fechaPublicacion" />
+			
 		</attributes>
 	</entity>
 </entity-mappings>

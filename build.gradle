@@ -12,15 +12,15 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	jcenter()
-
 	mavenCentral()
-
-	maven { url 'https://jitpack.io' }
+	
+	jcenter()
+	
+	maven { url 'https://jitpack.io'}
 }
 
 dependencies {
-	implementation 'com.github.raca1487:travel-experience-libreria:v1.0.2'
+	implementation 'com.github.raca1487:travel-experience-libreria:v1.0.4'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'

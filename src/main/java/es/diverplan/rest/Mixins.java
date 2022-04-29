@@ -17,11 +17,11 @@ public class Mixins {
 		abstract float getPrecio();
 
 	}
-	
-	@JsonPropertyOrder({ "id", "comentario", "puntuacion", "id_Viaje"})
+
+	@JsonPropertyOrder({ "id", "comentario", "puntuacion", "id_Viaje" })
 	@JsonIgnoreProperties(value = { "fechaPublicacion" })
 	public static interface ValoracionConId {
-		
+
 		@JsonProperty("id_Viaje")
 		abstract ViajeConId getViaje();
 	}

@@ -11,9 +11,8 @@ import es.diverplan.entidades.ValoracionConId;
 import es.diverplan.entidades.ViajeConId;
 import es.diverplan.rest.Mixins;
 
-
 @Configuration
-@PropertySource({ "classpath:config/jackson.properties", "classpath:config/rest.properties" })
+@PropertySource({ "classpath:config/rest.properties", "classpath:config/jackson.properties" })
 @ComponentScan("es.diverplan")
 public class ConfiguracionPorJava {
 	

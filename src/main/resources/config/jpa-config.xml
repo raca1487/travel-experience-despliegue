@@ -31,9 +31,10 @@
 		<!-- Decimos como se mapean de Java a BD y viceversa -->
 		<property name="mappingResources">
             <list>
+            	<value>jpa/Entretenimiento.orm.xml</value>
+            	<value>jpa/EntretenimientoConId.orm.xml</value>
             	<value>jpa/Valoracion.orm.xml</value>
             	<value>jpa/Viaje.orm.xml</value>
-            	<value>jpa/Entretenimiento.orm.xml</value>
             </list>
         </property>
 	</bean>
