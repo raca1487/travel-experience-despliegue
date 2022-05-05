@@ -23,7 +23,7 @@ public class ValoracionConIdListener {
 	@PostPersist
 	// invocado automaticamente antes del persist (guardar)
 	public void postRegistrarValoracion(ValoracionConId valoracion) {
-		log.info("Se ha registrado una valoración con id #" + valoracion.getId());
+		log.info("Se ha registrado una valoraciÃ³n con id #" + valoracion.getId());
 	}
 
 }

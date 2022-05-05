@@ -8,7 +8,6 @@
 
 	<mapped-superclass class="es.diverplan.trex.Entretenimiento" access="FIELD">
 		<attributes>
-			<id name="id" />
 			<basic name="titulo" optional="false">
 				<column name="NOMBRE" />
 			</basic>

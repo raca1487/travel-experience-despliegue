@@ -6,10 +6,8 @@
         http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<entity class="es.diverplan.trex.Valoracion" access="FIELD">
-		<table name="VALORACIONES" />
+	<mapped-superclass class="es.diverplan.trex.Valoracion" access="FIELD">
 		<attributes>
-			<id name="id" />
 			<basic name="comentario" optional="false">
 				<column name="COMENTARIOS" />
 			</basic>
@@ -18,5 +16,5 @@
 			</basic>
 			<transient name="fechaPublicacion" />
 		</attributes>
-	</entity>
+	</mapped-superclass>
 </entity-mappings>

@@ -6,10 +6,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class Mixins {
 
-	@JsonPropertyOrder({ "id", "titulo", "fechaSalida", "numeroNoches", "precioTotal" })
+	@JsonPropertyOrder({ "id", "nombre", "fechaSalida", "numeroNoches", "precioTotal" })
 	@JsonIgnoreProperties(value = { "descripcion" })
 	public static interface ViajeConId {
 
+		@JsonProperty("nombre")
+		abstract String getTitulo();
+		
 		@JsonProperty("numeroNoches")
 		abstract int getDuracionViaje();
 
@@ -18,11 +21,11 @@ public class Mixins {
 
 	}
 
-	@JsonPropertyOrder({ "id", "comentario", "puntuacion", "id_Viaje" })
-	@JsonIgnoreProperties(value = { "fechaPublicacion" })
+	@JsonPropertyOrder({ "id", "fechaPublicacion", "comentario", "puntuacion", "viaje" })
+//	@JsonIgnoreProperties(value = { "comentario" })
 	public static interface ValoracionConId {
 
-		@JsonProperty("id_Viaje")
+		@JsonProperty("viaje")
 		abstract ViajeConId getViaje();
 	}
 
