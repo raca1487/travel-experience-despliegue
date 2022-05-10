@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Bangers");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #1c658c;
+  font-size: 1.2rem;
+}
+
+/*Contenedor de Navegación*/
+.navbar {
+  font-family: "Bangers";
+  background: #a2b44d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+/*Logo del Menú de Navegación*/
+.navbar-brand {
+  position: relative;
+  padding-bottom: 1%;
+  padding-left: 3%;
+}
+
+.hamburger {
+  padding-right: 5%;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-bottom: 10px;
+  background-color: #1c658c;
+}
+
+
+/*Enlaces del Menú de Navegación*/
+.nav-link {
+  position: fixed;
+  width: 94%;
+  top: 5rem;
+  left: 18px;
+  background-color: #1c658c;
+}
+
+.nav-link a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+
+  transition: all 0.3s linear;
+  border-radius: 5px;
+}
+
+.nav-link a:hover {
+  color: #f6d860;
+  background-color: #1c658c;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (min-width: 1209px) {
+  .nav-link {
+    display: block;
+    position: static;
+    width: auto;
+    margin-right: 20px;
+    background: none;
+  }
+
+  .nav-link a {
+    display: inline-block;
+    padding: 10px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+

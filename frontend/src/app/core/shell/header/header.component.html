@@ -1,1 +1,32 @@
-<p>header works!</p>
+<!-- Header, con barra de navegación, fijo para toda la app -->
+
+<nav class="navbar fixed-top">
+  <!--Logo de la barra de navegación-->
+  <a class="navbar-brand" routerLink="/">
+    <img
+      src="./assets/logo_trex.png"
+      alt="Logo TREX"
+      width="250px"
+      height="auto"
+    />
+  </a>
+
+  <!--Botón de la barra de navegación responsive-->
+  <div class="hamburger">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+
+  <!--Botones de la barra de navegación-->
+  <div class="nav-link hide">
+    <a routerLink="/">Inicio</a>
+    <a routerLink="experiences">Experiencias</a>
+    <a routerLink="#">Community Trex</a>
+    <a
+      href="https://www.sanidad.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/home.htm"
+      target="_blank">
+      Info COVID-19
+    </a>
+  </div>
+</nav>
