@@ -1,0 +1,57 @@
+.travel-title {
+  background-image: url("../../../../assets/banner_playa.jpg");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 600px;
+}
+
+.overlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(244, 244, 244, 0.4);
+}
+
+.banner-travel {
+  position: absolute;
+  top: 55%;
+  margin-left: 15%;
+}
+
+.banner-travel h1 {
+  font-family: "Permanent Marker";
+  color: #0f4d6e;
+}
+
+.travel-description {
+  margin-top: 3%;
+}
+
+.banner-infotravel {
+  background-color: #fff;
+  border-width: 2px;
+  border-style: ridge;
+  border-radius: 15px;
+}
+
+.description-info-content {
+  margin: 5% 0;
+}
+
+.description-info-content h2, h3 {
+  text-align: center;
+}
+
+.description-info-content a {
+  margin-left: 35%;
+}
+
+.description-info-content p {
+  margin: 3% 5% 5% 15%;
+  font-size: small;
+  text-align: justify;
+}

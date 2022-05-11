@@ -1,0 +1,17 @@
+/*Experiences Style*/
+.experiences {
+  /*background-color: #f6d860;*/
+}
+
+.experiences h1 {
+  font-family: "Permanent Marker";
+  color: #1c658c;
+  padding-top: 1em;
+  margin-bottom: 1em;
+}
+
+.col-md-6 {
+  text-align: center;
+  padding: 2%;
+  margin-top: 7%;
+}
