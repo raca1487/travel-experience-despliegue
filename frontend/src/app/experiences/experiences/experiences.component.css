@@ -1,8 +1,6 @@
-/*Experiences Style*/
-.experiences {
-  /*background-color: #f6d860;*/
-}
+@import url("https://fonts.googleapis.com/css?family=Fredoka");
 
+/*Experiences Style*/
 .experiences h1 {
   font-family: "Permanent Marker";
   color: #1c658c;
@@ -14,4 +12,13 @@
   text-align: center;
   padding: 2%;
   margin-top: 7%;
+}
+
+.cabecera-viajes h4 {
+  font-family: "Permanent Marker";
+  color: #1c658c;
+}
+
+.datos-viajes {
+  font-family: "Fredoka";
 }

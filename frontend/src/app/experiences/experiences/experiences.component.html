@@ -4,22 +4,36 @@
 
       <div class="col-md-6">
         <h1>Viajes</h1>
+        <hr>
+
         <div class="row">
-          <div class="col-sm-6">
-            <app-viajes></app-viajes>
-          </div>
-          <div class="col-sm-6">
-            <app-viajes></app-viajes>
-          </div>
-          <div class="col-sm-6">
-            <app-viajes></app-viajes>
-          </div>
-          <div class="col-sm-6">
-            <app-viajes></app-viajes>
+          <div class="col-sm-6" *ngFor="let viaje of viajes">
+            <app-viajes *ngIf="viaje" [viaje]="viaje" (viajeSeleccionado)="verDatos($event)"></app-viajes>
           </div>
         </div>
+
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="modalViaje" tabindex="-1" role="dialog" aria-labelledby="datosViaje" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="ml-5 bg-info text-white modal-title" id="datosViaje"><b>Datos Completo Viaje</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-viaje *ngIf="viajeVerDatos" [viaje]="viajeVerDatos"></app-viaje>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
