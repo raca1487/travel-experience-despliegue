@@ -6,6 +6,7 @@ import { ExperiencesRoutingModule } from './experiences-routing.module';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { ViajesComponent } from './viajes/viajes.component';
 import { ViajeComponent } from './viajes/viaje/viaje.component';
+import { ValoracionesModule } from '../valoraciones/valoraciones.module';
 
 
 
@@ -18,7 +19,8 @@ import { ViajeComponent } from './viajes/viaje/viaje.component';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    ExperiencesRoutingModule
+    ExperiencesRoutingModule,
+    ValoracionesModule
   ]
 })
 export class ExperiencesModule { }

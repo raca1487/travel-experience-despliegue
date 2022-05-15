@@ -1,6 +1,7 @@
-img {
-  width: 250px;
-  height: auto;
-  margin: 5%;
-  border-radius: 10px;
+.card-body {
+  font-family: "Fredoka";
+}
+
+.card-title {
+  color: #1c658c;
 }

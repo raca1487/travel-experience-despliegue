@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Viaje } from '../models/viaje';
+import { ViajeImpl } from '../models/viaje-impl';
 
 @Component({
   selector: 'app-viajes',
@@ -7,7 +8,7 @@ import { Viaje } from '../models/viaje';
   styleUrls: ['./viajes.component.css']
 })
 export class ViajesComponent implements OnInit {
-  @Input() viaje!: Viaje;
+  @Input() viaje: Viaje = new ViajeImpl();
   @Output() viajeSeleccionado = new EventEmitter<Viaje>();
 
   constructor() { }

@@ -15,7 +15,7 @@
       </article>
       <article class="banner-infotravel col-md-4">
         <div class="description-info-content">
-          <h3>{{ viaje.nombre | uppercase }} {{ viaje.duracionViaje }} días</h3>
+          <h3>{{ viaje.nombre | uppercase }} · {{ viaje.duracionViaje }} días</h3>
           <h2 style="color: red;">{{ viaje.precio }} €</h2>
           <hr>
           <div class="text-center">
@@ -31,16 +31,26 @@
 </section>
 
 <section class="valoraciones">
-  <div class="collapse" id="collapseValoraciones">
-    <div class="card-group" *ngIf="valoraciones.length > 0; else elseValoraciones">
-      <div *ngFor="let valoracion of valoraciones">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{ valoracion.titulo }}</h5>
-            <p class="card-text">{{ valoracion.comentario }}</p>
-            <p class="card-text">{{ valoracion.puntuacion }}</p>
+
+  <div class="valoraciones-title">
+    <div class="container-fluid">
+      <div class="banner-valoraciones">
+        <div class="row">
+          <div class="col">
+            <h1>Valoraciones</h1>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-success btn-lg">Nueva Valoración</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4" *ngIf="viaje.valoraciones.length > 0; else elseValoraciones">
+      <div *ngFor="let valoracion of viaje.valoraciones">
+        <app-valoracion></app-valoracion>
       </div>
     </div>
     <ng-template #elseValoraciones>
@@ -51,4 +61,5 @@
       </div>
     </ng-template>
   </div>
+
 </section>
