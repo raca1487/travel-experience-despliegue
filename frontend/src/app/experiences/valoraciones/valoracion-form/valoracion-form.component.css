@@ -1,0 +1,18 @@
+h2 {
+  font-family: "Permanent Marker";
+  color: #1c658c;
+  margin-top: 10%;
+  text-align: center;
+}
+
+form {
+  margin: 0% 0 0 40%;
+}
+
+#registro {
+  margin-right: 2%;
+}
+
+#volver {
+margin-left: 2%;
+}

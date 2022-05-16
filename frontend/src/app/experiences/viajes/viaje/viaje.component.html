@@ -21,9 +21,10 @@
           <div class="text-center">
             <a href="https://www.skyscanner.es/" target="_blank"><fa-icon [icon]="faPlaneUp"></fa-icon> Busca tu vuelo</a>
           </div>
-         <hr>
+          <!--<hr>
           <h2 style="font-weight: bold;">Qué está incluido</h2>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, quo obcaecati corporis excepturi odio vitae illum id harum ipsum eum amet exercitationem dolores! Dolorem totam ducimus itaque aliquid. Fugit, nihil!</p>
+          -->
         </div>
       </article>
     </div>
@@ -40,8 +41,9 @@
             <h1>Valoraciones</h1>
           </div>
           <div class="col">
-            <button type="button" class="btn btn-success btn-lg">Nueva Valoración</button>
+            <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
           </div>
+          <hr>
         </div>
       </div>
     </div>
@@ -50,7 +52,7 @@
   <div class="row">
     <div class="col-sm-4" *ngIf="viaje.valoraciones.length > 0; else elseValoraciones">
       <div *ngFor="let valoracion of viaje.valoraciones">
-        <app-valoracion></app-valoracion>
+        <app-valoraciones></app-valoraciones>
       </div>
     </div>
     <ng-template #elseValoraciones>
@@ -63,3 +65,9 @@
   </div>
 
 </section>
+
+<div id="volver">
+  <a type="button" routerLink="/experiences" class="btn btn-md btn-danger"
+        >Volver a Experiencias</a
+      >
+</div>

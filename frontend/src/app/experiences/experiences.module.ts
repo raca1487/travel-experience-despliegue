@@ -6,7 +6,9 @@ import { ExperiencesRoutingModule } from './experiences-routing.module';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { ViajesComponent } from './viajes/viajes.component';
 import { ViajeComponent } from './viajes/viaje/viaje.component';
-import { ValoracionesModule } from '../valoraciones/valoraciones.module';
+import { ValoracionesComponent } from './valoraciones/valoraciones.component';
+import { ValoracionFormComponent } from './valoraciones/valoracion-form/valoracion-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,13 +16,15 @@ import { ValoracionesModule } from '../valoraciones/valoraciones.module';
   declarations: [
     ExperiencesComponent,
     ViajesComponent,
-    ViajeComponent
+    ViajeComponent,
+    ValoracionesComponent,
+    ValoracionFormComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
     ExperiencesRoutingModule,
-    ValoracionesModule
+    FormsModule
   ]
 })
 export class ExperiencesModule { }

@@ -1,0 +1,121 @@
+<div class="col">
+  <h2>Registrar Valoración</h2>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <hr class="w-76" />
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+
+<form #valoracionForm="ngForm">
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Título <sup class="text-danger">*</sup></label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="valoracion.titulo"
+        placeholder="Título Valoración"
+        name="titulo"
+        required
+        minlength="5"
+        maxlength="20"
+        #titulo="ngModel"
+        [ngClass]="{
+          'is-invalid': titulo.invalid && (titulo.dirty || titulo.touched),
+          'is-valid': !titulo.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)"
+      >
+        <div *ngIf="titulo.errors?.['required']">Campo obligatorio</div>
+        <div *ngIf="titulo.errors?.['minlength']">
+          Debe tener al menos 5 caracteres
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Comentario <sup class="text-danger">*</sup></label>
+      <textarea
+        type="text"
+        class="form-control"
+        [(ngModel)]="valoracion.comentario"
+        placeholder="Escriba aquí sus comentarios"
+        name="comentario"
+        required
+        minlength="25"
+        maxlength="150"
+        #comentario="ngModel"
+        [ngClass]="{
+          'is-invalid':
+            comentario.invalid && (comentario.dirty || comentario.touched),
+          'is-valid': !comentario.invalid
+        }"
+      ></textarea>
+      <div
+        class="text-danger"
+        *ngIf="comentario.invalid && (comentario.dirty || comentario.touched)"
+      >
+        <div *ngIf="comentario.errors?.['required']">Campo obligatorio</div>
+        <div *ngIf="comentario.errors?.['minlength']">
+          Debe tener al menos 25 caracteres
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Puntuación (0-10): <sup class="text-danger">*</sup></label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="valoracion.puntuacion"
+        placeholder="0"
+        name="puntuacion"
+        required
+        minlength="0"
+        maxlength="10"
+        #puntuacion="ngModel"
+        [ngClass]="{
+          'is-invalid':
+            puntuacion.invalid && (puntuacion.dirty || puntuacion.touched),
+          'is-valid': !puntuacion.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="puntuacion.invalid && (puntuacion.dirty || puntuacion.touched)"
+      >
+        <div *ngIf="puntuacion.errors?.['required']">
+          La Puntuación de la Valoración es obligatoria
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row justify-content-between pt-5">
+    <div class="col-lg-5 col-md-12">
+      <button
+        id="registro"
+        class="btn btn-primary"
+        role="button"
+        routerLink="../"
+        (click)="registrar()"
+        [disabled]="!valoracionForm.form.valid"
+      >
+        Registrar Valoración
+      </button>
+      <a id="volver" type="button" routerLink="../" class="btn btn-danger"
+        >Cancelar</a
+      >
+    </div>
+  </div>
+</form>

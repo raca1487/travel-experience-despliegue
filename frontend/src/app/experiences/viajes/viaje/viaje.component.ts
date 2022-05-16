@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faPlaneUp } from '@fortawesome/free-solid-svg-icons';
 import { Valoracion } from '../../models/valoracion';
 import { ValoracionImpl } from '../../models/valoracion-impl';
@@ -58,7 +58,7 @@ export class ViajeComponent implements OnInit {
   ];*/
   //valoracionVerDatos: Valoracion = new ValoracionImpl();
 
-  constructor(private activateRoute: ActivatedRoute) { }
+  constructor(private activateRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params['id'];
@@ -86,6 +86,10 @@ export class ViajeComponent implements OnInit {
         this.valoracion.puntuacion = vl.puntuacion;
       }
     }
+  }
+
+  nuevaValoracion(): void {
+    this.router.navigate([`experiences/viaje/${this.id}/formulario`])
   }
 
 }

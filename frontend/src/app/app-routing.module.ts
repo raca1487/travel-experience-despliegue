@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import("./experiences/experiences.module").then((m) => m.ExperiencesModule)
   },
   {
-    path: "valoraciones",
-    loadChildren: () => import("./valoraciones/valoraciones.module").then((m) => m.ValoracionesModule)
-  },
-  {
     path: "not-found",
     component: NotFoundComponent
   },
