@@ -4,7 +4,7 @@ export class ValoracionImpl implements Valoracion {
   titulo: string = "";
   comentario: string = "";
   puntuacion: number = 0;
-  idViaje: number = 1;
+  idViaje: string = "";
 
   constructor() {}
 }

@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Fredoka");
 
-.card-body {
+.card {
   font-family: "Fredoka";
+  background-color:rgb(250, 247, 215);
+  font-size: medium;
 }
 
 .card-title {

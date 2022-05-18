@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Viaje } from '../models/viaje';
 import { ViajeImpl } from '../models/viaje-impl';
+import { ExperienceService } from '../service/experience.service';
 
 @Component({
   selector: 'app-experiences',
@@ -9,9 +10,10 @@ import { ViajeImpl } from '../models/viaje-impl';
   styleUrls: ['./experiences.component.css']
 })
 export class ExperiencesComponent implements OnInit {
-  viajes: Viaje[] = [  // PARA PRUEBAS SIN CONEXION CON LA API
+  viajes: Viaje[] = [
+    // PARA PRUEBAS SIN CONEXION CON LA API
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Jerez y bodegas",
       "descripcion": "Recorre la ciudad del vino y visita las bodegas más famosas del planeta",
       "duracionViaje": 5,
@@ -20,7 +22,7 @@ export class ExperiencesComponent implements OnInit {
       "valoraciones": []
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "Toledo",
       "descripcion": "Recorre la ciudad y sus entrañas",
       "duracionViaje": 1,
@@ -29,7 +31,7 @@ export class ExperiencesComponent implements OnInit {
       "valoraciones": []
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Gran Canaria",
       "descripcion": "Playas, sol y fiesta",
       "duracionViaje": 3,
@@ -40,10 +42,17 @@ export class ExperiencesComponent implements OnInit {
   ];
   viajeVerDatos: Viaje = new ViajeImpl();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, /*private experienceService: ExperienceService*/) { }
 
   ngOnInit(): void {
+    //this.cargarViajes();
   }
+
+  /*cargarViajes() {
+    this.experienceService.getViajes().subscribe((response) => {
+      this.viajes = this.experienceService.extraerViajes(response);
+    });
+  }*/
 
   verDatos(viaje: Viaje): void {
     this.viajeVerDatos = viaje;

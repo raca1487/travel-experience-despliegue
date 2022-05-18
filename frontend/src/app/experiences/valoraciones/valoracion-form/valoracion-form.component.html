@@ -107,13 +107,17 @@
         id="registro"
         class="btn btn-primary"
         role="button"
-        routerLink="../"
+        routerLink="../../"
         (click)="registrar()"
         [disabled]="!valoracionForm.form.valid"
       >
         Registrar Valoración
       </button>
-      <a id="volver" type="button" routerLink="../" class="btn btn-danger"
+      <a
+        id="volver"
+        type="button"
+        class="btn btn-danger"
+        routerLink="../../"
         >Cancelar</a
       >
     </div>

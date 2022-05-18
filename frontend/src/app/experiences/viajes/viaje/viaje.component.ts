@@ -5,6 +5,8 @@ import { Valoracion } from '../../models/valoracion';
 import { ValoracionImpl } from '../../models/valoracion-impl';
 import { Viaje } from '../../models/viaje';
 import { ViajeImpl } from '../../models/viaje-impl';
+import { ExperienceService } from '../../service/experience.service';
+import { ValoracionService } from '../../service/valoracion.service';
 
 @Component({
   selector: 'app-viaje',
@@ -15,13 +17,14 @@ export class ViajeComponent implements OnInit {
   //@Input() viaje: Viaje = new ViajeImpl();
   faPlaneUp = faPlaneUp;
 
-  id: number = 0;
+  id: string = "";
   viaje: Viaje = new ViajeImpl();
   valoracion: Valoracion = new ValoracionImpl();
 
-  viajes: Viaje[] = [  // PARA PRUEBAS SIN COEXION CON LA API
+  viajes: Viaje[] = [
+    // PARA PRUEBAS SIN CONEXION CON LA API
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Jerez y bodegas",
       "descripcion": "Recorre la ciudad del vino y visita las bodegas más famosas del planeta",
       "duracionViaje": 5,
@@ -30,7 +33,7 @@ export class ViajeComponent implements OnInit {
       "valoraciones": []
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "Toledo",
       "descripcion": "Recorre la ciudad y sus entrañas",
       "duracionViaje": 1,
@@ -39,7 +42,7 @@ export class ViajeComponent implements OnInit {
       "valoraciones": []
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Gran Canaria",
       "descripcion": "Playas, sol y fiesta",
       "duracionViaje": 3,
@@ -58,11 +61,12 @@ export class ViajeComponent implements OnInit {
   ];*/
   //valoracionVerDatos: Valoracion = new ValoracionImpl();
 
-  constructor(private activateRoute: ActivatedRoute, private router: Router) { }
+  constructor(private activateRoute: ActivatedRoute, private router: Router, private experienceService: ExperienceService, private valoracionService: ValoracionService) { }
 
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params['id'];
     this.getViaje();
+    //this.cargarValoraciones();
   }
 
   getViaje(): void {
@@ -78,6 +82,12 @@ export class ViajeComponent implements OnInit {
     }
   }
 
+  /*cargarValoraciones() {
+    this.valoracionService.getValoraciones().subscribe((response) => {
+      this.viaje.valoraciones = this.valoracionService.extraerValoraciones(response);
+    });
+  }*/
+
   getValoracion(): void {
     for (let vj of this.viajes) {
       for (let vl of vj.valoraciones) {
@@ -89,7 +99,7 @@ export class ViajeComponent implements OnInit {
   }
 
   nuevaValoracion(): void {
-    this.router.navigate([`experiences/viaje/${this.id}/formulario`])
+    this.router.navigate([`experiences/viaje/${this.viaje.id}/formulario`])
   }
 
 }

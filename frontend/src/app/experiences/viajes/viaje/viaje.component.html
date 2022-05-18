@@ -50,15 +50,17 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-4" *ngIf="viaje.valoraciones.length > 0; else elseValoraciones">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8" *ngIf="viaje.valoraciones.length > 0; else elseValoraciones">
       <div *ngFor="let valoracion of viaje.valoraciones">
         <app-valoraciones></app-valoraciones>
       </div>
     </div>
+    <div class="col-sm-2"></div>
     <ng-template #elseValoraciones>
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><b>NO HAY VALORACIONES</b></h4>
+          <h4 class="card-title"><b>NO HAY VALORACIONES REGISTRADAS</b></h4>
         </div>
       </div>
     </ng-template>

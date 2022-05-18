@@ -14,15 +14,15 @@
             </ng-template>
           </div>-->
 
-          <div class="col-sm-2"></div>
-          <div class="col-sm-8" *ngIf="viajes.length > 0; else elseViajes">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6" *ngIf="viajes.length > 0; else elseViajes">
             <div *ngFor="let viaje of viajes">
               <app-viajes [viaje]="viaje" (viajeSeleccionado)="verDatos($event)"></app-viajes>
             </div>
           </div>
-          <div class="col-sm-2"></div>
+          <div class="col-sm-3"></div>
           <ng-template #elseViajes>
-            <h4 class="card-title"><b>NO HAY VIAJES</b></h4>
+            <h4 class="card-title"><b>NO HAY VIAJES DISPONIBLES</b></h4>
           </ng-template>
 
         </div>

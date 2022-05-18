@@ -1,7 +1,7 @@
 import { Valoracion } from "./valoracion";
 
 export interface Viaje {
-  id: number;
+  id: string;
   nombre: string;
   descripcion: string;
   fechaSalida: string;

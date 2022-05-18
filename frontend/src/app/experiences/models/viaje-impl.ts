@@ -3,7 +3,7 @@ import { Viaje } from "./viaje";
 
 export class ViajeImpl implements Viaje {
 
-  id: number = 0;
+  id: string = "";
   nombre: string = "";
   descripcion: string = "";
   fechaSalida: string = "";
