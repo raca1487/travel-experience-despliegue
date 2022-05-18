@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Valoracion } from '../models/valoracion';
 import { ValoracionImpl } from '../models/valoracion-impl';
+import { ValoracionService } from '../service/valoracion.service';
 
 @Component({
   selector: 'app-valoraciones',
@@ -9,33 +10,34 @@ import { ValoracionImpl } from '../models/valoracion-impl';
   styleUrls: ['./valoraciones.component.css'],
 })
 export class ValoracionesComponent implements OnInit {
-  //@Input() valoracion: Valoracion = new ValoracionImpl();
+  @Input() valoracion: Valoracion = new ValoracionImpl();
 
-  id: number = 0;
-  valoracion: Valoracion = new ValoracionImpl();
+  id: string = "";
+  //valoracion: Valoracion = new ValoracionImpl();
 
   valoraciones: Valoracion[] = [
+     // PARA PRUEBAS SIN CONEXION CON LA API
     {
-      titulo: 'Valoración 1',
-      comentario: 'Eso es un primer comentario',
-      puntuacion: 7,
-      idViaje: 1
+      "titulo": 'Valoración 1',
+      "comentario": 'Eso es un primer comentario',
+      "puntuacion": 7,
+      "idViaje": "1"
     },
     {
-      titulo: 'Valoración 1',
-      comentario: 'Eso es un primer comentario de otro viaje',
-      puntuacion: 5,
-      idViaje: 2
+      "titulo": 'Valoración 1',
+      "comentario": 'Eso es un primer comentario de otro viaje',
+      "puntuacion": 5,
+      "idViaje": "2"
     },
     {
-      titulo: 'Valoración 1',
-      comentario: 'Eso es otro comentario',
-      puntuacion: 8,
-      idViaje: 3
+      "titulo": 'Valoración 1',
+      "comentario": 'Eso es otro comentario',
+      "puntuacion": 8,
+      "idViaje": "3"
     }
   ];
 
-  constructor(private activateRoute: ActivatedRoute) {}
+  constructor(private activateRoute: ActivatedRoute, /*private valoracionService: ValoracionService*/) {}
 
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params['id'];

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Viaje } from '../models/viaje';
 import { ViajeImpl } from '../models/viaje-impl';
+import { ExperienceService } from '../service/experience.service';
 
 @Component({
   selector: 'app-viajes',
