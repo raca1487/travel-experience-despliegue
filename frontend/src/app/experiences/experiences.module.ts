@@ -9,6 +9,7 @@ import { ViajesComponent } from './viajes/viajes.component';
 import { ViajeComponent } from './viajes/viaje/viaje.component';
 import { ValoracionesComponent } from './valoraciones/valoraciones.component';
 import { ValoracionFormComponent } from './valoraciones/valoracion-form/valoracion-form.component';
+import { ViajeFormComponent } from './viajes/viaje-form/viaje-form.component';
 
 
 
@@ -19,7 +20,8 @@ import { ValoracionFormComponent } from './valoraciones/valoracion-form/valoraci
     ViajesComponent,
     ViajeComponent,
     ValoracionesComponent,
-    ValoracionFormComponent
+    ValoracionFormComponent,
+    ViajeFormComponent
   ],
   imports: [
     CommonModule,

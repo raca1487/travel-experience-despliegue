@@ -59,4 +59,8 @@ export class ExperiencesComponent implements OnInit {
     this.router.navigate([`/experiences/viaje/${viaje.id}`]);
   }
 
+  registrarViaje() {
+    this.router.navigate(['experiences/viaje-form']);
+  }
+
 }

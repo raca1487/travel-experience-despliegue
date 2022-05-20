@@ -1,0 +1,184 @@
+<div class="col">
+  <h2>Nuevo Viaje</h2>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <hr class="w-76" />
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>
+
+<form #viajeForm="ngForm">
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Nombre <sup class="text-danger">*</sup></label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="viaje.nombre"
+        placeholder="Nombre Viaje"
+        name="nombre"
+        required
+        minlength="5"
+        maxlength="30"
+        #nombre="ngModel"
+        [ngClass]="{
+          'is-invalid': nombre.invalid && (nombre.dirty || nombre.touched),
+          'is-valid': !nombre.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+      >
+        <div *ngIf="nombre.errors?.['required']">Campo obligatorio</div>
+        <div *ngIf="nombre.errors?.['minlength']">
+          Debe tener al menos 5 caracteres
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Descripción <sup class="text-danger">*</sup></label>
+      <textarea
+        type="text"
+        class="form-control"
+        [(ngModel)]="viaje.descripcion"
+        placeholder="Escriba aquí la descripción del Viaje"
+        name="descripcion"
+        required
+        minlength="25"
+        maxlength="150"
+        #descripcion="ngModel"
+        [ngClass]="{
+          'is-invalid':
+          descripcion.invalid && (descripcion.dirty || descripcion.touched),
+          'is-valid': !descripcion.invalid
+        }"
+      ></textarea>
+      <div
+        class="text-danger"
+        *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+      >
+        <div *ngIf="descripcion.errors?.['required']">Campo obligatorio</div>
+        <div *ngIf="descripcion.errors?.['minlength']">
+          Debe tener al menos 25 caracteres
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Fecha de Salida <sup class="text-danger">*</sup></label>
+      <input
+        type="date"
+        class="form-control"
+        [(ngModel)]="viaje.fechaSalida"
+        placeholder="Introduzca una fecha de salida"
+        name="salida"
+        required
+        #salida="ngModel"
+        [ngClass]="{
+          'is-invalid':
+          salida.invalid && (salida.dirty || salida.touched),
+          'is-valid': !salida.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="salida.invalid && (salida.dirty || salida.touched)"
+      >
+        <div *ngIf="salida.errors?.['required']">Campo Obligatorio</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Número de Noches <sup class="text-danger">*</sup></label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="viaje.duracionViaje"
+        placeholder="Seleccione número noches"
+        name="noches"
+        required
+        minlength="1"
+        maxlength="30"
+        #noches="ngModel"
+        [ngClass]="{
+          'is-invalid':
+          noches.invalid && (noches.dirty || noches.touched),
+          'is-valid': !noches.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="noches.invalid && (noches.dirty || noches.touched)"
+      >
+        <div *ngIf="noches.errors?.['required']">Campo Obligatorio</div>
+        <div *ngIf="noches.errors?.['minlength']">
+          Debe elegir al menos un (1) día
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Importe total <sup class="text-danger">*</sup></label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="viaje.precio"
+        placeholder="Introduzca un precio total"
+        name="precio"
+        required
+        minlength="1"
+        maxlength="5000"
+        #precio="ngModel"
+        [ngClass]="{
+          'is-invalid':
+          precio.invalid && (precio.dirty || precio.touched),
+          'is-valid': !precio.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="precio.invalid && (precio.dirty || precio.touched)"
+      >
+        <div *ngIf="precio.errors?.['required']">Campo Obligatorio</div>
+        <div *ngIf="precio.errors?.['minlength']">
+          Debe introducir una cantidad válida
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row justify-content-between pt-5">
+    <div class="col-lg-5 col-md-12">
+      <button
+        id="registro"
+        class="btn btn-primary"
+        role="button"
+        routerLink="../"
+        (click)="registrar()"
+        [disabled]="!viajeForm.form.valid"
+      >
+        Registrar Viaje
+      </button>
+      <a
+        id="volver"
+        type="button"
+        class="btn btn-danger"
+        routerLink="../"
+        >Cancelar</a
+      >
+    </div>
+  </div>
+
+</form>
