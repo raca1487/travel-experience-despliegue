@@ -15,8 +15,8 @@
       </article>
       <article class="banner-infotravel col-md-4">
         <div class="description-info-content">
-          <h3>{{ viaje.nombre | uppercase }} · {{ viaje.duracionViaje }} días</h3>
-          <h2 style="color: red;">{{ viaje.precio }} €</h2>
+          <h3>{{ viaje.nombre | uppercase }} · {{ viaje.numeroNoches }} días</h3>
+          <h2 style="color: red;">{{ viaje.precioTotal }} €</h2>
           <hr>
           <div class="text-center">
             <a href="https://www.skyscanner.es/" target="_blank"><fa-icon [icon]="faPlaneUp"></fa-icon> Busca tu vuelo</a>
@@ -45,14 +45,17 @@
           </div>
           <hr>
         </div>
+
+        <hr class="w-100">
+
       </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-sm-2"></div>
-    <div class="col-sm-8" *ngIf="viaje.valoraciones.length > 0; else elseValoraciones">
-      <div *ngFor="let valoracion of viaje.valoraciones">
+    <div class="col-sm-8" *ngIf="valoraciones.length > 0; else elseValoraciones">
+      <div *ngFor="let valoracion of valoraciones">
         <app-valoraciones></app-valoraciones>
       </div>
     </div>

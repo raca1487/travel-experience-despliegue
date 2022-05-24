@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Valoracion } from '../models/valoracion';
 import { ValoracionImpl } from '../models/valoracion-impl';
-import { ValoracionService } from '../service/valoracion.service';
 
 @Component({
   selector: 'app-valoraciones',
@@ -12,11 +11,11 @@ import { ValoracionService } from '../service/valoracion.service';
 export class ValoracionesComponent implements OnInit {
   @Input() valoracion: Valoracion = new ValoracionImpl();
 
-  id: string = "";
+  //id: string = "";
   //valoracion: Valoracion = new ValoracionImpl();
 
   valoraciones: Valoracion[] = [
-     // PARA PRUEBAS SIN CONEXION CON LA API
+     /* PARA PRUEBAS SIN CONEXION CON LA API
     {
       "titulo": 'Valoración 1',
       "comentario": 'Eso es un primer comentario',
@@ -34,17 +33,17 @@ export class ValoracionesComponent implements OnInit {
       "comentario": 'Eso es otro comentario',
       "puntuacion": 8,
       "idViaje": "3"
-    }
+    }*/
   ];
 
-  constructor(private activateRoute: ActivatedRoute, /*private valoracionService: ValoracionService*/) {}
+  constructor(private activateRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.id = this.activateRoute.snapshot.params['id'];
-    this.getValoracion();
+    //this.id = this.activateRoute.snapshot.params['id'];
+    //this.getValoracion();
   }
 
-  getValoracion(): void {
+  /*getValoracion(): void {
     for (let vl of this.valoraciones) {
       if (vl.idViaje == this.id) {
         this.valoracion.titulo = vl.titulo;
@@ -52,5 +51,5 @@ export class ValoracionesComponent implements OnInit {
         this.valoracion.puntuacion = vl.puntuacion;
       }
     }
-  }
+  }*/
 }

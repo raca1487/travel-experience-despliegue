@@ -11,7 +11,7 @@ const routes: Routes = [
     component: ExperiencesComponent
   },
   {
-    path: 'viaje',
+    path: 'viaje/:id',
     component: ViajeComponent
   },
   {
@@ -21,10 +21,6 @@ const routes: Routes = [
   {
     path: 'viaje/formulario',
     component: ValoracionFormComponent
-  },
-  {
-    path: 'viaje/:id',
-    component: ViajeComponent
   },
   {
     path: 'viaje/:id/formulario',

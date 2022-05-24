@@ -1,17 +1,16 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { environment } from "src/environments/environment.prod";
-import { Viaje } from "../models/viaje";
-import { ViajeImpl } from "../models/viaje-impl";
+import { Observable, throwError, catchError } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
+import { Viaje } from '../models/viaje';
+import { ViajeImpl } from '../models/viaje-impl';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienceService {
   private host: string = environment.host;
-  private urlEndPoint: string = `${this.host}viajes`;
+  private urlEndPoint: string = `${this.host}viajes`
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +21,7 @@ export class ExperienceService {
     return numId;
   }
 
-  getViajes(): Observable<any> {
+  getViajes(): Observable<Viaje> {
     return this.http.get<any>(this.urlEndPoint);
   }
 
@@ -38,61 +37,16 @@ export class ExperienceService {
   mapearViaje(viajeApi: any): Viaje {
     //console.log(viajeApi);
     let viaje: Viaje = new ViajeImpl();
-    viaje.id = this.getId(viajeApi._links.viaje.href);  //  CUIDADO AQUI
+    viaje.viajeId = this.getId(viajeApi._links.viaje.href);
     viaje.nombre = viajeApi.nombre;
     viaje.descripcion = viajeApi.descripcion;
     viaje.fechaSalida = viajeApi.fechaSalida;
-    viaje.duracionViaje = viajeApi.duracionViaje;
-    viaje.precio = viajeApi.precio;
-
-    // console.log(viaje);
+    viaje.numeroNoches = viajeApi.numeroNoches;
+    viaje.precioTotal = viajeApi.precioTotal;
+    //console.log(viaje);
     return viaje;
   }
 
-  /*
-  create(viaje: Viaje): Observable<any> {
-    return this.http.post(`${this.urlEndPoint}`, viaje).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
-          return throwError(e);
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(e);
-      })
-    );
-  }
-
-  delete(id: string): Observable<Viaje> {
-    return this.http
-      .delete<Viaje>(`${this.urlEndPoint}/${id}`)
-      .pipe(
-        catchError((e) => {
-          if (e.error.mensaje) {
-            console.error(e.error.mensaje);
-          }
-          return throwError(e);
-        })
-      );
-  }
-
-  update(viaje: Viaje): Observable<any> {
-    return this.http
-      .put<any>(`${this.urlEndPoint}/${viaje.id}`, viaje)
-      .pipe(
-        catchError((e) => {
-          if (e.status === 400) {
-            return throwError(e);
-          }
-          if (e.error.mensaje) {
-            console.error(e.error.mensaje);
-          }
-          return throwError(e);
-        })
-      );
-  }
-*/
   getViaje(id: string): Observable<Viaje> {
     return this.http.get<Viaje>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {

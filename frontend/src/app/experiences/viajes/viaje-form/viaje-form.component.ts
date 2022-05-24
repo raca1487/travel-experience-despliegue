@@ -18,7 +18,7 @@ export class ViajeFormComponent implements OnInit {
   registrar(): void {
     /*this.valoracionService.create(this.valoracion).subscribe((response) => {
       console.log('Se ha registrado una valoración');
-    })*/;
+    });*/
   }
 
 }

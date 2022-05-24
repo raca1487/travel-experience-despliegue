@@ -7,9 +7,7 @@ import { MainComponent } from './shell/main/main.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 
 
@@ -23,10 +21,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    FormsModule,
-    RouterModule
+    RouterModule,
+    FormsModule
+
   ],
   exports: [ShellComponent]
 })
