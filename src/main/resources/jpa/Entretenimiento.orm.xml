@@ -11,7 +11,7 @@
 			<basic name="titulo" optional="false">
 				<column name="NOMBRE" />
 			</basic>
-			<basic name="descripcion">
+			<basic name="descripcion" optional="false">
 				<column name="DESCRIPCION" />
 			</basic>
 			<transient name="valoraciones" />
