@@ -36,12 +36,12 @@ public class Mixins {
 		abstract CoordinadorConId getCoordinador();
 	}
 
-	@JsonPropertyOrder({ "id", "fechaPublicacion", "comentario", "puntuacion", "viaje" })
+	@JsonPropertyOrder({ "id", "titulo", "comentario", "puntuacion", "fechaPublicacion", "experiencia" })
 //	@JsonIgnoreProperties(value = { "comentario" })
 	public static interface ValoracionConId {
 
-		@JsonProperty("viaje")
-		abstract ViajeConId getViaje();
+		@JsonProperty("experiencia")
+		abstract ViajeConId getEntretenimiento();
 	}
 
 }
