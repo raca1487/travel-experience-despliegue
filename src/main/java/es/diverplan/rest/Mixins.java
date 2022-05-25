@@ -8,8 +8,8 @@ import es.diverplan.entidades.CoordinadorConId;
 
 public class Mixins {
 
-	@JsonPropertyOrder({ "id", "nombre", "fechaSalida", "numeroNoches", "precioTotal" })
-	@JsonIgnoreProperties(value = { "descripcion" })
+	@JsonPropertyOrder({ "id", "nombre", "descripcion", "fechaSalida", "numeroNoches", "precioTotal" })
+	//@JsonIgnoreProperties(value = { "descripcion" })
 	public static interface ViajeConId {
 
 		@JsonProperty("nombre")
