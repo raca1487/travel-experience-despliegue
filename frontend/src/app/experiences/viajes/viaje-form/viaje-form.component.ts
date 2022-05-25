@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Viaje } from '../../models/viaje';
 import { ViajeImpl } from '../../models/viaje-impl';
+import { ExperienceService } from '../../service/experience.service';
 
 @Component({
   selector: 'app-viaje-form',
@@ -10,15 +12,15 @@ import { ViajeImpl } from '../../models/viaje-impl';
 export class ViajeFormComponent implements OnInit {
   viaje: Viaje = new ViajeImpl();
 
-  constructor() { }
+  constructor(private experienceService: ExperienceService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   registrar(): void {
-    /*this.valoracionService.create(this.valoracion).subscribe((response) => {
-      console.log('Se ha registrado una valoración');
-    });*/
+    this.experienceService.create(this.viaje).subscribe((response) => {
+      this.router.navigate(['/experiences']);
+    });
   }
 
 }

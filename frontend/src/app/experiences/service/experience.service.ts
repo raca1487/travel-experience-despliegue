@@ -47,6 +47,49 @@ export class ExperienceService {
     return viaje;
   }
 
+  create(viaje: Viaje): Observable<any> {
+    return this.http.post(`${this.urlEndPoint}`, viaje).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(e);
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(e);
+      })
+    );
+  }
+
+  delete(id: string): Observable<Viaje> {
+    return this.http
+      .delete<Viaje>(`${this.urlEndPoint}/${id}`)
+      .pipe(
+        catchError((e) => {
+          if (e.error.mensaje) {
+            console.error(e.error.mensaje);
+          }
+          return throwError(e);
+        })
+      );
+  }
+
+  update(viaje: Viaje): Observable<any> {
+    return this.http
+      .put<any>(`${this.urlEndPoint}/${viaje.viajeId}`, viaje)
+      .pipe(
+        catchError((e) => {
+          if (e.status === 400) {
+            return throwError(e);
+          }
+          if (e.error.mensaje) {
+            console.error(e.error.mensaje);
+          }
+          return throwError(e);
+        })
+      );
+  }
+
   getViaje(id: string): Observable<Viaje> {
     return this.http.get<Viaje>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {

@@ -12,12 +12,16 @@ const routes: Routes = [
     loadChildren: () => import("./experiences/experiences.module").then((m) => m.ExperiencesModule)
   },
   {
-    path: 'not-found',
+    path: '/experiences/viaje/:id',
+    loadChildren: () => import("./valoraciones/valoraciones.module").then((m) => m.ValoracionesModule)
+  },
+  {
+    path: "not-found",
     component: NotFoundComponent
   },
   {
-    path: '**',
-    redirectTo: 'not-found'
+    path: "**",
+    redirectTo: "not-found"
   }
 ];
 
