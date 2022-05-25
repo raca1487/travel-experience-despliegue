@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import es.diverplan.entidades.CoordinadorConId;
+
 public class Mixins {
 
 	@JsonPropertyOrder({ "id", "nombre", "fechaSalida", "numeroNoches", "precioTotal" })
@@ -19,6 +21,16 @@ public class Mixins {
 		@JsonProperty("precioTotal")
 		abstract float getPrecio();
 
+	}
+	
+	@JsonPropertyOrder({ "id", "nombre", "descripcion", "ciudad", "coordinador" })
+	public static interface ActividadConId {
+		
+		@JsonProperty("nombre")
+		abstract String getTitulo();
+		
+		@JsonProperty("coordinador")
+		abstract CoordinadorConId getCoordinador();
 	}
 
 	@JsonPropertyOrder({ "id", "fechaPublicacion", "comentario", "puntuacion", "viaje" })

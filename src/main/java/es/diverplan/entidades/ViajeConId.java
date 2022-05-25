@@ -1,49 +1,44 @@
 package es.diverplan.entidades;
 
-import java.util.List;
+import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import es.diverplan.repositorios.ViajeConIdListener;
-import es.diverplan.trex.Valoracion;
-import es.diverplan.trex.Viaje;
+import es.diverplan.trex.interfaces.Viaje;
 
 @Entity
 @EntityListeners(ViajeConIdListener.class)
-@Table(name = "VIAJES")
-public class ViajeConId extends Viaje {
+//@Table(name = "VIAJES")
+@Access(value=AccessType.FIELD)
+@DiscriminatorValue("VIAJE")
+public class ViajeConId extends EntretenimientoConId implements Viaje {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(unique = true)
-	private Long id;
-	
-	public Long getId() {
-		return id;
-	}
+	private LocalDate fechaSalida;
+	private int duracionViaje;
+	private float precio;
 	
 	public ViajeConId() {
 		super();
 	}
-	
+
 	@Override
-	@OneToMany(cascade = CascadeType.ALL, targetEntity = ValoracionConId.class, mappedBy = "viaje")
-	public List<Valoracion> getValoraciones() {
-		return super.getValoraciones();
+	public LocalDate getFechaSalida() {
+		return fechaSalida;
 	}
-	
-	// Establece la relacion en los dos sentidos
-	public void addValoracionConId(ValoracionConId valoracion) {
-		super.getValoraciones().add(valoracion);
-		valoracion.setViaje(this);
+
+	@Override
+	public int getDuracionViaje() {
+		return duracionViaje;
+	}
+
+	@Override
+	public float getPrecio() {
+		return precio;
 	}
 	
 }

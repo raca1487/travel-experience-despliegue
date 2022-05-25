@@ -14,7 +14,9 @@
 			<basic name="puntuacion" optional="false">
 				<column name="PUNTUACIONES" />
 			</basic>
-			<transient name="fechaPublicacion" />
+			<basic name="fechaPublicacion" optional="false">
+				<column name="FECHA_PUBLICACION" />
+			</basic>
 		</attributes>
 	</mapped-superclass>
 </entity-mappings>

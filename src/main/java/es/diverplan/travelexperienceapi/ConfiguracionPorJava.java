@@ -13,6 +13,7 @@ import org.springframework.web.filter.CorsFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import es.diverplan.entidades.ActividadConId;
 import es.diverplan.entidades.ValoracionConId;
 import es.diverplan.entidades.ViajeConId;
 import es.diverplan.rest.Mixins;
@@ -27,6 +28,7 @@ public class ConfiguracionPorJava {
 
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.addMixIn(ViajeConId.class, Mixins.ViajeConId.class);
+		mapper.addMixIn(ActividadConId.class, Mixins.ActividadConId.class);
 		mapper.addMixIn(ValoracionConId.class, Mixins.ValoracionConId.class);
 
 		return mapper;

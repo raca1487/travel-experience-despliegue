@@ -29,15 +29,15 @@ public class ValoracionConId extends Valoracion {
 	}
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "VIAJE")
-	private ViajeConId viaje;
+	@JoinColumn(name = "EXPERIENCIA")
+	private EntretenimientoConId entretenimiento;
 	
-	public ViajeConId getViaje() {
-		return viaje;
+	public EntretenimientoConId getEntretenimiento() {
+		return entretenimiento;
 	}
 	
-	public void setViaje(ViajeConId viaje) {
-		this.viaje = viaje;
+	public void setEntretenimiento(EntretenimientoConId entretenimiento) {
+		this.entretenimiento = entretenimiento;
 	}
 	
 	public ValoracionConId() {

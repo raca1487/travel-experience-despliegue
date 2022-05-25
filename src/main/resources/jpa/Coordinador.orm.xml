@@ -6,16 +6,19 @@
         http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<mapped-superclass class="es.diverplan.trex.Viaje" access="FIELD">
+	<mapped-superclass class="es.diverplan.trex.Coordinador" access="FIELD">
 		<attributes>
-			<basic name="fechaSalida" optional="false">
-				<column name="FECHA_SALIDA" />
+			<basic name="nombre" optional="false">
+				<column name="NOMBRE" />
 			</basic>
-			<basic name="duracionViaje" optional="false">
-				<column name="NUMERO_NOCHES" />
+			<basic name="apellidos" optional="false">
+				<column name="APELLIDOS" />
 			</basic>
-			<basic name="precio" optional="false">
-				<column name="PRECIO_TOTAL" />
+			<basic name="telefono" optional="false">
+				<column name="TELEFONO" />
+			</basic>
+			<basic name="email" optional="false">
+				<column name="EMAIL" />
 			</basic>
 		</attributes>
 	</mapped-superclass>

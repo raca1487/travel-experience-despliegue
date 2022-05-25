@@ -33,7 +33,7 @@
             <list>
             	<value>jpa/Entretenimiento.orm.xml</value>
             	<value>jpa/Valoracion.orm.xml</value>
-            	<value>jpa/Viaje.orm.xml</value>
+            	<value>jpa/Coordinador.orm.xml</value>
             </list>
         </property>
 	</bean>

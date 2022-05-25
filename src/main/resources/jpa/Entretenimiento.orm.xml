@@ -11,7 +11,9 @@
 			<basic name="titulo" optional="false">
 				<column name="NOMBRE" />
 			</basic>
-			<transient name="descripcion" />
+			<basic name="descripcion">
+				<column name="DESCRIPCION" />
+			</basic>
 			<transient name="valoraciones" />
 		</attributes>
 	</mapped-superclass>
