@@ -15,6 +15,9 @@ public class Mixins {
 		@JsonProperty("nombre")
 		abstract String getTitulo();
 		
+		@JsonProperty("descripcion")
+		abstract String getDescripcion();
+		
 		@JsonProperty("numeroNoches")
 		abstract int getDuracionViaje();
 
