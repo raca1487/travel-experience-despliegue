@@ -20,6 +20,12 @@
 			<basic name="email" optional="false">
 				<column name="EMAIL" />
 			</basic>
+			<basic name="residencia" optional="false">
+				<column name="LUGAR_RESIDENCIA" />
+			</basic>
+			<basic name="fechaNac" optional="false">
+				<column name="FECHA_NACIMIENTO" />
+			</basic>
 		</attributes>
 	</mapped-superclass>
 </entity-mappings>
