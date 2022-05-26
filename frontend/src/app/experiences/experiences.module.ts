@@ -9,6 +9,9 @@ import { ViajeComponent } from './viajes/viaje/viaje.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ViajeFormComponent } from './viajes/viaje-form/viaje-form.component';
 import { ValoracionesModule } from '../valoraciones/valoraciones.module';
+import { ActividadesComponent } from './actividades/actividades.component';
+import { ActividadComponent } from './actividades/actividad/actividad.component';
+import { ActividadFormComponent } from './actividades/actividad-form/actividad-form.component';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { ValoracionesModule } from '../valoraciones/valoraciones.module';
     ExperiencesComponent,
     ViajesComponent,
     ViajeComponent,
-    ViajeFormComponent
+    ViajeFormComponent,
+    ActividadesComponent,
+    ActividadComponent,
+    ActividadFormComponent
   ],
   imports: [
     CommonModule,

@@ -2,7 +2,9 @@
   <div class="container-fluid">
     <div class="row">
 
+      <!-- VIAJES -->
       <div class="col-md-6">
+
         <div class="row">
           <div class="col">
             <h1>Viajes</h1>
@@ -18,18 +20,47 @@
           <div class="col-sm-3"></div>
           <div class="col-sm-6" *ngIf="viajes.length > 0; else elseViajes">
             <div *ngFor="let viaje of viajes">
-              <app-viajes [viaje]="viaje" (viajeSeleccionado)="verDatos($event)"></app-viajes>
+              <app-viajes [viaje]="viaje" (viajeSeleccionado)="verDatosV($event)"></app-viajes>
             </div>
           </div>
           <div class="col-sm-3"></div>
           <ng-template #elseViajes>
             <h4 class="card-title"><b>NO HAY VIAJES DISPONIBLES</b></h4>
           </ng-template>
-
         </div>
 
       </div>
+      <!-- FIN VIAJES -->
 
+      <!-- ACTIVIDADES -->
+      <div class="col-md-6">
+
+        <div class="row">
+          <div class="col">
+            <h1>Actividades</h1>
+          </div>
+          <div class="col">
+            <button type="button" class="mt-5 btn btn-success btn-md" (click)='registrarActividad()'>Nueva Actividad</button>
+          </div>
+        </div>
+
+        <hr class="w-100" />
+
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6" *ngIf="actividades.length > 0; else elseActividades">
+            <div *ngFor="let actividad of actividades">
+              <app-actividades [actividad]="actividad" (actividadSeleccionada)="verDatosA($event)"></app-actividades>
+            </div>
+          </div>
+          <div class="col-sm-3"></div>
+          <ng-template #elseActividades>
+            <h4 class="card-title"><b>NO HAY ACTIVIDADES DISPONIBLES</b></h4>
+          </ng-template>
+        </div>
+
+      </div>
+      <!-- FIN ACTIVIDADES -->
     </div>
   </div>
 </section>

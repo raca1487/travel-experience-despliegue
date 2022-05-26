@@ -11,11 +11,14 @@ import { ValoracionImpl } from '../models/valoracion-impl';
   providedIn: 'root'
 })
 export class ValoracionService {
+  // url de la API
   private host: string = environment.host;
+  // url de las Valoraciones (API)
   private urlEndPoint: string = `${this.host}valoraciones`
 
   constructor(private http: HttpClient) { }
 
+  // método para conseguir el ID
   getId(url: string): string {
     let posicionFinal: number = url.lastIndexOf('/');
     let numId: string = url.slice(posicionFinal + 1, url.length);
@@ -23,6 +26,9 @@ export class ValoracionService {
     return numId;
   }
 
+  /*
+  * Métodos paa conseguir un listado de Viajes y mapearlos desde la API
+  */
   getValoraciones(): Observable<Valoracion> {
     return this.http.get<any>(this.urlEndPoint);
   }
@@ -43,11 +49,15 @@ export class ValoracionService {
     valoracion.titulo = valoracionApi.titulo;
     valoracion.comentario = valoracionApi.comentario;
     valoracion.puntuacion = valoracionApi.puntuacion;
-    valoracion.idExperiencia = `${this.urlEndPoint}viaje/${viaje.viajeId}`;
+    valoracion.idExperiencia = `${this.urlEndPoint}viaje/${viaje.id}`;
     // console.log(valoracion);
     return valoracion;
   }
 
+
+  /*
+  * CRUD de Valoraciones
+  */
   getValoracion(id: string): Observable<Valoracion> {
     return this.http.get<Valoracion>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {

@@ -1,0 +1,76 @@
+<section class="travel-title">
+  <div class="overlay"></div>
+  <div class="container-fluid">
+    <div class="banner-travel">
+      <h1>{{ actividad.nombre | uppercase }}</h1>
+    </div>
+  </div>
+</section>
+
+<section class="travel-description">
+  <div class="container">
+    <div class="row">
+      <article class="col-md-8">
+        <p>{{ actividad.descripcion }}</p>
+      </article>
+      <article class="banner-infotravel col-md-4">
+        <div class="description-info-content">
+          <h3>{{ actividad.ciudad }}</h3>
+          <hr>
+          <h3>{{ actividad.coordinador }}</h3>
+
+          <!--<hr>
+          <h2 style="font-weight: bold;">Qué está incluido</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est, quo obcaecati corporis excepturi odio vitae illum id harum ipsum eum amet exercitationem dolores! Dolorem totam ducimus itaque aliquid. Fugit, nihil!</p>
+          -->
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="valoraciones">
+
+  <div class="valoraciones-title">
+    <div class="container-fluid">
+      <div class="banner-valoraciones">
+        <div class="row">
+          <div class="col">
+            <h1>Valoraciones</h1>
+          </div>
+          <div class="col">
+            <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
+          </div>
+          <hr>
+        </div>
+
+        <hr class="w-100">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8" *ngIf="valoraciones.length > 0; else elseValoraciones">
+      <div *ngFor="let valoracion of valoraciones">
+        <app-valoraciones></app-valoraciones>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+    <ng-template #elseValoraciones>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><b>NO HAY VALORACIONES REGISTRADAS</b></h4>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+</section>
+
+<div id="volver">
+  <a type="button" routerLink="/experiences" class="btn btn-md btn-danger">
+    Volver a Experiencias
+  </a>
+</div>

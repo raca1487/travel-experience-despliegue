@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Fredoka");
+
+h2 {
+  font-family: "Permanent Marker";
+  color: #1c658c;
+  margin-top: 10%;
+  text-align: center;
+}
+
+form {
+  margin: 0% 0 0 40%;
+  font-family: "Fredoka";
+  font-size: large;
+}
+
+#registro {
+  margin-right: 2%;
+}
+
+#volver {
+margin-left: 2%;
+}

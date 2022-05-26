@@ -1,0 +1,12 @@
+.card {
+  background-color:rgb(250, 247, 215);
+}
+
+.card-body {
+  font-family: "Fredoka";
+}
+
+.card-title {
+  /*font-family: "Bangers";*/
+  color: #1c658c;
+}

@@ -11,6 +11,14 @@ const routes: Routes = [
   {
     path: 'viaje/:id/valoracion-form',
     component: ValoracionFormComponent
+  },
+  {
+    path: 'actividad',
+    component: ValoracionesComponent
+  },
+  {
+    path: 'actividad/:id/valoracion-form',
+    component: ValoracionFormComponent
   }
 ];
 
