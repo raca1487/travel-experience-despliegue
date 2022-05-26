@@ -1,0 +1,66 @@
+.content {
+  background-image: url("../../../assets/costarica.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+}
+
+.content h1 {
+  font-family: "Permanent Marker";
+  color: #0f4d6e;
+  font-size: 3vw;
+  position: absolute;
+  top: 20vw;
+  left: 30vw;
+}
+.content h3 {
+  font-family: "Permanent Marker";
+  color: #0f4d6e;
+  font-size: 2vw;
+  position: absolute;
+  top: 25vw;
+  left: 30vw;
+}
+.overlay2 {
+  position: relative;
+  height: 700px;
+  min-width: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(244, 244, 244, 0.2);
+}
+
+.banner-tourmaker {
+  margin: 0 auto;
+  text-align: center;
+}
+.banner-tourmaker h2 {
+  font-family: "Permanent Marker";
+  color: #0f4d6e;
+  margin: 2% auto;
+  font-size: 2vw;
+}
+
+.banner-tourmaker p {
+  padding-bottom: 20px;
+  margin: 0 200px;
+}
+/*.container-banner {
+  border-bottom-style: ridge;
+  border-color: #a2b44d;
+  padding: 10px 10px 30px;
+  margin: 0;
+}*/
+
+.btn-lg {
+  border: 1px solid #1c658c;
+  border-radius: 5px;
+  background: #1c658c;
+}
+.btn-lg:hover {
+  border: 1px solid #1c658c;
+  border-radius: 5px;
+  background: #0f4d6e;
+  color: #f6d860;
+}

@@ -7,6 +7,7 @@ import { HeaderComponent } from './shell/header/header.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule,
+    FontAwesomeModule,
     FormsModule
 
   ],

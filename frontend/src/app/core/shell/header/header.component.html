@@ -12,21 +12,60 @@
   </a>
 
   <!--Botón de la barra de navegación responsive-->
-  <div class="hamburger">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-target="#trexapp"
+    aria-controls="trexapp"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--<div class="hamburger">
     <span class="line"></span>
     <span class="line"></span>
     <span class="line"></span>
-  </div>
+  </div>-->
 
   <!--Botones de la barra de navegación-->
-  <div class="nav-link hide">
-    <a routerLink="/">Inicio</a>
-    <a routerLink="experiences">Experiencias</a>
-    <a routerLink="#">Community Trex</a>
-    <a
-      href="https://www.sanidad.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/home.htm"
-      target="_blank">
-      Info COVID-19
-    </a>
+  <div class="nav-link hide" id="trexapp">
+    <div class="nav-item dropdown" routerLinkActive="router-link-active">
+      <a routerLink="experiences">Experiencias</a>
+      <!--<a
+        class="nav-link dropdown-toggle"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false">
+        Experiencias
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" routerLink="experiences">Viajes</a>
+        <a class="dropdown-item" routerLink="experiences">Actividades</a>
+      </div>-->
+      <!--<a routerLink="#">Community Trex</a>-->
+      <a
+        class="nav-link dropdown-toggle"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false">
+        Community Trex
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" routerLink="community/trabaja-con-nosotros">Trabaja con nosotros</a>
+        <a class="dropdown-item" routerLink="community/contacto">Contacto</a>
+        <a class="dropdown-item disabled" routerLink="#">Área Administrador</a>
+      </div>
+      <a href="https://www.sanidad.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/home.htm" target="_blank">
+        Info COVID-19
+      </a>
+    </div>
   </div>
 </nav>

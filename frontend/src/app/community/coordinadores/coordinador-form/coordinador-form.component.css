@@ -1,0 +1,71 @@
+.banner-img {
+  background-image: url("../../../../assets/guia-turistico.jpg");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+.col-md {
+  text-align: left;
+  margin: 2em 5em 0;
+  background-color: #fff;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #aaa;
+  border-top-color: #a2b44d;
+  border-top-width: 20px;
+}
+.col-md h1 {
+  text-align: center;
+  font-family: "Permanent Marker";
+  color: #1c658c;
+  margin-top: 1em;
+}
+.col-md-10 {
+  margin: 2em 5em 0;
+  background-color: #fff;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #aaa;
+}
+.col-md-10 h3 {
+  text-align: center;
+  font-family: "Permanent Marker";
+  color: #1c658c;
+}
+.tourmaker h4 {
+  text-align: center;
+  font-family: "Permanent Marker";
+  color: #1c658c;
+  margin: 8% 0 3% 0;
+}
+.col-md p {
+  margin: 12px;
+  white-space: pre-wrap;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+.tourmaker {
+  padding: 5%;
+}
+.form-control {
+  width: 40%;
+}
+.text-area {
+  width: 75%;
+  font-size: small;
+}
+
+.botonera {
+  display: flex;
+  justify-content: center;
+}
+#contact-submit {
+  margin-right: 5px;
+}
+#contact-reset {
+  margin: 0 10px;
+}
