@@ -3,7 +3,6 @@ package es.diverplan.entidades;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +21,9 @@ public class CoordinadorConId extends Coordinador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
 	private Long id;
+	
+	@OneToOne(mappedBy = "coordinador")
+	private ActividadConId actividad;
 	
 	public Long getId() {
 		return id;

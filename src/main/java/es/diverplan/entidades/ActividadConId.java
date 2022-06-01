@@ -8,7 +8,6 @@ import javax.persistence.EntityListeners;
 import javax.persistence.OneToOne;
 
 import es.diverplan.repositorios.ActividadConIdListener;
-import es.diverplan.trex.Coordinador;
 import es.diverplan.trex.interfaces.Actividad;
 
 @Entity
@@ -19,8 +18,9 @@ import es.diverplan.trex.interfaces.Actividad;
 public class ActividadConId extends EntretenimientoConId implements Actividad {
 
 	private String ciudad;
+	
 	@OneToOne(targetEntity = CoordinadorConId.class)
-	private Coordinador coordinador;
+	private CoordinadorConId coordinador;
 	
 	public ActividadConId() {
 		super();
@@ -32,7 +32,7 @@ public class ActividadConId extends EntretenimientoConId implements Actividad {
 	}
 
 	@Override
-	public Coordinador getCoordinador() {
+	public CoordinadorConId getCoordinador() {
 		return coordinador;
 	}
 	
@@ -40,7 +40,7 @@ public class ActividadConId extends EntretenimientoConId implements Actividad {
 		this.ciudad = ciudad;
 	}
 	
-	public void setCoordinador(Coordinador coordinador) {
+	public void setCoordinador(CoordinadorConId coordinador) {
 		this.coordinador = coordinador;
 	}
 
