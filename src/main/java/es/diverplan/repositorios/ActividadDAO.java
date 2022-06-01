@@ -7,8 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import es.diverplan.entidades.ActividadConId;
-import es.diverplan.entidades.EntretenimientoConId;
-import es.diverplan.entidades.ViajeConId;
 
 @RepositoryRestResource(path = "actividades", itemResourceRel = "actividad", collectionResourceRel = "actividades")
 public interface ActividadDAO extends JpaRepository<ActividadConId, Long> {

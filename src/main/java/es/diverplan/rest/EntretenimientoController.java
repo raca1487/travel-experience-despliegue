@@ -15,7 +15,6 @@ import es.diverplan.repositorios.EntretenimientoDAO;
 import es.diverplan.trex.Entretenimiento;
 
 @RepositoryRestController
-
 public class EntretenimientoController {
 	
 	private EntretenimientoDAO entretenimientoDAO;
