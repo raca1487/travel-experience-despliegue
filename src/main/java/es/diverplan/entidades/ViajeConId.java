@@ -21,10 +21,6 @@ public class ViajeConId extends EntretenimientoConId implements Viaje {
 	private LocalDate fechaSalida;
 	private int duracionViaje;
 	private float precio;
-	
-	public ViajeConId() {
-		super();
-	}
 
 	@Override
 	public LocalDate getFechaSalida() {
@@ -41,4 +37,15 @@ public class ViajeConId extends EntretenimientoConId implements Viaje {
 		return precio;
 	}
 	
+	public ViajeConId() {
+		super();
+	}
+	
+	public ViajeConId(String titulo, String descripcion, LocalDate fechaSalida, int duracionViaje, float precio) {
+		super(titulo, descripcion);
+		this.fechaSalida = fechaSalida;
+		this.duracionViaje = duracionViaje;
+		this.precio = precio;
+	}
+
 }

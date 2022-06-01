@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-//import es.diverplan.entidades.EntretenimientoConId;
+import es.diverplan.entidades.EntretenimientoConId;
 import es.diverplan.repositorios.EntretenimientoDAO;
-import es.diverplan.trex.Entretenimiento;
 
 @RepositoryRestController
 public class EntretenimientoController {
@@ -28,7 +27,7 @@ public class EntretenimientoController {
 	public CollectionModel<PersistentEntityResource> getExperienciasPorMedia(@RequestParam("media") int media,
 			PersistentEntityResourceAssembler assembler) {
 		
-		List<Entretenimiento> experiencias = entretenimientoDAO.getExperienciasPorMedia(media);
+		List<EntretenimientoConId> experiencias = entretenimientoDAO.getExperienciasPorMedia(media);
 		
 		return assembler.toCollectionModel(experiencias);
 	}

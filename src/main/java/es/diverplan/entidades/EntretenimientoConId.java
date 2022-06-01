@@ -37,6 +37,10 @@ public class EntretenimientoConId extends Entretenimiento {
 		super();
 	}
 	
+	public EntretenimientoConId(String titulo, String descripcion) {
+		super(titulo, descripcion);
+	}
+	
 	@Override
 	@OneToMany(cascade = CascadeType.ALL, targetEntity = ValoracionConId.class, mappedBy = "entretenimiento")
 	public List<Valoracion> getValoraciones() {

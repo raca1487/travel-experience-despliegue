@@ -2,11 +2,10 @@ package es.diverplan.repositorios;
 
 import java.util.List;
 
-//import es.diverplan.entidades.EntretenimientoConId;
-import es.diverplan.trex.Entretenimiento;
+import es.diverplan.entidades.EntretenimientoConId;
 
 public interface EntretenimientoDAOCustom {
 	
-	List<Entretenimiento> getExperienciasPorMedia(int media);
+	List<EntretenimientoConId> getExperienciasPorMedia(int media);
 
 }

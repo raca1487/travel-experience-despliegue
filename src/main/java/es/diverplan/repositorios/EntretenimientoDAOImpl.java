@@ -9,8 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-//import es.diverplan.entidades.EntretenimientoConId;
-import es.diverplan.trex.Entretenimiento;
+import es.diverplan.entidades.EntretenimientoConId;
 
 @Transactional(readOnly = true)
 public class EntretenimientoDAOImpl implements EntretenimientoDAOCustom {
@@ -22,8 +21,8 @@ public class EntretenimientoDAOImpl implements EntretenimientoDAOCustom {
 	EntityManager entityManager;
 
 	@Override
-	public List<Entretenimiento> getExperienciasPorMedia(int media) {
-		List<Entretenimiento> experiencias = entretenimientoDAO.findAll().stream()
+	public List<EntretenimientoConId> getExperienciasPorMedia(int media) {
+		List<EntretenimientoConId> experiencias = entretenimientoDAO.findAll().stream()
 				.filter(e -> e.valoracionAverage() >= media)
 				.collect(Collectors.toList());
 		

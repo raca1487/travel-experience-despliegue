@@ -23,25 +23,29 @@ public class ValoracionConId extends Valoracion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
 	private Long id;
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "EXPERIENCIA")
+	@JoinColumn(name = "EXPERIENCIA", referencedColumnName = "ID")
 	private EntretenimientoConId entretenimiento;
-	
+
 	public EntretenimientoConId getEntretenimiento() {
 		return entretenimiento;
 	}
-	
+
 	public void setEntretenimiento(EntretenimientoConId entretenimiento) {
 		this.entretenimiento = entretenimiento;
 	}
-	
+
 	public ValoracionConId() {
 		super();
+	}
+	
+	public ValoracionConId(String comentario, int puntuacion) {
+		super(comentario, puntuacion);
 	}
 
 }

@@ -13,7 +13,7 @@
 			<basic name="descripcion" optional="false">
 				<column name="DESCRIPCION" />
 			</basic>
-			<transient name="valoraciones" />
+			<one-to-many name="valoraciones" target-entity="es.diverplan.entidades.ValoracionConId" mapped-by="entretenimiento" />
 		</attributes>
 	</mapped-superclass>
 </entity-mappings>
