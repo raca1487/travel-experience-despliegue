@@ -1,4 +1,4 @@
-package es.diverplan.repositorios;
+package es.diverplan.travelexperienceapi.repositorios;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import es.diverplan.entidades.EntretenimientoConId;
+import es.diverplan.travelexperienceapi.entidades.EntretenimientoConId;
 
 @RepositoryRestResource(path = "entretenimientos", itemResourceRel = "entretenimiento", collectionResourceRel = "entretenimientos")
 public interface EntretenimientoDAO extends JpaRepository<EntretenimientoConId, Long>, EntretenimientoDAOCustom {

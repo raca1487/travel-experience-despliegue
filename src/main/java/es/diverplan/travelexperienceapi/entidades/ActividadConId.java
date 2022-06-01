@@ -1,4 +1,4 @@
-package es.diverplan.entidades;
+package es.diverplan.travelexperienceapi.entidades;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.OneToOne;
 
-import es.diverplan.repositorios.ActividadConIdListener;
+import es.diverplan.travelexperienceapi.repositorios.ActividadConIdListener;
 import es.diverplan.trex.Coordinador;
 import es.diverplan.trex.interfaces.Actividad;
 

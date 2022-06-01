@@ -1,4 +1,4 @@
-package es.diverplan.entidades;
+package es.diverplan.travelexperienceapi.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import es.diverplan.repositorios.ValoracionConIdListener;
+import es.diverplan.travelexperienceapi.repositorios.ValoracionConIdListener;
 import es.diverplan.trex.Valoracion;
 
 @Entity

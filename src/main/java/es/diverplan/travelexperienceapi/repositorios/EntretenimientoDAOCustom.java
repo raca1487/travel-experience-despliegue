@@ -1,8 +1,8 @@
-package es.diverplan.repositorios;
+package es.diverplan.travelexperienceapi.repositorios;
 
 import java.util.List;
 
-import es.diverplan.entidades.EntretenimientoConId;
+import es.diverplan.travelexperienceapi.entidades.EntretenimientoConId;
 
 public interface EntretenimientoDAOCustom {
 	

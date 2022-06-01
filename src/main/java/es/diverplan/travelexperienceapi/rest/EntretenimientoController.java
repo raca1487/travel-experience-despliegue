@@ -1,4 +1,4 @@
-package es.diverplan.rest;
+package es.diverplan.travelexperienceapi.rest;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import es.diverplan.entidades.EntretenimientoConId;
-import es.diverplan.repositorios.EntretenimientoDAO;
+import es.diverplan.travelexperienceapi.entidades.EntretenimientoConId;
+import es.diverplan.travelexperienceapi.repositorios.EntretenimientoDAO;
 
 @RepositoryRestController
 public class EntretenimientoController {

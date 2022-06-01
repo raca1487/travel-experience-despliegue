@@ -30,16 +30,16 @@ import org.springframework.web.filter.CorsFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import es.diverplan.entidades.ActividadConId;
-import es.diverplan.entidades.EntretenimientoConId;
-import es.diverplan.entidades.ValoracionConId;
-import es.diverplan.entidades.ViajeConId;
-import es.diverplan.rest.EntretenimientoController;
-import es.diverplan.rest.Mixins;
+import es.diverplan.travelexperienceapi.entidades.ActividadConId;
+import es.diverplan.travelexperienceapi.entidades.EntretenimientoConId;
+import es.diverplan.travelexperienceapi.entidades.ValoracionConId;
+import es.diverplan.travelexperienceapi.entidades.ViajeConId;
+import es.diverplan.travelexperienceapi.rest.EntretenimientoController;
+import es.diverplan.travelexperienceapi.rest.Mixins;
 
 @Configuration
 @PropertySource({ "classpath:config/rest.properties", "classpath:config/jackson.properties" })
-@ComponentScan("es.diverplan")
+@ComponentScan("es.diverplan.travelexperienceapi")
 public class ConfiguracionPorJava {
 	
 	@Bean

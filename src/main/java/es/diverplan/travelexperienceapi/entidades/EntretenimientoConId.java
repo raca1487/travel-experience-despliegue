@@ -1,4 +1,4 @@
-package es.diverplan.entidades;
+package es.diverplan.travelexperienceapi.entidades;
 
 import java.util.List;
 

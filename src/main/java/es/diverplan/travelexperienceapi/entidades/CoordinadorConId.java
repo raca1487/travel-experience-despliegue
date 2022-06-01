@@ -1,4 +1,4 @@
-package es.diverplan.entidades;
+package es.diverplan.travelexperienceapi.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import es.diverplan.repositorios.CoordinadorConIdListener;
+import es.diverplan.travelexperienceapi.repositorios.CoordinadorConIdListener;
 import es.diverplan.trex.Coordinador;
 
 @Entity

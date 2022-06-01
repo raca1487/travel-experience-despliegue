@@ -1,10 +1,10 @@
-package es.diverplan.rest;
+package es.diverplan.travelexperienceapi.rest;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import es.diverplan.entidades.CoordinadorConId;
+import es.diverplan.travelexperienceapi.entidades.CoordinadorConId;
 
 public class Mixins {
 

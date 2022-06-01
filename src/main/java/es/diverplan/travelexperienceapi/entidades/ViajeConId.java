@@ -1,4 +1,4 @@
-package es.diverplan.entidades;
+package es.diverplan.travelexperienceapi.entidades;
 
 import java.time.LocalDate;
 
@@ -8,7 +8,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 
-import es.diverplan.repositorios.ViajeConIdListener;
+import es.diverplan.travelexperienceapi.repositorios.ViajeConIdListener;
 import es.diverplan.trex.interfaces.Viaje;
 
 @Entity
