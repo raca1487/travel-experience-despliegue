@@ -20,12 +20,12 @@ public class CoordinadorConId extends Coordinador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private Long id;
+	private long id;
 	
 	@OneToOne(mappedBy = "coordinador")
 	private ActividadConId actividad;
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 	

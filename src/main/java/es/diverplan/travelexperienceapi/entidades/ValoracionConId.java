@@ -22,14 +22,14 @@ public class ValoracionConId extends Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private Long id;
+	private long idValoracion;
 
-	public Long getId() {
-		return id;
+	public long getId() {
+		return idValoracion;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "EXPERIENCIA", referencedColumnName = "ID")
+	@JoinColumn(name = "EXPERIENCIA", referencedColumnName = "idEntretenimiento")
 	private EntretenimientoConId entretenimiento;
 
 	public EntretenimientoConId getEntretenimiento() {

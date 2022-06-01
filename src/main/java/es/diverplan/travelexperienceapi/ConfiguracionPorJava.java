@@ -5,7 +5,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.URLDecoder;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,7 +21,6 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.RepositorySearchesResource;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.RepresentationModelProcessor;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.cors.CorsConfiguration;
@@ -67,61 +66,41 @@ public class ConfiguracionPorJava {
 	}
 	
 	@Bean
-	RepresentationModelProcessor<RepositorySearchesResource> addSearchLinks(RepositoryRestConfiguration config) {
-		Map<Class<?>, Class<?>> controllersRegistrados = new HashMap<>();
+    RepresentationModelProcessor<RepositorySearchesResource> addSearchLinks(RepositoryRestConfiguration config) {
+        Map<Class<?>, Class<?>> controllersRegistrados = new HashMap<>();
+        
+        controllersRegistrados.put(EntretenimientoConId.class, EntretenimientoController.class);
 
-		controllersRegistrados.put(EntretenimientoConId.class, EntretenimientoController.class);
+        return new RepresentationModelProcessor<RepositorySearchesResource>() {
 
-		return new RepresentationModelProcessor<RepositorySearchesResource>() {
+            @Override
+            public RepositorySearchesResource process(RepositorySearchesResource searchResource) {
+                if (controllersRegistrados.containsKey(searchResource.getDomainType())) {
+                    Method[] metodos = controllersRegistrados.get(searchResource.getDomainType()).getDeclaredMethods();
+                    for (Method m : metodos) {
+                        if (!m.isAnnotationPresent(ResponseBody.class)) {
+                            continue;
+                        }
+                        try {
+                            URI uri = linkTo(m).toUri();
+                            String path = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(),
+                                    config.getBasePath() + uri.getPath(), null, null).toString();
+                            path = URLDecoder.decode(path, "UTF-8");
+                            String requestParams = Stream.of(m.getParameters())
+                                    .filter(p -> p.isAnnotationPresent(RequestParam.class))
+                                    .map(Parameter::getName)
+                                    .collect(Collectors.joining(","));
+                            searchResource.add(Link.of(path + "{?" + requestParams + "}", m.getName()));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
 
-			@Override
-			public RepositorySearchesResource process(RepositorySearchesResource searchResource) {
-				
-				if (controllersRegistrados.containsKey(searchResource.getDomainType())) {
-					Method[] metodos = controllersRegistrados.get(searchResource.getDomainType()).getDeclaredMethods();
-					for (Method m : metodos) {
-						if (!m.isAnnotationPresent(ResponseBody.class))
-							continue;
-						try {
-							Object[] pathVars = Stream.of(m.getParameters())
-									.filter(p -> p.isAnnotationPresent(PathVariable.class))
-									.map(p -> "(" + p.getName() + ")").collect(Collectors.toList()).toArray();
-							
-							// Aqui estan los cambios que hay que hacer
-							URI uri;
-							if (pathVars.length == 0) {
-								uri = linkTo(m).toUri();
-							} else {
-								uri = linkTo(m, pathVars).toUri(); 
-							}
-							
-							/* Aqui hay que cambiar todo este codigo
-							
-							URI uri = linkTo(m, pathVars).toUri();
-							
-							String path = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(),
-									config.getBasePath() + uri.getPath(), uri.getQuery(), uri.getFragment()).toString()
-											.replace("(", "{").replace(")", "}");*/
-							
-							String path = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(),
-									config.getBasePath() + uri.getPath(), null, null).toString().replace("(", "{").replace(")", "}");
-							
-							String requestParams = Stream.of(m.getParameters())
-									.filter(p -> p.isAnnotationPresent(RequestParam.class)).map(Parameter::getName)
-									.collect(Collectors.joining(","));
-							// OJO AQUI que hay que cambiar new Link por Link.of, por un problema de versiones
-							searchResource.add(Link.of(path + "{?" + requestParams + "}", m.getName()));
-						} catch (URISyntaxException e) {
-							e.printStackTrace();
-						}
-					}
-				}
+                return searchResource;
+            }
 
-				return searchResource;
-			}
-
-		};
-
-	}
+        };
+    }
 
 }
