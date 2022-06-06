@@ -31,7 +31,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import es.diverplan.travelexperienceapi.entidades.ActividadConId;
 import es.diverplan.travelexperienceapi.entidades.EntretenimientoConId;
-import es.diverplan.travelexperienceapi.entidades.ValoracionConId;
 import es.diverplan.travelexperienceapi.entidades.ViajeConId;
 import es.diverplan.travelexperienceapi.rest.EntretenimientoController;
 import es.diverplan.travelexperienceapi.rest.Mixins;
@@ -47,7 +46,6 @@ public class ConfiguracionPorJava {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.addMixIn(ViajeConId.class, Mixins.ViajeConId.class);
 		mapper.addMixIn(ActividadConId.class, Mixins.ActividadConId.class);
-		mapper.addMixIn(ValoracionConId.class, Mixins.ValoracionConId.class);
 
 		return mapper;
 	}

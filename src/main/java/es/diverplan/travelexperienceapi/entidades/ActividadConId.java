@@ -13,13 +13,11 @@ import es.diverplan.trex.interfaces.Actividad;
 
 @Entity
 @EntityListeners(ActividadConIdListener.class)
-//@Table(name = "ACTIVIDADES")
 @Access(value=AccessType.FIELD)
 @DiscriminatorValue("ACTIVIDAD")
 public class ActividadConId extends EntretenimientoConId implements Actividad {
 
 	private String ciudad;
-	
 	@OneToOne(targetEntity = CoordinadorConId.class)
 	private Coordinador coordinador;
 	

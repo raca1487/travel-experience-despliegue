@@ -13,7 +13,6 @@ import es.diverplan.trex.interfaces.Viaje;
 
 @Entity
 @EntityListeners(ViajeConIdListener.class)
-//@Table(name = "VIAJES")
 @Access(value=AccessType.FIELD)
 @DiscriminatorValue("VIAJE")
 public class ViajeConId extends EntretenimientoConId implements Viaje {

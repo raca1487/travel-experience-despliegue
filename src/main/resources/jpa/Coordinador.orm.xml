@@ -8,22 +8,22 @@
 	<mapped-superclass class="es.diverplan.trex.Coordinador" access="FIELD">
 		<attributes>
 			<basic name="nombre" optional="false">
-				<column name="NOMBRE" />
+				<column name="NOMBRE" length="32" />
 			</basic>
 			<basic name="apellidos" optional="false">
-				<column name="APELLIDOS" />
+				<column name="APELLIDOS" length="32" />
 			</basic>
 			<basic name="telefono" optional="false">
-				<column name="TELEFONO" />
+				<column name="TELEFONO" length="9" />
 			</basic>
 			<basic name="email" optional="false">
 				<column name="EMAIL" />
 			</basic>
 			<basic name="residencia" optional="false">
-				<column name="LUGAR_RESIDENCIA" />
+				<column name="LUGAR_RESIDENCIA" length="32" />
 			</basic>
 			<basic name="fechaNac" optional="false">
-				<column name="FECHA_NACIMIENTO" />
+				<column name="FECHA_NACIMIENTO" length="10" />
 			</basic>
 		</attributes>
 	</mapped-superclass>

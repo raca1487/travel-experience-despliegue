@@ -16,19 +16,26 @@ import es.diverplan.trex.Coordinador;
 @EntityListeners(CoordinadorConIdListener.class)
 @Table(name = "COORDINADORES")
 public class CoordinadorConId extends Coordinador {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
 	private long id;
-	
 	@OneToOne(mappedBy = "coordinador")
 	private ActividadConId actividad;
-	
+
 	public long getId() {
 		return id;
 	}
-	
+
+	public ActividadConId getActividad() {
+		return actividad;
+	}
+
+	public void setActividad(ActividadConId actividad) {
+		this.actividad = actividad;
+	}
+
 	public CoordinadorConId() {
 		super();
 	}

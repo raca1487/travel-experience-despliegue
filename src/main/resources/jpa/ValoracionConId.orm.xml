@@ -5,17 +5,11 @@
                                      http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd"
                  version="2.2">
 
-	<mapped-superclass class="es.diverplan.trex.Valoracion" access="FIELD">
+	<entity class="es.diverplan.travelexperienceapi.entidades.ValoracionConId" access="FIELD">
 		<attributes>
-			<basic name="comentario" optional="false">
-				<column name="COMENTARIOS" length="1000" />
-			</basic>
-			<basic name="puntuacion" optional="false">
-				<column name="PUNTUACIONES" />
-			</basic>
-			<basic name="fechaPublicacion" optional="false">
-				<column name="FECHA_PUBLICACION" />
-			</basic>
+			<many-to-one name="entretenimiento" optional="false" fetch="LAZY">
+				<join-column name="EXPERIENCIA" />	
+			</many-to-one>
 		</attributes>
-	</mapped-superclass>
+	</entity>
 </entity-mappings>

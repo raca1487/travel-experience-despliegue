@@ -27,10 +27,10 @@ public class EntretenimientoConId extends Entretenimiento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private long idEntretenimiento;
+	private long id;
 	
 	public long getId() {
-		return idEntretenimiento;
+		return id;
 	}
 	
 	public EntretenimientoConId() {
@@ -49,7 +49,6 @@ public class EntretenimientoConId extends Entretenimiento {
 	
 	// Establece la relacion en los dos sentidos
 	public void addValoracionConId(ValoracionConId valoracion) {
-//		super.getValoraciones().add(valoracion);
 		super.addValoracion(valoracion);
 		valoracion.setEntretenimiento(this);
 	}

@@ -34,6 +34,7 @@
             	<value>jpa/Entretenimiento.orm.xml</value>
             	<value>jpa/Valoracion.orm.xml</value>
             	<value>jpa/Coordinador.orm.xml</value>
+            	<value>jpa/ValoracionConId.orm.xml</value>
             </list>
         </property>
 	</bean>

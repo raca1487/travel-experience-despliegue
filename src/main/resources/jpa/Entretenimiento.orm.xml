@@ -11,10 +11,9 @@
 				<column name="NOMBRE" />
 			</basic>
 			<basic name="descripcion" optional="false">
-				<column name="DESCRIPCION" />
+				<column name="DESCRIPCION" length="10000" />
 			</basic>
 			<one-to-many name="valoraciones" target-entity="es.diverplan.travelexperienceapi.entidades.ValoracionConId" mapped-by="entretenimiento" />
-			<transient name="valoraciones"/>
 		</attributes>
 	</mapped-superclass>
 </entity-mappings>
