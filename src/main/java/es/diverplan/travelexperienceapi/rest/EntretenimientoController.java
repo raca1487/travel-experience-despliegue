@@ -1,6 +1,6 @@
 package es.diverplan.travelexperienceapi.rest;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.rest.webmvc.PersistentEntityResource;
 import org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler;
@@ -24,10 +24,10 @@ public class EntretenimientoController {
 	
 	@GetMapping("/entretenimientos/search/por-media")
 	@ResponseBody
-	public CollectionModel<PersistentEntityResource> getExperienciasPorMedia(@RequestParam("media") int media,
+	public CollectionModel<PersistentEntityResource> getExperienciasPorMedia(@RequestParam("puntuacion") Integer puntuacion,
 			PersistentEntityResourceAssembler assembler) {
 		
-		List<EntretenimientoConId> experiencias = entretenimientoDAO.getExperienciasPorMedia(media);
+		Set<EntretenimientoConId> experiencias = entretenimientoDAO.getExperienciasPorMedia(puntuacion);
 		
 		return assembler.toCollectionModel(experiencias);
 	}

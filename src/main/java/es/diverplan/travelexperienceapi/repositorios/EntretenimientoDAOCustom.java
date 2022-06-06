@@ -1,11 +1,11 @@
 package es.diverplan.travelexperienceapi.repositorios;
 
-import java.util.List;
+import java.util.Set;
 
 import es.diverplan.travelexperienceapi.entidades.EntretenimientoConId;
 
 public interface EntretenimientoDAOCustom {
 	
-	List<EntretenimientoConId> getExperienciasPorMedia(int media);
+	Set<EntretenimientoConId> getExperienciasPorMedia(Integer puntuacion);
 
 }
