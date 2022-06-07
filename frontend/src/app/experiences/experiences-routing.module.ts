@@ -20,11 +20,19 @@ const routes: Routes = [
     component: ViajeFormComponent
   },
   {
+    path: 'viaje-form/:id',
+    component: ViajeFormComponent
+  },
+  {
     path: 'actividad/:id',
     component: ActividadComponent
   },
   {
     path: 'actividad-form',
+    component: ActividadFormComponent
+  },
+  {
+    path: 'actividad-form/:id',
     component: ActividadFormComponent
   }
 ];

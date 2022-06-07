@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError, catchError } from 'rxjs';
+//import { environment } from 'src/environments/environment';
 import { environment } from 'src/environments/environment.prod';
 import { Actividad } from '../models/actividad';
 import { ActividadImpl } from '../models/actividad-impl';
@@ -62,15 +63,15 @@ export class ExperienceService {
   * CRUD de Viajes
   */
   createV(viaje: Viaje): Observable<any> {
-    return this.http.post(`${this.urlEndPointV}`, viaje).pipe(
+    return this.http.post(this.urlEndPointV, viaje).pipe(
       catchError((e) => {
         if (e.status === 400) {
-          return throwError(e);
+          return throwError(() => new Error(e));
         }
         if (e.error.mensaje) {
           console.error(e.error.mensaje);
         }
-        return throwError(e);
+        return throwError(() => new Error('test'));
       })
     );
   }
@@ -83,23 +84,23 @@ export class ExperienceService {
           if (e.error.mensaje) {
             console.error(e.error.mensaje);
           }
-          return throwError(e);
+          return throwError(() => new Error(e));
         })
       );
   }
 
   updateV(viaje: Viaje): Observable<any> {
     return this.http
-      .put<any>(`${this.urlEndPointV}/${viaje.id}`, viaje)
+      .patch<any>(`${this.urlEndPointV}/${viaje.id}`, viaje)
       .pipe(
         catchError((e) => {
           if (e.status === 400) {
-            return throwError(e);
+            return throwError(() => new Error(e));
           }
           if (e.error.mensaje) {
             console.error(e.error.mensaje);
           }
-          return throwError(e);
+          return throwError(() => new Error(e));
         })
       );
   }
@@ -110,7 +111,7 @@ export class ExperienceService {
         if (e.status !== 401 && e.error.mensaje) {
           console.error(e.error.mensaje);
         }
-        return throwError(e);
+        return throwError(() => new Error(e));
       })
     );
   }
@@ -146,18 +147,18 @@ export class ExperienceService {
 
 
   /*
-  * CRUD de Viajes
+  * CRUD de Actividades
   */
   createA(actividad: Actividad): Observable<any> {
-    return this.http.post(`${this.urlEndPointA}`, actividad).pipe(
+    return this.http.post(this.urlEndPointA, actividad).pipe(
       catchError((e) => {
         if (e.status === 400) {
-          return throwError(e);
+          return throwError(() => new Error(e));
         }
         if (e.error.mensaje) {
           console.error(e.error.mensaje);
         }
-        return throwError(e);
+        return throwError(() => new Error('test'));
       })
     );
   }
@@ -170,23 +171,23 @@ export class ExperienceService {
           if (e.error.mensaje) {
             console.error(e.error.mensaje);
           }
-          return throwError(e);
+          return throwError(() => new Error(e));
         })
       );
   }
 
   updateA(actividad: Actividad): Observable<any> {
     return this.http
-      .put<any>(`${this.urlEndPointA}/${actividad.id}`, actividad)
+      .patch<any>(`${this.urlEndPointA}/${actividad.id}`, actividad)
       .pipe(
         catchError((e) => {
           if (e.status === 400) {
-            return throwError(e);
+            return throwError(() => new Error(e));
           }
           if (e.error.mensaje) {
             console.error(e.error.mensaje);
           }
-          return throwError(e);
+          return throwError(() => new Error(e));
         })
       );
   }
@@ -197,7 +198,7 @@ export class ExperienceService {
         if (e.status !== 401 && e.error.mensaje) {
           console.error(e.error.mensaje);
         }
-        return throwError(e);
+        return throwError(() => new Error(e));
       })
     );
   }

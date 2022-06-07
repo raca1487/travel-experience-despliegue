@@ -12,6 +12,8 @@ import { ValoracionesModule } from '../valoraciones/valoraciones.module';
 import { ActividadesComponent } from './actividades/actividades.component';
 import { ActividadComponent } from './actividades/actividad/actividad.component';
 import { ActividadFormComponent } from './actividades/actividad-form/actividad-form.component';
+import { ViajeItemComponent } from './viajes/viaje-item/viaje-item.component';
+import { ViajeModificarComponent } from './viajes/viaje-modificar/viaje-modificar.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { ActividadFormComponent } from './actividades/actividad-form/actividad-f
     ViajeFormComponent,
     ActividadesComponent,
     ActividadComponent,
-    ActividadFormComponent
+    ActividadFormComponent,
+    ViajeItemComponent,
+    ViajeModificarComponent
   ],
   imports: [
     CommonModule,

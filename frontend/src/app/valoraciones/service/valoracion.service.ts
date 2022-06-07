@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Viaje } from 'src/app/experiences/models/viaje';
 import { ViajeImpl } from 'src/app/experiences/models/viaje-impl';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment.prod';
 import { Valoracion } from '../models/valoracion';
 import { ValoracionImpl } from '../models/valoracion-impl';
 
