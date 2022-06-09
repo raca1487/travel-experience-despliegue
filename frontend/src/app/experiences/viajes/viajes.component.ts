@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { faEye, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { Viaje } from '../models/viaje';
 import { ViajeImpl } from '../models/viaje-impl';
@@ -20,7 +19,7 @@ export class ViajesComponent implements OnInit {
   faEdit = faPenToSquare;
   faTrash = faTrashCan;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

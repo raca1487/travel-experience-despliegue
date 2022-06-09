@@ -4,6 +4,7 @@
   font-family: "Fredoka";
   background-color:rgb(250, 247, 215);
   font-size: medium;
+  margin-top: 10%;
 }
 
 .card-title {
@@ -14,4 +15,9 @@
 
 .card-text {
   text-align: justify;
+}
+
+
+pre {
+  margin-top: 10%;
 }

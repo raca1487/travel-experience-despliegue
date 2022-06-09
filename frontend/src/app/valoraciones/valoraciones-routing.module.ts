@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ValoracionFormComponent } from './valoracion-form/valoracion-form.component';
-import { ValoracionesComponent } from './valoraciones/valoraciones.component';
+import { ValoracionComponent } from './valoracion/valoracion.component';
 
 const routes: Routes = [
   {
     path:'viaje',
-    component: ValoracionesComponent
+    component: ValoracionComponent
   },
   {
     path: 'viaje/:id/valoracion-form',
@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'actividad',
-    component: ValoracionesComponent
+    component: ValoracionComponent
   },
   {
     path: 'actividad/:id/valoracion-form',

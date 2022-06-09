@@ -7,20 +7,21 @@ import { ExperienceService } from '../../service/experience.service';
 @Component({
   selector: 'app-viaje-form',
   templateUrl: './viaje-form.component.html',
-  styleUrls: ['./viaje-form.component.css']
+  styleUrls: ['./viaje-form.component.css'],
 })
 export class ViajeFormComponent implements OnInit {
   viaje: Viaje = new ViajeImpl();
 
-  constructor(private experienceService: ExperienceService, private router: Router) { }
+  constructor(
+    private experienceService: ExperienceService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   registrar(): void {
     this.experienceService.createV(this.viaje).subscribe((response) => {
       this.router.navigate(['/experiences']);
     });
   }
-
 }

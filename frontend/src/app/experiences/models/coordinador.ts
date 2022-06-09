@@ -3,7 +3,8 @@ export interface Coordinador {
   apellidos: string;
   telefono: string;
   email: string;
-
   fechaNac: string;
   residencia: string;
+  actividad: string;
+  url: string;
 }

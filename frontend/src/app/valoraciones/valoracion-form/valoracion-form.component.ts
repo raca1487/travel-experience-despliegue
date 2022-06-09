@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Valoracion } from '../models/valoracion';
-import { ValoracionImpl } from '../models/valoracion-impl';
+import { Valoracion } from 'src/app/experiences/models/valoracion';
+import { ValoracionImpl } from 'src/app/experiences/models/valoracion-impl';
 import { ValoracionService } from '../service/valoracion.service';
 
 @Component({

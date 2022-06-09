@@ -1,6 +1,8 @@
 export interface Valoracion {
+  id: string;
   titulo: string;
   comentario: string;
   puntuacion: number;
-  idExperiencia: string;
+  entretenimiento: string;
+  fechaPublicacion: string;
 }

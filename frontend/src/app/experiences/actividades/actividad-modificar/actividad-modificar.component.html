@@ -153,11 +153,12 @@
       <select
         class="form-control"
         [(ngModel)]="actividad.coordinador"
-        name="coordinador"
-        required
+        name="coordinadores"
+
       >
         <option value="">Seleccione Coordinador</option>
-        <option *ngFor="let coordinador of coordinadores" [ngValue]="coordinador.url">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}&nbsp;-&nbsp;{{ coordinador.residencia }}</option>
+        <option value="n/a">Sin Coordinador</option>
+        <option *ngFor="let coordinador of coordinadores" [ngValue]="actividad.coordinador">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}&nbsp;-&nbsp;{{ coordinador.residencia }}</option>
       </select>
       <!-- <div class="text-danger" *ngIf="coordinadores.invalid && (coordinadores.dirty || coordinadores.touched)">
         <div *ngIf="coordinadores.errors?.['required']">Campo Obligatorio</div>
@@ -173,15 +174,11 @@
         class="btn btn-primary"
         role="button"
         routerLink="../"
-        (click)="registrar()"
+        (click)="modificarActividad(actividad)"
         [disabled]="!actividadForm.form.valid"
       >
-        Registrar Actividad
+        Modificar Actividad
       </button>
-      <button type="reset" class="btn btn-warning">Restablecer</button>
-      <a id="volver" type="button" class="btn btn-danger" routerLink="../"
-        >Cancelar</a
-      >
     </div>
   </div>
 </form>

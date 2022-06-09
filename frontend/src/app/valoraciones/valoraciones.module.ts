@@ -2,25 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ValoracionesRoutingModule } from './valoraciones-routing.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
-import { ValoracionesComponent } from './valoraciones/valoraciones.component';
+import { ValoracionComponent } from './valoracion/valoracion.component';
 import { ValoracionFormComponent } from './valoracion-form/valoracion-form.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    ValoracionesComponent,
+    ValoracionComponent,
     ValoracionFormComponent
   ],
   imports: [
     CommonModule,
     ValoracionesRoutingModule,
-    FontAwesomeModule,
     FormsModule
   ],
   exports: [
-    ValoracionesComponent,
+    ValoracionComponent,
     ValoracionFormComponent
   ]
 })

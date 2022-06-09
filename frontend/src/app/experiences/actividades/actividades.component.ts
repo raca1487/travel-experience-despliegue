@@ -29,7 +29,7 @@ export class ActividadesComponent implements OnInit {
   }
 
   eliminarA(): void {
-    if (confirm('Va a eliminar un Viaje, ¿está usted seguro de la operación que va a realizar?')) {
+    if (confirm('Va a eliminar una Actividad, ¿está usted seguro de la operación que va a realizar?')) {
       this.actividadEliminar.emit(this.actividad);
     }
   }

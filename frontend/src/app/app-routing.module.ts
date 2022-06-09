@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import("./experiences/experiences.module").then((m) => m.ExperiencesModule)
   },
   {
+    path: 'valoraciones',
+    loadChildren: () => import("./valoraciones/valoraciones.module").then((m) => m.ValoracionesModule)
+  },
+  {
     path: 'community',
     loadChildren: () => import("./community/community.module").then((m) => m.CommunityModule)
   },

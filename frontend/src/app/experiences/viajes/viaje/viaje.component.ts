@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faPlaneUp } from '@fortawesome/free-solid-svg-icons';
-import { Valoracion } from 'src/app/valoraciones/models/valoracion';
 import { ValoracionService } from 'src/app/valoraciones/service/valoracion.service';
+import { Valoracion } from '../../models/valoracion';
 import { Viaje } from '../../models/viaje';
 import { ViajeImpl } from '../../models/viaje-impl';
 import { ExperienceService } from '../../service/experience.service';
@@ -14,8 +14,10 @@ import { ExperienceService } from '../../service/experience.service';
 })
 export class ViajeComponent implements OnInit {
   @Input() viaje: Viaje = new ViajeImpl();
-  faPlaneUp = faPlaneUp;
+  // valoracionVerDatos: Valoracion = new ValoracionImpl();
   valoraciones: Valoracion[] = [];
+
+  faPlaneUp = faPlaneUp;
 
   constructor(
     private experienceService: ExperienceService,
@@ -29,13 +31,9 @@ export class ViajeComponent implements OnInit {
     this.experienceService.getViaje(id).subscribe((response) => {
       this.viaje = this.experienceService.mapearViaje(response);
     });
-    this.valoracionService
-      .getValoraciones()
-      .subscribe(
-        (response) =>
-          (this.valoraciones =
-            this.valoracionService.extraerValoraciones(response))
-      );
+    this.valoracionService.getValoraciones().subscribe((response) => {
+      this.valoraciones = this.valoracionService.extraerValoraciones(response);
+    });
   }
 
   cargarViaje(): string {
@@ -47,4 +45,11 @@ export class ViajeComponent implements OnInit {
   nuevaValoracion(): void {
     this.router.navigate([`experiences/viaje/${this.viaje.id}/valoracion-form`]);
   }
+
+  // cargarValoraciones(viaje: Viaje): void {
+  //   this.valoraciones = [];
+  //   this.experienceService.getValoraciones(viaje.valoraciones).subscribe((response) => {
+  //       this.valoraciones = this.experienceService.extraerValoraciones(response);
+  //     });
+  // }
 }

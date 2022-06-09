@@ -5,21 +5,27 @@ import { Observable, throwError, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Actividad } from '../models/actividad';
 import { ActividadImpl } from '../models/actividad-impl';
+import { Coordinador } from '../models/coordinador';
+import { CoordinadorImpl } from '../models/coordinador-impl';
+import { Valoracion } from '../models/valoracion';
+import { ValoracionImpl } from '../models/valoracion-impl';
 import { Viaje } from '../models/viaje';
 import { ViajeImpl } from '../models/viaje-impl';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ExperienceService {
   // url de la API
   private host: string = environment.host;
   // url de los Viajes (API)
-  private urlEndPointV: string = `${this.host}viajes`
+  private urlEndPointV: string = `${this.host}viajes`;
   // url de las Actividades (API)
-  private urlEndPointA: string = `${this.host}actividades`
+  private urlEndPointA: string = `${this.host}actividades`;
+  // url de los Coordinadores (API)
+  private urlEndPointC: string = `${this.host}coordinadores`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // método para conseguir el ID
   getId(url: string): string {
@@ -30,8 +36,8 @@ export class ExperienceService {
   }
 
   /*
-  * Métodos para conseguir un listado de Viajes y mapearlos desde la API
-  */
+   * Métodos para conseguir un listado de Viajes y mapearlos desde la API
+   */
   getViajes(): Observable<Viaje> {
     return this.http.get<any>(this.urlEndPointV);
   }
@@ -54,14 +60,14 @@ export class ExperienceService {
     viaje.fechaSalida = viajeApi.fechaSalida;
     viaje.numeroNoches = viajeApi.numeroNoches;
     viaje.precioTotal = viajeApi.precioTotal;
+    viaje.valoraciones = viajeApi._links.valoraciones.href;
     //console.log(viaje);
     return viaje;
   }
 
-
   /*
-  * CRUD de Viajes
-  */
+   * CRUD de Viajes
+   */
   createV(viaje: Viaje): Observable<any> {
     return this.http.post(this.urlEndPointV, viaje).pipe(
       catchError((e) => {
@@ -77,32 +83,28 @@ export class ExperienceService {
   }
 
   deleteV(id: string): Observable<Viaje> {
-    return this.http
-      .delete<Viaje>(`${this.urlEndPointV}/${id}`)
-      .pipe(
-        catchError((e) => {
-          if (e.error.mensaje) {
-            console.error(e.error.mensaje);
-          }
-          return throwError(() => new Error(e));
-        })
-      );
+    return this.http.delete<Viaje>(`${this.urlEndPointV}/${id}`).pipe(
+      catchError((e) => {
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
   }
 
   updateV(viaje: Viaje): Observable<any> {
-    return this.http
-      .patch<any>(`${this.urlEndPointV}/${viaje.id}`, viaje)
-      .pipe(
-        catchError((e) => {
-          if (e.status === 400) {
-            return throwError(() => new Error(e));
-          }
-          if (e.error.mensaje) {
-            console.error(e.error.mensaje);
-          }
+    return this.http.patch<any>(`${this.urlEndPointV}/${viaje.id}`, viaje).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
           return throwError(() => new Error(e));
-        })
-      );
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
   }
 
   getViaje(id: string): Observable<Viaje> {
@@ -116,10 +118,9 @@ export class ExperienceService {
     );
   }
 
-
   /*
-  * Métodos para conseguir un listado de Actividades y mapearlos desde la API
-  */
+   * Métodos para conseguir un listado de Actividades y mapearlos desde la API
+   */
   getActividades(): Observable<Actividad> {
     return this.http.get<any>(this.urlEndPointA);
   }
@@ -141,14 +142,14 @@ export class ExperienceService {
     actividad.descripcion = actividadApi.descripcion;
     actividad.ciudad = actividadApi.ciudad;
     actividad.coordinador = actividadApi._links.coordinador.href;
+    actividad.valoraciones = actividadApi._links.valoraciones.href;
     //console.log(actividad);
     return actividad;
   }
 
-
   /*
-  * CRUD de Actividades
-  */
+   * CRUD de Actividades
+   */
   createA(actividad: Actividad): Observable<any> {
     return this.http.post(this.urlEndPointA, actividad).pipe(
       catchError((e) => {
@@ -164,16 +165,14 @@ export class ExperienceService {
   }
 
   deleteA(id: string): Observable<Actividad> {
-    return this.http
-      .delete<Actividad>(`${this.urlEndPointA}/${id}`)
-      .pipe(
-        catchError((e) => {
-          if (e.error.mensaje) {
-            console.error(e.error.mensaje);
-          }
-          return throwError(() => new Error(e));
-        })
-      );
+    return this.http.delete<Actividad>(`${this.urlEndPointA}/${id}`).pipe(
+      catchError((e) => {
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
   }
 
   updateA(actividad: Actividad): Observable<any> {
@@ -203,4 +202,103 @@ export class ExperienceService {
     );
   }
 
+  /*
+   * Métodos para conseguir un listado de Coordinadores y mapearlos desde la API
+   */
+  getCoordinadores(): Observable<any> {
+    return this.http.get<any>(this.urlEndPointC).pipe(
+      catchError((e) => {
+        if (e.status !== 401 && e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
+  extraerCoordinadores(respuestaApi: any): Coordinador[] {
+    const coordinadores: Coordinador[] = [];
+    respuestaApi._embedded.coordinadores.forEach((c: any) => {
+      coordinadores.push(this.mapearCoordinador(c));
+    });
+    //console.log(coordinadores);
+    return coordinadores;
+  }
+
+  mapearCoordinador(coordinadorApi: any): Coordinador {
+    //console.log(coordinadorApi);
+    let coordinador: Coordinador = new CoordinadorImpl();
+    coordinador.nombre = coordinadorApi.nombre;
+    coordinador.apellidos = coordinadorApi.apellidos;
+    coordinador.telefono = coordinadorApi.telefono;
+    coordinador.email = coordinadorApi.email;
+    coordinador.residencia = coordinadorApi.residencia;
+    coordinador.fechaNac = coordinadorApi.fechaNac;
+    coordinador.actividad = coordinadorApi._links.actividad.href;
+    coordinador.url = coordinadorApi._links.self.href;
+    //console.log(coordinador);
+    return coordinador;
+  }
+
+  getCoordinador(id: string): Observable<Coordinador> {
+    return this.http.get<Coordinador>(`${this.urlEndPointC}/${id}`).pipe(
+      catchError((e) => {
+        if (e.status !== 401 && e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
+  /*
+   * Métodos para conseguir un listado de Valoraciones y mapearlos desde la API
+   */
+  getValoracionesViajes(viaje: Viaje): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointV}/${viaje.id}/valoraciones`);
+  }
+
+  getValoracionesActividades(actividad: Actividad): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointA}/${actividad.id}/valoraciones`);
+  }
+
+  getValoracionesIdViaje(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointV}/${id}/valoraciones`);
+  }
+
+  getValoracionesIdActividad(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointA}/${id}/valoraciones`);
+  }
+
+  extraerValoracionEntretenimiento(respuestaApi: any): any[] {
+    const valoraciones: any[] = [];
+
+    if (respuestaApi._embedded.valoraciones) {
+      respuestaApi._embedded.valoraciones.forEach((vl: any) => {
+        valoraciones.push(vl);
+      });
+    }
+
+    return valoraciones;
+  }
+
+  extraerValoraciones(respuestaApi: any): Valoracion[] {
+    const valoraciones: Valoracion[] = [];
+    respuestaApi._embedded.valoraciones.forEach((vl: any) => {
+      valoraciones.push(this.mapearValoracion(vl));
+    });
+    //console.log(valoraciones);
+    return valoraciones;
+  }
+
+  mapearValoracion(valoracionApi: any): Valoracion {
+    //console.log(valoracionApi);
+    let valoracion: Valoracion = new ValoracionImpl();
+    valoracion.titulo = valoracionApi.titulo;
+    valoracion.comentario = valoracionApi.comentario;
+    valoracion.puntuacion = valoracionApi.puntuacion;
+    valoracion.entretenimiento = valoracionApi._links.entretenimiento.href;
+    //console.log(valoracion);
+    return valoracion;
+  }
 }

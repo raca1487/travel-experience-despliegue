@@ -8,12 +8,15 @@ import { ViajesComponent } from './viajes/viajes.component';
 import { ViajeComponent } from './viajes/viaje/viaje.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ViajeFormComponent } from './viajes/viaje-form/viaje-form.component';
-import { ValoracionesModule } from '../valoraciones/valoraciones.module';
 import { ActividadesComponent } from './actividades/actividades.component';
 import { ActividadComponent } from './actividades/actividad/actividad.component';
 import { ActividadFormComponent } from './actividades/actividad-form/actividad-form.component';
 import { ViajeItemComponent } from './viajes/viaje-item/viaje-item.component';
 import { ViajeModificarComponent } from './viajes/viaje-modificar/viaje-modificar.component';
+import { CommunityModule } from '../community/community.module';
+import { ValoracionesModule } from '../valoraciones/valoraciones.module';
+import { ActividadItemComponent } from './actividades/actividad-item/actividad-item.component';
+import { ActividadModificarComponent } from './actividades/actividad-modificar/actividad-modificar.component';
 
 
 @NgModule({
@@ -26,13 +29,16 @@ import { ViajeModificarComponent } from './viajes/viaje-modificar/viaje-modifica
     ActividadComponent,
     ActividadFormComponent,
     ViajeItemComponent,
-    ViajeModificarComponent
+    ViajeModificarComponent,
+    ActividadItemComponent,
+    ActividadModificarComponent
   ],
   imports: [
     CommonModule,
     ExperiencesRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    CommunityModule,
     ValoracionesModule
   ]
 })

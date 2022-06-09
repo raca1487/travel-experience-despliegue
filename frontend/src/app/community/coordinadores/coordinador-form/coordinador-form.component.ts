@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Coordinador } from '../../models/coordinador';
-import { CoordinadorImpl } from '../../models/coordinador-impl';
+import { Coordinador } from 'src/app/experiences/models/coordinador';
+import { CoordinadorImpl } from 'src/app/experiences/models/coordinador-impl';
 
 @Component({
   selector: 'app-coordinador-form',

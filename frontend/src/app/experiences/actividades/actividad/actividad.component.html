@@ -15,9 +15,11 @@
       </article>
       <article class="banner-infotravel col-md-4">
         <div class="description-info-content">
-          <h3>{{ actividad.ciudad }}</h3>
-          <hr>
-          <h3>{{ actividad.coordinador }}</h3>
+          <br>
+          <h2>{{ actividad.ciudad }}</h2>
+          <br>
+          <!-- <hr> -->
+          <!-- <h3>{{ actividad.coordinador }}</h3> -->
 
           <!--<hr>
           <h2 style="font-weight: bold;">Qué está incluido</h2>
@@ -38,9 +40,9 @@
           <div class="col">
             <h1>Valoraciones</h1>
           </div>
-          <div class="col">
+          <!-- <div class="col">
             <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
-          </div>
+          </div> -->
           <hr>
         </div>
 
@@ -51,13 +53,13 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8" *ngIf="valoraciones.length > 0; else elseValoraciones">
-      <div *ngFor="let valoracion of valoraciones">
-        <app-valoraciones></app-valoraciones>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6" *ngIf="valoraciones.length > 0; else elseValoraciones">
+      <div>
+        <app-valoracion ></app-valoracion>
       </div>
     </div>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-3"></div>
     <ng-template #elseValoraciones>
       <div class="card">
         <div class="card-body">

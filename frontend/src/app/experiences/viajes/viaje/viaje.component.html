@@ -39,10 +39,12 @@
         <div class="row">
           <div class="col">
             <h1>Valoraciones</h1>
+            <!-- <button type="button" class="btn btn-info" [routerLink]="['/valoraciones', viaje.valoraciones]"> <h1>Valoraciones</h1></button> -->
+
           </div>
-          <div class="col">
+          <!-- <div class="col">
             <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
-          </div>
+          </div> -->
           <hr>
         </div>
 
@@ -53,13 +55,13 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8" *ngIf="valoraciones.length > 0; else elseValoraciones">
-      <div *ngFor="let valoracion of valoraciones">
-        <app-valoraciones></app-valoraciones>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6" *ngIf="valoraciones.length > 0; else elseValoraciones">
+      <div>
+        <app-valoracion ></app-valoracion>
       </div>
     </div>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-3"></div>
     <ng-template #elseValoraciones>
       <div class="card">
         <div class="card-body">
@@ -76,3 +78,53 @@
     Volver a Experiencias
   </a>
 </div>
+
+<!-- Modal Valoraciones -->
+<!-- <div
+  class="modal fade"
+  id="modalValoraciones"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="datosValoracion"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="ml-5 modal-title" id="datosValoracion">
+          <b>&nbsp;Valoraciones Viaje&nbsp;</b>
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-valoracion-viaje-item [valoracion]="valoracionVerDatos"></app-valoracion-viaje-item>
+
+        <div class="p-2 m-1 card">
+          <div class="card-body">
+            <h4 class="card-title"><b>{{ valoracion.titulo }}</b></h4>
+            <p class="card-text">
+              {{ valoracion.comentario }}
+            </p>
+            <p class="card-text">
+              Puntuación: <b>{{ valoracion.puntuacion }}*</b>
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+

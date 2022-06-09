@@ -12,6 +12,14 @@ a {
   font-size: 1.2rem;
 }
 
+.collapse {
+  margin-top: 1%;
+}
+
+.form-inline {
+  font-family: "Fredoka";
+}
+
 /*Contenedor de Navegación*/
 .navbar {
   font-family: "Bangers";
@@ -68,6 +76,10 @@ a {
 
 .hide {
   display: none;
+}
+
+.admin:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1209px) {
