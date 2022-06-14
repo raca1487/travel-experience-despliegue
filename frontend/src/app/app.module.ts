@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CanActivateViaLoggingGuest } from './canActivateViaLoggingGuest';
+import { CanActivateViaLoggingAdministrador } from './canActivateViaLoggingAdministrador';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { CanActivateViaLoggingGuest } from './canActivateViaLoggingGuest';
     CoreModule,
     HttpClientModule
   ],
-  providers: [CanActivateViaLoggingGuest, CanActivateViaLoggingGuest],
+  providers: [CanActivateViaLoggingAdministrador, CanActivateViaLoggingGuest],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

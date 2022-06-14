@@ -5,8 +5,7 @@ import { UsuarioImpl } from '../../models/usuario-impl';
 @Component({
   selector: 'app-usuario-ficha',
   templateUrl: './usuario-ficha.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class UsuarioFichaComponent implements OnInit {
   @Input() usuario: Usuario = new UsuarioImpl();
