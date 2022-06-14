@@ -14,7 +14,7 @@ import { UsuarioImpl } from '../models/usuario-impl';
 export class UsuarioService {
 
   private host: string = environment.host;
-  private urlEndPoint: string = `${this.host}/usuarios/`;
+  private urlEndPoint: string = `${this.host}usuarios/`;
 
   constructor(private http: HttpClient) { }
 

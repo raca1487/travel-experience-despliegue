@@ -91,15 +91,15 @@
       <form #loggingForm="ngForm">
         <div class="form-inline">
           <input type="text" class="form-control mr-2 mb-3" [(ngModel)]="nombreUsuario" placeholder="User" name="user" />
-          <input type="text" class="form-control mr-2 mb-3" [(ngModel)]="password" placeholder="Password" name="password" />
-          <a class="btn btn-success text-white ml-3 mr-5 mb-3" type="button" (click)="comprobarLogging()">Identificarse</a>
+          <input type="password" class="form-control mr-2 mb-3" [(ngModel)]="password" placeholder="Password" name="password" />
+          <a class="btn login ml-3 mr-5 mb-3" type="button" (click)="comprobarLogging()">Identificarse</a>
         </div>
       </form>
     </div>
     <ng-template #elseBlock>
       <div class="row justify-content-end">
-        <div class="logueado mr-2 mt-2">{{ nombreUsuario | titlecase }} logged as {{ tipoUsuario | titlecase }}</div>
-        <button class="btn btn-danger text-white" (click)="cerrarSesion()">Cerrar sesión</button>
+        <div class="logueado mr-5 mt-2">Usuario {{ nombreUsuario | titlecase }} logged as {{ tipoUsuario | titlecase }}</div>
+        <button class="btn btn-danger text-white mr-5" (click)="cerrarSesion()">Cerrar sesión</button>
       </div>
     </ng-template>
   </div>

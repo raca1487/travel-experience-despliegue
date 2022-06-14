@@ -21,7 +21,7 @@ a {
 }
 
 .logueado {
-  color:darkgrey;
+  color:#1c658c;
 }
 
 
@@ -83,8 +83,19 @@ a {
   display: none;
 }
 
-.admin:hover {
+/* .admin:hover {
   cursor: pointer;
+} */
+
+.login {
+  background-color: #1c658c;
+  color: #f6d860;
+  font-size: 20px;
+}
+
+.login:hover {
+  font-style: italic;
+  background-color: #0f4d6e;
 }
 
 @media screen and (min-width: 1209px) {
