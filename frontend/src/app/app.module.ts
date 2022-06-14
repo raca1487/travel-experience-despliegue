@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { CanActivateViaLoggingGuest } from './canActivateViaLoggingGuest';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { CoreModule } from './core/core.module';
     CoreModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CanActivateViaLoggingGuest, CanActivateViaLoggingGuest],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

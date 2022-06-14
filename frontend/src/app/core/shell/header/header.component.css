@@ -20,6 +20,11 @@ a {
   font-family: "Fredoka";
 }
 
+.logueado {
+  color:darkgrey;
+}
+
+
 /*Contenedor de Navegación*/
 .navbar {
   font-family: "Bangers";

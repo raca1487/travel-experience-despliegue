@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CanActivateViaLoggingAdministrador } from './canActivateViaLoggingAdministrador';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'community',
     loadChildren: () => import("./community/community.module").then((m) => m.CommunityModule)
+  },
+  {
+    path: 'administracion',
+    loadChildren: () => import("./administracion/administracion.module").then((m) => m.AdministracionModule),
+    canActivateChild: [CanActivateViaLoggingAdministrador]
   },
   {
     path: 'not-found',

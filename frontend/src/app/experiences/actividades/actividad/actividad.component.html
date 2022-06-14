@@ -54,19 +54,12 @@
 
   <div class="row">
     <div class="col-sm-3"></div>
-    <div class="col-sm-6" *ngIf="valoraciones.length > 0; else elseValoraciones">
+    <div class="col-sm-6">
       <div>
         <app-valoracion ></app-valoracion>
       </div>
     </div>
     <div class="col-sm-3"></div>
-    <ng-template #elseValoraciones>
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title"><b>NO HAY VALORACIONES REGISTRADAS</b></h4>
-        </div>
-      </div>
-    </ng-template>
   </div>
 
 </section>
