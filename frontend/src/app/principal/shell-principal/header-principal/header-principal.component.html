@@ -1,0 +1,112 @@
+<!-- Header, con barra de navegación, fijo para toda la app -->
+
+<nav class="navbar fixed-top">
+  <!--Logo de la barra de navegación-->
+  <a class="navbar-brand" routerLink="/home">
+    <img
+      src="./assets/logo_trex.png"
+      alt="Logo TREX"
+      width="250px"
+      height="auto"
+    />
+  </a>
+
+  <!--Botón de la barra de navegación responsive-->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-target="#trexapp"
+    aria-controls="trexapp"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--<div class="hamburger">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>-->
+
+  <!--Botones de la barra de navegación-->
+  <div class="nav-link hide" id="trexapp">
+    <div class="nav-item dropdown" routerLinkActive="router-link-active">
+      <a routerLink="experiences">Experiencias</a>&nbsp;
+      <!--<a
+        class="nav-link dropdown-toggle"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false">
+        Experiencias
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" routerLink="experiences">Viajes</a>
+        <a class="dropdown-item" routerLink="experiences">Actividades</a>
+      </div>-->
+      <!--<a routerLink="#">Community Trex</a>-->
+      <a
+        class="nav-link dropdown-toggle"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Community Trex
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" routerLink="community/trabaja-con-nosotros"
+          >Trabaja con nosotros</a
+        >
+        <a class="dropdown-item" routerLink="community/contacto">Contacto</a>
+        <!-- <a class="dropdown-item">Valoraciones</a> -->
+        <a class="dropdown-item admin disabled">
+          <fa-icon [icon]="faUser"></fa-icon>&nbsp;&nbsp;Área Administrador
+        </a>
+      </div>
+      <a
+        href="https://www.sanidad.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov/home.htm"
+        target="_blank"
+      >
+        Info COVID-19 </a
+      >&nbsp;&nbsp;
+      <a routerLink="/" role="button">
+        <fa-icon [icon]="faUser"></fa-icon>
+      </a>
+    </div>
+  </div>
+
+      <!-- <a
+        data-toggle="collapse"
+        href="#collapseLogin"
+        role="button"
+        aria-expanded="false"
+        aria-controls="collapseLogin"
+      >
+        <fa-icon [icon]="faUser"></fa-icon>
+      </a>
+    </div>
+  </div>
+  <div class="collapse collapse-horizontal" id="collapseLogin">
+    <div class="row justify-content-end" *ngIf="!getLogged(); else elseBlock">
+      <form #loggingForm="ngForm">
+        <div class="form-inline">
+          <input type="text" class="form-control mr-2 mb-3" [(ngModel)]="nombreUsuario" placeholder="User" name="user" />
+          <input type="password" class="form-control mr-2 mb-3" [(ngModel)]="password" placeholder="Password" name="password" />
+          <a class="btn login ml-3 mr-5 mb-3" type="button" (click)="comprobarLogging()">Identificarse</a>
+        </div>
+      </form>
+    </div>
+    <ng-template #elseBlock>
+      <div class="row justify-content-end">
+        <div class="logueado mr-5 mt-2">Usuario {{ nombreUsuario | titlecase }} logged as {{ tipoUsuario | titlecase }}</div>
+        <button class="btn btn-danger text-white mr-5" (click)="cerrarSesion()">Cerrar sesión</button>
+      </div>
+    </ng-template>
+  </div> -->
+</nav>

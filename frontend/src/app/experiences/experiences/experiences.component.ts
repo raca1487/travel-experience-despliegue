@@ -21,6 +21,8 @@ export class ExperiencesComponent implements OnInit {
   actividadVerDatos: Actividad = new ActividadImpl();
   coordinadorVerDatos: Coordinador = new CoordinadorImpl();
 
+  static logged: boolean = false;
+
   constructor(
     private experienceService: ExperienceService,
     private router: Router
@@ -51,12 +53,12 @@ export class ExperiencesComponent implements OnInit {
 
   verDatosV(viaje: Viaje): void {
     this.viajeVerDatos = viaje;
-    this.router.navigate([`experiences/viaje/${viaje.id}`]);
+    this.router.navigate([`/home/experiences/viaje/${viaje.id}`]);
   }
 
   verDatosA(actividad: Actividad): void {
     this.actividadVerDatos = actividad;
-    this.router.navigate([`experiences/actividad/${actividad.id}`]);
+    this.router.navigate([`/home/experiences/actividad/${actividad.id}`]);
   }
 
   verDatosC(coordinador: Coordinador): void {
@@ -65,12 +67,12 @@ export class ExperiencesComponent implements OnInit {
 
   // CRUD Viajes
   registrarViaje() {
-    this.router.navigate(['experiences/viaje-form']);
+    this.router.navigate(['/home/experiences/viaje-form']);
   }
 
   onViajeEliminar(viaje: Viaje): void {
     this.experienceService.deleteV(viaje.id).subscribe((response) => {
-      this.router.navigate(['experiences']);
+      this.router.navigate(['/home/experiences']);
       this.viajes = this.viajes.filter((v) => viaje != v);
       location.reload();
     });
@@ -84,12 +86,12 @@ export class ExperiencesComponent implements OnInit {
 
   // CRUD Actividades
   registrarActividad() {
-    this.router.navigate(['experiences/actividad-form']);
+    this.router.navigate(['/home/experiences/actividad-form']);
   }
 
   onActividadEliminar(actividad: Actividad): void {
     this.experienceService.deleteA(actividad.id).subscribe((response) => {
-      this.router.navigate(['experiences']);
+      this.router.navigate(['/home/experiences']);
       this.actividades = this.actividades.filter((a) => actividad != a);
       location.reload();
     });
@@ -99,5 +101,9 @@ export class ExperiencesComponent implements OnInit {
     //let url = `experiences/actividad-form/${actividad.id}`;
     //location.reload();
     //this.router.navigate([url]);
+  }
+
+  getLogged(): boolean {
+    return ExperiencesComponent.logged;
   }
 }

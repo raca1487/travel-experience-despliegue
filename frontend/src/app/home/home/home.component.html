@@ -1,104 +1,45 @@
-<body>
-  <section class="inicio">
-    <div class="overlay"></div>
-    <div class="container-fluid">
-      <div class="banner-description">
-        <h1>Travel Experience App</h1>
-        <p>
-          La mejor web para consultar experiencias de otros usuarios en base a
-          gustos particulares. Prepara tu viaje soñado o simplemente quedate en
-          tu ciudad y realiza infinidad de actividades de entretenimiento
-        </p>
+<div class="logo-home">
+  <img src="../../../assets/logo_trex.png" alt="logo_home" width="500px"/>
+</div>
 
-        <button type="button" class="btn btn-primary btn-md disabled">
-          Comienza tu búsqueda
-        </button>
-      </div>
-    </div>
-  </section>
+<div class="container-contact">
+  <h2>Acceder a TREX</h2>
+  <form id="contact">
+    <fieldset>
+      <input
+        placeholder="Usuario"
+        type="text"
+        tabindex="1"
+        name="user"
+        [(ngModel)]="nombreUsuario"
+        required
+        autofocus
+      />
+    </fieldset>
 
-  <section class="banner-info">
-    <div class="container">
-      <div class="row">
-        <article class="col-md-4">
-          <div
-            class="wr-icon-block-container-image inline-block relative default"
-          >
-            <div class="icon-block-image w-full">
-              <div
-                id="icon-block-image"
-                class="wr-image inline-block h-auto w-full w-full"
-              >
-                <img
-                  src="../../../assets/banner_info-tickets.png"
-                  width="80"
-                  height="auto"
-                />
-              </div>
-            </div>
-          </div>
-          <h4>Reserva sin preocupaciones</h4>
-          <p>
-            ¿Estás pensando en cambiar de aires con un viaje pero te da
-            "canguele" reservar? Don't worry: si no pudieras viajar por culpa de
-            las nuevas restricciones, te reembolsamos el 100%.
-          </p>
-          <button type="button" class="btn btn-primary btn-sm disabled">
-            Saber más
-          </button>
-        </article>
+    <fieldset>
+      <input placeholder="Password" type="password" tabindex="2" name="password" [(ngModel)]="password" required />
+    </fieldset>
 
-        <article class="col-md-4">
-          <div
-            class="wr-icon-block-container-image inline-block relative default"
-          >
-            <div class="icon-block-image w-full">
-              <div
-                id="icon-block-image"
-                class="wr-image inline-block h-auto w-full w-full"
-              >
-                <img
-                  src="../../../assets/banner_info-heart.png"
-                  width="80"
-                  height="auto"
-                />
-              </div>
-            </div>
-          </div>
-          <h4>Cómo funciona</h4>
-          <p>Descubre la fórmula que hará de tu viaje una experiencia única</p>
-          <button type="button" class="btn btn-primary btn-sm disabled">
-            Saber más
-          </button>
-        </article>
+    <fieldset>
+      <button
+        name="login"
+        type="submit"
+        id="contact-submit"
+        tabindex="3"
+        (click)="comprobarLogging()"
+      >
+        Login
+      </button>
 
-        <article class="col-md-4">
-          <div
-            class="wr-icon-block-container-image inline-block relative default"
-          >
-            <div class="icon-block-image w-full">
-              <div
-                id="icon-block-image"
-                class="wr-image inline-block h-auto w-full w-full"
-              >
-                <img
-                  src="../../../assets/banner_info-hands.png"
-                  width="80"
-                  height="auto"
-                />
-              </div>
-            </div>
-          </div>
-          <h4>Te ayudamos con los vuelos</h4>
-          <p>
-            Queremos ponerte todo mucho más fácil, así que ahora, ¡te ayudamos a
-            encontrar los vuelos para tu viaje!
-          </p>
-          <button type="button" class="btn btn-primary btn-sm disabled">
-            Saber más
-          </button>
-        </article>
-      </div>
-    </div>
-  </section>
-</body>
+      <button
+        name="guest"
+        type="button"
+        tabindex="4"
+        routerLink="/home"
+      >
+        Acceder como "invitado"
+      </button>
+    </fieldset>
+  </form>
+</div>

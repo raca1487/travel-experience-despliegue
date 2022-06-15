@@ -43,7 +43,7 @@ export class ViajeComponent implements OnInit {
   }
 
   nuevaValoracion(): void {
-    this.router.navigate([`experiences/viaje/${this.viaje.id}/valoracion-form`]);
+    this.router.navigate([`/home/experiences/viaje/${this.viaje.id}/valoracion-form`]);
   }
 
   // cargarValoraciones(viaje: Viaje): void {

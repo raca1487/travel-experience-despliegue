@@ -3,16 +3,24 @@
   background-position: center center;
   background-size: cover;
   width: 100%;
-  height: 650px;;
+  height: 969px;
   position: cover;
-  margin-top: 6%;
 }
 
 .banner-not-found {
   position: relative;
-  top: 33%;
-  margin-left: 37%;
+  top: 37%;
+  margin-left: 33%;
   padding: 3em;
+}
+
+#back-home {
+  background-color: red;
+  color: white;
+  margin-right: 3%;
+}
+#back-home:hover {
+  background-color: #ffd012;
 }
 
 #back {
@@ -27,7 +35,7 @@
 #google {
   background-color: red;
   color: white;
-  margin-left: 2%;
+  margin-left: 1%;
 }
 #google:hover {
   background-color: green;

@@ -19,6 +19,8 @@ export class ViajesComponent implements OnInit {
   faEdit = faPenToSquare;
   faTrash = faTrashCan;
 
+  static logged: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

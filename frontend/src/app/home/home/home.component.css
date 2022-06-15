@@ -1,125 +1,77 @@
-@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower");
 @import url("https://fonts.googleapis.com/css?family=Fredoka");
 
-:root {
-  --color-blue: #1c658c;
-  --color-dark-blue: #0f4d6e;
-  --color-yellow: #f6d860;
-  --color-green: #a2b44d;
-  --color-dark: #333;
-  --color-grey: #aaa;
-  --color-light: #fff;
-  --color-gradient: linear-gradient(
-    90deg,
-    rgba(28, 101, 140, 1) 0%,
-    rgba(149, 205, 65, 1) 45%,
-    rgba(246, 216, 96, 1) 100%
-  );
-  --color-gradient-2: linear-gradient(
-    0deg,
-    rgba(246, 216, 96, 1) 0%,
-    rgba(162, 180, 77, 1) 100%
-  );
-}
-
-/*Body Style*/
-body {
-  font-family: "Fredoka";
-  margin: 0;
-  padding: 0;
-  /*background: #f6d860;*/
-  font-size: 1.2em;
-  line-height: 1.5em;
-}
-
-
-/*Imagen de fondo*/
-.inicio {
-  background-image: url("../../../assets/banner_newyork.png");
-  background-position: center center;
-  background-size: cover;
-  height: 768px;
-  margin-top: 80px;
-}
-.overlay {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  right: 0;
-  top: 0;
-  background-color: rgba(244, 244, 244, 0.5);
-}
-
-/*Descripcion sobre imagen de fondo*/
-.banner-description {
-  position: absolute;
-  top: 20%;
-  margin-left: 20%;
-  padding: 3em;
-  line-height: 4em;
-}
-.banner-description h1 {
-  font-family: "Permanent Marker";
-  color: #1c658c;
-}
-.banner-description p {
-  color: #333;
-  font-size: 1.5vw;
-  width: 65%;
-  line-height: 1.5em;
-}
-.btn-md {
-  border: 1px solid #1c658c;
-  border-radius: 5px;
-  background-color: #1c658c;
-  size: 3vw;
-}
-.btn-md:hover {
-  border: 1px solid #1c658c;
-  border-radius: 5px;
-  background-color: #0f4d6e;
-  color: #f6d860;
-}
-
-
-/*Contenedor de info*/
-.banner-info {
-  background-color: #a2b44d;
-  border-width: 2px;
-  border-style: ridge;
-  border-radius: 15px;
-  margin: 50px 50px 0;
-}
-.col-md-4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 3%;
-}
-.col-md-4 h4 {
-  font-family: "Permanent Marker";
-  color: #0f4d6e;
+.logo-home {
   margin-top: 5%;
-}
-.col-md-4 p {
-  font-size: medium;
+  margin-left: 37%;
 }
 
-.btn-sm {
-  border: 1px solid #1c658c;
-  border-radius: 5px;
-  background: #1c658c;
-  margin-bottom: 5%;
+#contact {
+  font-family: "Fredoka";
+  padding: 25px;
+  margin: 50px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 25px;
 }
-.btn-sm:hover {
-  border: 1px solid #1c658c;
-  border-radius: 5px;
+.container-contact {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.container-contact h2 {
+  font-family: "Permanent Marker";
+  text-align: center;
+  color: #1c658c;
+  display: block;
+  margin-top: 35px;
+}
+
+#contact input[type="text"],
+#contact input[type="password"] {
+  font: 400 12px/16px /*"Indie Flower", */"Roboto", Helvetica, Arial, sans-serif;
+  font-style: italic;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+#contact input[type="text"],
+#contact input[type="password"]  {
+  width: 100%;
+  border: 1px solid #aaa;
+  background: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+#contact input[type="text"],
+#contact input[type="password"]:hover {
+  transition: all 0.3s linear;
+  border: 1px solid #aaa;
+}
+#contact button {
+  font-family: "Fredoka";
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #1c658c;
+  color: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+#contact button:hover {
   background: #0f4d6e;
   color: #f6d860;
+  transition: all 0.3s linear;
+  font-style: italic;
 }
 
-.icon-block-image img {
-  margin-top: 1em;
+#contact input:focus {
+  outline: 0;
+  border: 2px solid rgb(117, 117, 117);
 }

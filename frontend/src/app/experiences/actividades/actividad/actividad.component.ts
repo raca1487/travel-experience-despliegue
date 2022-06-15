@@ -54,6 +54,6 @@ export class ActividadComponent implements OnInit {
   // }
 
   nuevaValoracion(): void {
-    this.router.navigate([`experiences/actividad/${this.actividad.id}/valoracion-form`]);
+    this.router.navigate([`/home/experiences/actividad/${this.actividad.id}/valoracion-form`]);
   }
 }

@@ -1,0 +1,243 @@
+<section class="experiences">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- VIAJES -->
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col">
+            <h1>Viajes</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col boton">
+            <button
+              type="button"
+              class="mt-5 btn btn-success btn-md"
+              (click)="registrarViaje()"
+            >
+              Nuevo Viaje
+            </button>
+          </div>
+        </div>
+
+        <hr class="w-100" />
+
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6" *ngIf="viajes.length > 0; else elseViajes">
+            <div *ngFor="let viaje of viajes">
+              <app-admin-viajes
+                [viaje]="viaje"
+                (viajeSeleccionado)="verDatosV($event)"
+                (viajeEliminar)="onViajeEliminar($event)"
+
+              ></app-admin-viajes>
+            </div>
+          </div>
+          <div class="col-sm-3"></div>
+          <ng-template #elseViajes>
+            <h4 class="card-title"><b>NO HAY VIAJES DISPONIBLES</b></h4>
+          </ng-template>
+        </div>
+      </div>
+      <!-- FIN VIAJES -->
+
+      <!-- ACTIVIDADES -->
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col">
+            <h1>Actividades</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col boton">
+            <button
+              type="button"
+              class="mt-5 btn btn-success btn-md"
+              (click)="registrarActividad()"
+            >
+              Nueva Actividad
+            </button>
+          </div>
+        </div>
+
+        <hr class="w-100" />
+
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div
+            class="col-sm-6"
+            *ngIf="actividades.length > 0; else elseActividades"
+          >
+            <div *ngFor="let actividad of actividades">
+              <app-admin-actividades
+                [actividad]="actividad"
+                (actividadSeleccionada)="verDatosA($event)"
+                (actividadEliminar)="onActividadEliminar($event)"
+                (actividadEditar)="onActividadEditar($event)"
+              ></app-admin-actividades>
+            </div>
+          </div>
+          <div class="col-sm-3"></div>
+          <ng-template #elseActividades>
+            <h4 class="card-title"><b>NO HAY ACTIVIDADES DISPONIBLES</b></h4>
+          </ng-template>
+        </div>
+      </div>
+      <!-- FIN ACTIVIDADES -->
+    </div>
+  </div>
+</section>
+
+<div id="volver-admin">
+  <a type="button" routerLink="/administracion/home" class="btn btn-md btn-danger">
+    Volver a la pantalla de Administración
+  </a>
+</div>
+
+
+<!-- Modal Viaje -->
+<div
+  class="modal fade"
+  id="modalViaje"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="datosViaje"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="ml-5 modal-title" id="datosViaje">
+          <b>&nbsp;Datos Completos Viaje&nbsp;</b>
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-viaje-item [viaje]="viajeVerDatos"></app-viaje-item>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Viajes Modificar -->
+<div
+  class="modal fade"
+  id="modalViajeModificar"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="Modificar"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="ml-5 modal-title" id="datosViajeModificar">
+          <b>&nbsp;Modificar Datos Viaje&nbsp;</b>
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-viaje-modificar [viaje]="viajeVerDatos"></app-viaje-modificar>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          Volver
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Actividad -->
+<div
+  class="modal fade"
+  id="modalActividad"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="datosActividad"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="ml-5 modal-title" id="datosActividad">
+          <b>&nbsp;Datos Completos Actividad&nbsp;</b>
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-actividad-item [actividad]="actividadVerDatos" [coordinador]="coordinadorVerDatos"></app-actividad-item>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Actividades Modificar -->
+<div
+  class="modal fade"
+  id="modalActividadModificar"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="Modificar"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="ml-5 modal-title" id="modalActividadModificar">
+          <b>&nbsp;Modificar Datos Actividad&nbsp;</b>
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-actividad-modificar [actividad]="actividadVerDatos"></app-actividad-modificar>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          Volver
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
