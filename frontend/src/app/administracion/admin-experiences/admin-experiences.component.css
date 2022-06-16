@@ -1,9 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Fredoka");
-
 /*Experiences Style*/
 .experiences h1 {
   font-family: "Permanent Marker";
-  color: #1c658c;
+  color: var(--color-blue);
   padding-top: 1em;
   margin-bottom: 1em;
 }
@@ -20,7 +18,7 @@
 
 .cabecera-viajes h4 {
   font-family: "Permanent Marker";
-  color: #1c658c;
+  color: var(--color-blue);
 }
 
 .datos-viajes {
@@ -33,13 +31,9 @@
 
 .modal h4 {
   font-family: "Permanent Marker";
-  color: #1c658c;
+  color: var(--color-blue);
 }
 
-
-#volver {
-  margin: 5% 0 5% 45%;
-}
 #volver-admin {
   margin: 5% 0 5% 45%;
 }

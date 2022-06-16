@@ -1,0 +1,38 @@
+/*Coordinadores Style*/
+.coordinadores h1 {
+  font-family: "Permanent Marker";
+  color: var(--color-blue);
+  text-align: center;
+  padding-top: 1em;
+  margin-bottom: 1em;
+}
+
+.boton {
+  text-align: center;
+  padding: 2%;
+  margin-top: -5%;
+}
+
+.cabecera-viajes h4 {
+  font-family: "Permanent Marker";
+  color: var(--color-blue);
+}
+
+.datos-viajes {
+  font-family: "Fredoka";
+}
+
+.modal {
+  font-family: "Fredoka";
+}
+
+.modal h4 {
+  font-family: "Permanent Marker";
+  color: var(--color-blue);
+}
+
+#volver-admin {
+  margin: 5% 0%;
+  display: flex;
+  justify-content: center;
+}

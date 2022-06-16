@@ -1,9 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Indie+Flower");
-@import url("https://fonts.googleapis.com/css?family=Fredoka");
-
 #contact {
   font-family: "Fredoka";
-  background: #a2b44d;
+  background: var(--color-navbar-gradient);
   padding: 25px;
   margin: 150px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -24,7 +21,7 @@
 }
 #contact h3 {
   font-family: "Bangers";
-  color: #0f4d6e;
+  color: var(--color-dark-blue);
   display: block;
   font-size: 30px;
   font-weight: 300;
@@ -49,8 +46,8 @@ fieldset {
 #contact input[type="tel"],
 #contact textarea {
   width: 100%;
-  border: 1px solid #aaa;
-  background: #fff;
+  border: 1px solid var(--color-grey);
+  background: var(--color-light);
   margin: 0 0 5px;
   padding: 10px;
 }
@@ -59,7 +56,7 @@ fieldset {
 #contact input[type="tel"]:hover,
 #contact textarea:hover {
   transition: all 0.3s linear;
-  border: 1px solid #aaa;
+  border: 1px solid var(--color-grey);
 }
 #contact textarea {
   height: 100px;
@@ -71,15 +68,15 @@ fieldset {
   cursor: pointer;
   width: 100%;
   border: none;
-  background: #1c658c;
-  color: #fff;
+  background: var(--color-blue);
+  color: var(--color-light);
   margin: 0 0 5px;
   padding: 10px;
   font-size: 15px;
 }
 #contact button[type="submit"]:hover {
-  background: #0f4d6e;
-  color: #f6d860;
+  background: var(--color-dark-blue);
+  color: var(--color-yellow);
   transition: all 0.3s linear;
   font-style: italic;
 }
@@ -88,15 +85,15 @@ fieldset {
   cursor: pointer;
   width: 100%;
   border: none;
-  background: #1c658c;
-  color: #fff;
+  background: var(--color-blue);
+  color: var(--color-light);
   margin: 0 0 5px;
   padding: 10px;
   font-size: 15px;
 }
 #contact button[type="reset"]:hover {
-  background: #0f4d6e;
-  color: #f6d860;
+  background: var(--color-dark-blue);
+  color: var(--color-yellow);
   transition: all 0.3s linear;
   font-style: italic;
 }

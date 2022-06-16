@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { Usuario } from '../models/usuario';
+import { UsuarioImpl } from '../models/usuario-impl';
 
 @Component({
   selector: 'app-admin-home',
@@ -6,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
+  faUser = faUser;
 
   constructor() { }
 

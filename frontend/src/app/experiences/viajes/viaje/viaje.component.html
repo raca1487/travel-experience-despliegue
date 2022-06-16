@@ -1,5 +1,7 @@
 <section class="travel-title">
-  <div class="overlay"></div>
+  <div class="overlay">
+    <img [src]='"../../../../assets/" + viaje.id + ".jpg"' width="100%" height="600px">
+  </div>
   <div class="container-fluid">
     <div class="banner-travel">
       <h1>{{ viaje.nombre | uppercase }}</h1>
@@ -39,18 +41,18 @@
         <div class="row">
           <div class="col">
             <h1>Valoraciones</h1>
-            <!-- <button type="button" class="btn btn-info" [routerLink]="['/valoraciones', viaje.valoraciones]"> <h1>Valoraciones</h1></button> -->
-
           </div>
-          <!-- <div class="col">
-            <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
-          </div> -->
-          <hr>
         </div>
+        <!-- <div class="row">
+          <div class="col botonera">
+            <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
+          </div>
+        </div> -->
+      </div>
 
         <hr class="w-100">
 
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 
@@ -71,6 +73,10 @@
     Volver a Experiencias
   </a>
 </div>
+
+<!-- <div>
+  <img [src]='"../../../../assets/" + viaje.id + ".png"'>
+</div> -->
 
 <!-- Modal Valoraciones -->
 <!-- <div

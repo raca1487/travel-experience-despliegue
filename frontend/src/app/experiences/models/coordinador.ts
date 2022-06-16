@@ -1,4 +1,5 @@
 export interface Coordinador {
+  id: string;
   nombre: string;
   apellidos: string;
   telefono: string;

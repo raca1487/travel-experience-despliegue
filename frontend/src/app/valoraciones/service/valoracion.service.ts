@@ -3,18 +3,19 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Actividad } from 'src/app/experiences/models/actividad';
 import { ActividadImpl } from 'src/app/experiences/models/actividad-impl';
-import { Valoracion } from 'src/app/experiences/models/valoracion';
-import { ValoracionImpl } from 'src/app/experiences/models/valoracion-impl';
 import { Viaje } from 'src/app/experiences/models/viaje';
 import { ViajeImpl } from 'src/app/experiences/models/viaje-impl';
 import { environment } from 'src/environments/environment.prod';
+import { Valoracion } from '../models/valoracion';
+import { ValoracionImpl } from '../models/valoracion-impl';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ValoracionService {
   private host: string = environment.host;
-  private urlEndPoint: string = `${this.host}valoraciones`;
+  private urlEndPointVal: string = `${this.host}valoraciones`;
+  private urlEndPointExp: string = `${this.host}entretenimientos`;
 
   constructor(private http: HttpClient) {}
 
@@ -30,7 +31,7 @@ export class ValoracionService {
    * Métodos para conseguir un listado de Valoraciones y mapearlos desde la API
    */
   getValoraciones(): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPoint}`);
+    return this.http.get<any>(`${this.urlEndPointVal}`);
   }
 
   extraerValoraciones(respuestaApi: any): Valoracion[] {
@@ -59,7 +60,7 @@ export class ValoracionService {
    * CRUD de Valoraciones
    */
   create(valoracion: Valoracion): Observable<any> {
-    return this.http.post(`${this.urlEndPoint}`, valoracion).pipe(
+    return this.http.post(`${this.urlEndPointVal}`, valoracion).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -73,7 +74,7 @@ export class ValoracionService {
   }
 
   getValoracion(id: string): Observable<any> {
-    return this.http.get<Valoracion>(`${this.urlEndPoint}/${id}`).pipe(
+    return this.http.get<Valoracion>(`${this.urlEndPointVal}/${id}`).pipe(
       catchError((e) => {
         if (e.status !== 401 && e.error.mensaje) {
           console.error(e.error.mensaje);
@@ -112,7 +113,7 @@ export class ValoracionService {
   }
 
   getViaje(valoracion: Valoracion): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPoint}/${valoracion.id}/entretenimiento`);
+    return this.http.get<any>(`${this.urlEndPointVal}/${valoracion.id}/entretenimiento`);
   }
 
   getValoracionesDeViaje(viaje: Viaje): Observable<any> {
@@ -148,7 +149,7 @@ export class ValoracionService {
   }
 
   getActividad(valoracion: Valoracion): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPoint}/${valoracion.id}/entretenimiento`);
+    return this.http.get<any>(`${this.urlEndPointVal}/${valoracion.id}/entretenimiento`);
   }
 
   getValoracionesDeActividad(actividad: Actividad): Observable<any> {

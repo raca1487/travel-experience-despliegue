@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Valoracion } from 'src/app/valoraciones/models/valoracion';
 import { ValoracionService } from 'src/app/valoraciones/service/valoracion.service';
 import { Actividad } from '../../models/actividad';
 import { ActividadImpl } from '../../models/actividad-impl';
 import { Coordinador } from '../../models/coordinador';
 import { CoordinadorImpl } from '../../models/coordinador-impl';
-import { Valoracion } from '../../models/valoracion';
 import { ExperienceService } from '../../service/experience.service';
 
 @Component({

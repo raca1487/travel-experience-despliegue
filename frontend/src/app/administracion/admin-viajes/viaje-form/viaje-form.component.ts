@@ -21,7 +21,7 @@ export class ViajeFormComponent implements OnInit {
 
   registrar(): void {
     this.experienceService.createV(this.viaje).subscribe((response) => {
-      this.router.navigate(['/experiences']);
+      this.router.navigate(['/administracion/experiences']);
     });
   }
 

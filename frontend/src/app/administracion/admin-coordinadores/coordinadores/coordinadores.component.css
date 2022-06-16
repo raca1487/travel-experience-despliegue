@@ -1,0 +1,22 @@
+.card {
+  background-color:rgb(250, 247, 215);
+  border-color: var(--color-blue);
+  border-radius: 5%;
+}
+
+.card-body {
+  font-family: "Fredoka";
+}
+
+.card-title {
+  color: var(--color-blue);
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.icons:hover {
+  cursor: pointer;
+}

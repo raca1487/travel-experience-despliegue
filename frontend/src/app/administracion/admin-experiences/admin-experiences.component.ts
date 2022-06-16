@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ExperiencesComponent } from 'src/app/experiences/experiences/experiences.component';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Actividad } from 'src/app/experiences/models/actividad';
 import { ActividadImpl } from 'src/app/experiences/models/actividad-impl';
 import { Coordinador } from 'src/app/experiences/models/coordinador';
@@ -17,7 +16,8 @@ import { ExperienceService } from 'src/app/experiences/service/experience.servic
 export class AdminExperiencesComponent implements OnInit {
   viajes: Viaje[] = [];
   actividades: Actividad[] = [];
-  coordinadores: Coordinador[] = [];
+  actividad: Actividad = new ActividadImpl();
+  coordinador: Coordinador = new CoordinadorImpl();
   viajeVerDatos: Viaje = new ViajeImpl();
   actividadVerDatos: Actividad = new ActividadImpl();
   coordinadorVerDatos: Coordinador = new CoordinadorImpl();
@@ -42,11 +42,11 @@ export class AdminExperiencesComponent implements OnInit {
             this.experienceService.extraerActividades(response))
       );
     this.experienceService
-      .getCoordinadores()
+      .getCoordinador(this.actividad.id)
       .subscribe(
         (response) =>
-          (this.coordinadores =
-            this.experienceService.extraerCoordinadores(response))
+          (this.coordinador =
+            this.experienceService.mapearCoordinador(response))
       );
   }
 

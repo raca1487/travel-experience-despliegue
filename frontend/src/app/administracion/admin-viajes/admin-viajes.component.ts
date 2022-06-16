@@ -19,8 +19,6 @@ export class AdminViajesComponent implements OnInit {
   faEdit = faPenToSquare;
   faTrash = faTrashCan;
 
-  static logged: boolean = false;
-
   constructor() { }
 
   ngOnInit(): void {

@@ -12,15 +12,15 @@
 
     <div class="icons">
       <a data-toggle="modal" data-target="#modalViaje" (click)='seleccionarViaje(viaje)'>
-        <fa-icon [icon]="faEye" class="fa-2x"></fa-icon>
+        <fa-icon [icon]="faEye" class="fa-2x" style="color:green"></fa-icon>
       </a>
       &nbsp;&nbsp;&nbsp;
       <a data-toggle="modal" data-target="#modalViajeModificar">
-        <fa-icon [icon]="faEdit" class="fa-2x"></fa-icon>
+        <fa-icon [icon]="faEdit" class="fa-2x" style="color:var(--color-yellow)"></fa-icon>
       </a>
       &nbsp;&nbsp;&nbsp;
       <a>
-        <fa-icon [icon]="faTrash" class="fa-2x" (click)="eliminarV()"></fa-icon>
+        <fa-icon [icon]="faTrash" class="fa-2x" style="color:red" (click)="eliminarV()"></fa-icon>
       </a>
     </div>
 

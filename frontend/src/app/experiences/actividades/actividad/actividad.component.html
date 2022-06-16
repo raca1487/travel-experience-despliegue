@@ -1,5 +1,7 @@
 <section class="travel-title">
-  <div class="overlay"></div>
+  <div class="overlay">
+    <img [src]='"../../../../assets/" + actividad.id + ".jpg"' width="100%" height="600px">
+  </div>
   <div class="container-fluid">
     <div class="banner-travel">
       <h1>{{ actividad.nombre | uppercase }}</h1>
@@ -16,10 +18,12 @@
       <article class="banner-infotravel col-md-4">
         <div class="description-info-content">
           <br>
-          <h2>{{ actividad.ciudad }}</h2>
+          <h3><b>Ciudad</b></h3>
+          <h2>{{ actividad.ciudad | uppercase }}</h2>
           <br>
-          <!-- <hr> -->
-          <!-- <h3>{{ actividad.coordinador }}</h3> -->
+          <hr>
+          <h3><b>Coordinador</b></h3>
+          <h4>{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}</h4>
 
           <!--<hr>
           <h2 style="font-weight: bold;">Qué está incluido</h2>
@@ -40,11 +44,13 @@
           <div class="col">
             <h1>Valoraciones</h1>
           </div>
-          <!-- <div class="col">
-            <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
-          </div> -->
-          <hr>
         </div>
+        <!-- <div class="row">
+          <div class="col botonera">
+            <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
+          </div>
+        </div> -->
+
 
         <hr class="w-100">
 

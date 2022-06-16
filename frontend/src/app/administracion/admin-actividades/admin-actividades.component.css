@@ -1,5 +1,7 @@
 .card {
   background-color:rgb(250, 247, 215);
+  border-color: var(--color-blue);
+  border-radius: 5%;
 }
 
 .card-body {
@@ -7,13 +9,9 @@
 }
 
 .card-title {
-  /*font-family: "Bangers";*/
-  color: #1c658c;
+  color: var(--color-blue);
 }
 
-.icons {
-  color: #1c658c;
-}
 .icons:hover {
   cursor: pointer;
 }

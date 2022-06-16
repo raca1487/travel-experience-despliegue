@@ -1,6 +1,6 @@
 .footer-container {
-  background: #a2b44d;
-  color: #1c658c;
+  background: var(--color-footer-gradient);
+  color: var(--color-blue);
   font-size: 0.8rem;
   line-height: 2em;
   text-align: center;

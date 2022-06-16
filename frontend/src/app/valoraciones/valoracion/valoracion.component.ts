@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Valoracion } from 'src/app/experiences/models/valoracion';
-import { ValoracionImpl } from 'src/app/experiences/models/valoracion-impl';
 import { ExperienceService } from 'src/app/experiences/service/experience.service';
-import { ValoracionService } from '../service/valoracion.service';
+import { Valoracion } from '../models/valoracion';
 
 @Component({
   selector: 'app-valoracion',

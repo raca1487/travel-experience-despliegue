@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Bangers");
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,7 +6,7 @@
 
 a {
   text-decoration: none;
-  color: #1c658c;
+  color: var(--color-blue);
   font-size: 1.2rem;
 }
 
@@ -21,14 +19,14 @@ a {
 }
 
 .logueado {
-  color:#1c658c;
+  color:var(--color-blue);
 }
 
 
 /*Contenedor de Navegación*/
 .navbar {
   font-family: "Bangers";
-  background: #a2b44d;
+  background: var(--color-navbar-gradient);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,7 +50,7 @@ a {
   width: 40px;
   height: 3px;
   margin-bottom: 10px;
-  background-color: #1c658c;
+  background-color: var(--color-blue);
 }
 
 
@@ -62,7 +60,7 @@ a {
   width: 94%;
   top: 5rem;
   left: 18px;
-  background-color: #1c658c;
+  background-color: var(--color-blue);
 }
 
 .nav-link a {
@@ -75,27 +73,12 @@ a {
 }
 
 .nav-link a:hover {
-  color: #f6d860;
-  background-color: #1c658c;
+  color: var(--color-yellow);
+  background-color: var(--color-blue);
 }
 
 .hide {
   display: none;
-}
-
-/* .admin:hover {
-  cursor: pointer;
-} */
-
-.login {
-  background-color: #1c658c;
-  color: #f6d860;
-  font-size: 20px;
-}
-
-.login:hover {
-  font-style: italic;
-  background-color: #0f4d6e;
 }
 
 @media screen and (min-width: 1209px) {

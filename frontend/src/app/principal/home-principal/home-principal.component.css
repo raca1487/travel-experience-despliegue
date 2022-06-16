@@ -1,33 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
-@import url("https://fonts.googleapis.com/css?family=Fredoka");
-
-:root {
-  --color-blue: #1c658c;
-  --color-dark-blue: #0f4d6e;
-  --color-yellow: #f6d860;
-  --color-green: #a2b44d;
-  --color-dark: #333;
-  --color-grey: #aaa;
-  --color-light: #fff;
-  --color-gradient: linear-gradient(
-    90deg,
-    rgba(28, 101, 140, 1) 0%,
-    rgba(149, 205, 65, 1) 45%,
-    rgba(246, 216, 96, 1) 100%
-  );
-  --color-gradient-2: linear-gradient(
-    0deg,
-    rgba(246, 216, 96, 1) 0%,
-    rgba(162, 180, 77, 1) 100%
-  );
-}
-
 /*Body Style*/
 body {
   font-family: "Fredoka";
   margin: 0;
   padding: 0;
-  /*background: #f6d860;*/
   font-size: 1.2em;
   line-height: 1.5em;
 }
@@ -61,31 +36,31 @@ body {
 }
 .banner-description h1 {
   font-family: "Permanent Marker";
-  color: #1c658c;
+  color: var(--color-blue);
 }
 .banner-description p {
-  color: #333;
+  color: var(--color-dark);
   font-size: 1em;
   width: 65%;
   line-height: 1.5em;
 }
 .btn-md {
-  border: 1px solid #1c658c;
+  border: 1px solid var(--color-blue);
   border-radius: 5px;
-  background-color: #1c658c;
+  background-color: var(--color-blue);
   size: 3vw;
 }
 .btn-md:hover {
-  border: 1px solid #1c658c;
+  border: 1px solid var(--color-blue);
   border-radius: 5px;
-  background-color: #0f4d6e;
-  color: #f6d860;
+  background-color: var(--color-dark-blue);
+  color: var(--color-yellow);
 }
 
 
 /*Contenedor de info*/
 .banner-info {
-  background-color: #a2b44d;
+  background-color: var(--color-green);
   border-width: 2px;
   border-style: ridge;
   border-radius: 15px;
@@ -100,7 +75,7 @@ body {
 }
 .col-md-4 h4 {
   font-family: "Permanent Marker";
-  color: #0f4d6e;
+  color: var(--color-dark-blue);
   margin-top: 5%;
 }
 .col-md-4 p {
@@ -108,16 +83,16 @@ body {
 }
 
 .btn-sm {
-  border: 1px solid #1c658c;
+  border: 1px solid var(--color-blue);
   border-radius: 5px;
-  background: #1c658c;
+  background: var(--color-blue);
   margin-bottom: 5%;
 }
 .btn-sm:hover {
-  border: 1px solid #1c658c;
+  border: 1px solid var(--color-blue);
   border-radius: 5px;
-  background: #0f4d6e;
-  color: #f6d860;
+  background: var(--color-dark-blue);
+  color: var(--color-yellow);
 }
 
 .icon-block-image img {

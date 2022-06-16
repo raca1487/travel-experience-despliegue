@@ -8,6 +8,7 @@ import { FooterComponent } from './shell/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConstruccionComponent } from './construccion/construccion.component';
 
 
 
@@ -17,7 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ConstruccionComponent
   ],
   imports: [
     CommonModule,

@@ -25,7 +25,6 @@ import { ValoracionesModule } from '../valoraciones/valoraciones.module';
     CommonModule,
     ExperiencesRoutingModule,
     FontAwesomeModule,
-    FormsModule,
     CommunityModule,
     ValoracionesModule
   ]

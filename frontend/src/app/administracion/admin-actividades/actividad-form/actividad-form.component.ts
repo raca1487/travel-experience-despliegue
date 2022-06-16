@@ -27,7 +27,7 @@ export class ActividadFormComponent implements OnInit {
 
   registrar(): void {
     this.experienceService.createA(this.actividad).subscribe((response) => {
-      this.router.navigate(['/experiences']);
+      this.router.navigate(['/administracion/experiences']);
     });
   }
 

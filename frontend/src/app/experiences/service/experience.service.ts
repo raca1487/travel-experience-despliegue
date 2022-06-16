@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError, catchError } from 'rxjs';
+import { Valoracion } from 'src/app/valoraciones/models/valoracion';
+import { ValoracionImpl } from 'src/app/valoraciones/models/valoracion-impl';
 //import { environment } from 'src/environments/environment';
 import { environment } from 'src/environments/environment.prod';
 import { Actividad } from '../models/actividad';
 import { ActividadImpl } from '../models/actividad-impl';
 import { Coordinador } from '../models/coordinador';
 import { CoordinadorImpl } from '../models/coordinador-impl';
-import { Valoracion } from '../models/valoracion';
-import { ValoracionImpl } from '../models/valoracion-impl';
 import { Viaje } from '../models/viaje';
 import { ViajeImpl } from '../models/viaje-impl';
 
@@ -228,6 +228,7 @@ export class ExperienceService {
   mapearCoordinador(coordinadorApi: any): Coordinador {
     //console.log(coordinadorApi);
     let coordinador: Coordinador = new CoordinadorImpl();
+    coordinador.id = this.getId(coordinadorApi._links.coordinador.href);
     coordinador.nombre = coordinadorApi.nombre;
     coordinador.apellidos = coordinadorApi.apellidos;
     coordinador.telefono = coordinadorApi.telefono;
@@ -240,8 +241,52 @@ export class ExperienceService {
     return coordinador;
   }
 
+  /*
+   * CRUD de Coordinadores
+   */
+  createC(coordinador: Coordinador): Observable<any> {
+    return this.http.post(this.urlEndPointC, coordinador).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error('test'));
+      })
+    );
+  }
+
+  deleteC(id: string): Observable<Coordinador> {
+    return this.http.delete<Coordinador>(`${this.urlEndPointC}/${id}`).pipe(
+      catchError((e) => {
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
+  updateC(coordinador: Coordinador): Observable<any> {
+    return this.http
+      .patch<any>(`${this.urlEndPointC}/${coordinador.id}`, coordinador)
+      .pipe(
+        catchError((e) => {
+          if (e.status === 400) {
+            return throwError(() => new Error(e));
+          }
+          if (e.error.mensaje) {
+            console.error(e.error.mensaje);
+          }
+          return throwError(() => new Error(e));
+        })
+      );
+  }
+
   getCoordinador(id: string): Observable<Coordinador> {
-    return this.http.get<Coordinador>(`${this.urlEndPointC}/${id}`).pipe(
+    return this.http.get<Coordinador>(`${this.urlEndPointA}/${id}/coordinador`).pipe(
       catchError((e) => {
         if (e.status !== 401 && e.error.mensaje) {
           console.error(e.error.mensaje);

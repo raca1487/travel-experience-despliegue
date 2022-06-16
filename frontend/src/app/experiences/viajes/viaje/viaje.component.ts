@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faPlaneUp } from '@fortawesome/free-solid-svg-icons';
+import { Valoracion } from 'src/app/valoraciones/models/valoracion';
 import { ValoracionService } from 'src/app/valoraciones/service/valoracion.service';
-import { Valoracion } from '../../models/valoracion';
+import { environment } from 'src/environments/environment.prod';
 import { Viaje } from '../../models/viaje';
 import { ViajeImpl } from '../../models/viaje-impl';
 import { ExperienceService } from '../../service/experience.service';
@@ -16,6 +17,8 @@ export class ViajeComponent implements OnInit {
   @Input() viaje: Viaje = new ViajeImpl();
   // valoracionVerDatos: Valoracion = new ValoracionImpl();
   valoraciones: Valoracion[] = [];
+  id: string = "";
+  url: string = "";
 
   faPlaneUp = faPlaneUp;
 
@@ -27,8 +30,9 @@ export class ViajeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let id: string = this.cargarViaje();
-    this.experienceService.getViaje(id).subscribe((response) => {
+    this.id = this.cargarViaje();
+
+    this.experienceService.getViaje(this.id).subscribe((response) => {
       this.viaje = this.experienceService.mapearViaje(response);
     });
     this.valoracionService.getValoraciones().subscribe((response) => {
@@ -43,7 +47,9 @@ export class ViajeComponent implements OnInit {
   }
 
   nuevaValoracion(): void {
+    this.url = `${environment.host}viajes/${this.id}`;
     this.router.navigate([`/home/experiences/viaje/${this.viaje.id}/valoracion-form`]);
+    // console.log(this.url);
   }
 
   // cargarValoraciones(viaje: Viaje): void {

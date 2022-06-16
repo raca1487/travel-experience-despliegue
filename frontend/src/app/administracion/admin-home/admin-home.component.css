@@ -1,5 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Fredoka");
-@import url("https://fonts.googleapis.com/css?family=PermanentMarker");
+.admin-icon {
+  margin-top: 2%;
+  margin-right: 2%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+.btn {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .logo-home {
   margin-top: 2%;
@@ -9,12 +18,12 @@
 
 .encabezado {
   font-family: "Fredoka";
-  color: #1c658c;
+  color: var(--color-blue);
 }
 
 .col {
   font-family: "Permanent Marker";
-  color: #1c658c;
+  color: var(--color-blue);
   font-size: 2em;
 }
 

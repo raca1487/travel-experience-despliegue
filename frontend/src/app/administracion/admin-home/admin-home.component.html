@@ -1,6 +1,17 @@
-<div class="logo-home">
-  <img src="../../../assets/logo_trex.png" alt="logo_home" width="500px"/>
+<div class="header">
+  <div class="admin-icon">
+    <fa-icon [icon]="faUser" style="color:green"></fa-icon>
+  </div>
+
+  <a type="button" class="btn btn-sm btn-danger" routerLink="/">
+    Desconectarse
+  </a>
+
+  <div class="logo-home">
+    <img src="../../../assets/logo_trex.png" alt="logo_home" width="500px"/>
+  </div>
 </div>
+
 
 <div class="encabezado">
   <h1 class="text-center"><b>Bienvenido a la Administración de TREX</b></h1>
@@ -24,7 +35,7 @@
     <h1 class="text-center">Coordinadores</h1>
     <div class="card">
       <div class="card-img">
-        <a routerLink="#">
+        <a routerLink="/administracion/coordinadores">
           <img src="../../../assets/guias_de_turistas.webp" class="img-fluid" />
         </a>
       </div>
@@ -35,7 +46,7 @@
     <h1 class="text-center">Valoraciones</h1>
     <div class="card">
       <div class="card-img">
-        <a routerLink="#">
+        <a routerLink="/en-construccion">
           <img src="../../../assets/comentarios.jpg" class="img-fluid" />
         </a>
       </div>

@@ -20,6 +20,11 @@ import { AdminActividadesComponent } from './admin-actividades/admin-actividades
 import { ActividadFormComponent } from './admin-actividades/actividad-form/actividad-form.component';
 import { ActividadItemComponent } from './admin-actividades/actividad-item/actividad-item.component';
 import { ActividadModificarComponent } from './admin-actividades/actividad-modificar/actividad-modificar.component';
+import { AdminCoordinadoresComponent } from './admin-coordinadores/admin-coordinadores.component';
+import { CoordinadorFormComponent } from './admin-coordinadores/coordinador-form/coordinador-form.component';
+import { CoordinadorItemComponent } from './admin-coordinadores/coordinador-item/coordinador-item.component';
+import { CoordinadorModificarComponent } from './admin-coordinadores/coordinador-modificar/coordinador-modificar.component';
+import { CoordinadoresComponent } from './admin-coordinadores/coordinadores/coordinadores.component';
 
 
 @NgModule({
@@ -37,7 +42,12 @@ import { ActividadModificarComponent } from './admin-actividades/actividad-modif
     AdminActividadesComponent,
     ActividadFormComponent,
     ActividadItemComponent,
-    ActividadModificarComponent
+    ActividadModificarComponent,
+    AdminCoordinadoresComponent,
+    CoordinadorFormComponent,
+    CoordinadorItemComponent,
+    CoordinadorModificarComponent,
+    CoordinadoresComponent
   ],
   imports: [
     CommonModule,

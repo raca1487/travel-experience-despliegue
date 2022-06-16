@@ -8,37 +8,37 @@
 .col-md {
   text-align: left;
   margin: 2em 5em 0;
-  background-color: #fff;
+  background-color: var(--color-light);
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
-  border-color: #aaa;
-  border-top-color: #a2b44d;
+  border-color: var(--color-grey);
+  border-top-color: var(--color-green);
   border-top-width: 20px;
 }
 .col-md h1 {
   text-align: center;
   font-family: "Permanent Marker";
-  color: #1c658c;
+  color: var(--color-blue);
   margin-top: 1em;
 }
 .col-md-10 {
   margin: 2em 5em 0;
-  background-color: #fff;
+  background-color: var(--color-light);
   border-radius: 15px;
   border-style: solid;
   border-width: 1px;
-  border-color: #aaa;
+  border-color: var(--color-grey);
 }
 .col-md-10 h3 {
   text-align: center;
   font-family: "Permanent Marker";
-  color: #1c658c;
+  color: var(--color-blue);
 }
 .tourmaker h4 {
   text-align: center;
   font-family: "Permanent Marker";
-  color: #1c658c;
+  color: var(--color-blue);
   margin: 8% 0 3% 0;
 }
 .col-md p {

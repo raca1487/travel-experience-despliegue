@@ -1,19 +1,16 @@
-.travel-title {
+/* .travel-title {
   background-image: url("../../../../assets/banner_playa.jpg");
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 600px;
-}
+} */
 
 .overlay {
-  position: relative;
-  height: 100%;
-  width: 100%;
+  opacity: 60%;
   left: 0;
   right: 0;
   top: 0;
-  background-color: rgba(244, 244, 244, 0.4);
 }
 
 .banner-travel {
@@ -24,7 +21,7 @@
 
 .banner-travel h1 {
   font-family: "Permanent Marker";
-  color: #0f4d6e;
+  color: var(--color-dark-blue);
 }
 
 .travel-description {
@@ -32,7 +29,7 @@
 }
 
 .banner-infotravel {
-  background-color: #fff;
+  background-color: var(--color-light);
   border-width: 2px;
   border-style: ridge;
   border-radius: 15px;
@@ -55,17 +52,16 @@
 /* Valoraciones Style */
 .banner-valoraciones h1 {
   font-family: "Permanent Marker";
-  color: #0f4d6e;
+  color: var(--color-dark-blue);
   text-align: center;
   margin-top: 10%;
 }
 
-/*.banner-valoraciones h1:hover {
-  cursor: pointer;
-}*/
-
-.btn-lg {
-  margin-top: 10%;
+.botonera {
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-md {
