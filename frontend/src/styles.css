@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+@import url("https://fonts.googleapis.com/css?family=Fredoka");
+@import url("https://fonts.googleapis.com/css?family=Bangers");
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower");
+
+:root {
+  --color-blue: #1c658c;
+  --color-dark-blue: #0f4d6e;
+  --color-yellow: #f6d860;
+  --color-green: #a2b44d;
+  --color-dark: #333;
+  --color-grey: #aaa;
+  --color-light-grey: hsla(0, 0%, 67%, 0.25);
+  --color-light: #fff;
+
+  --color-gradient: linear-gradient(
+    90deg,
+    rgba(28, 101, 140, 1) 0%,
+    rgba(149, 205, 65, 1) 45%,
+    rgba(246, 216, 96, 1) 100%
+  );
+  --color-gradient-2: linear-gradient(
+    0deg,
+    rgba(246, 216, 96, 1) 0%,
+    rgba(162, 180, 77, 1) 100%
+  );
+  --color-navbar-gradient: linear-gradient(
+    180deg,
+    rgba(162, 180, 77, 1) 2%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  --color-footer-gradient: linear-gradient(
+    0deg,
+    rgba(162, 180, 77, 1) 2%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
