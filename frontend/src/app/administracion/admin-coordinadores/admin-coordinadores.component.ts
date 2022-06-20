@@ -11,7 +11,7 @@ import { ExperienceService } from 'src/app/experiences/service/experience.servic
 })
 export class AdminCoordinadoresComponent implements OnInit {
   coordinadores: Coordinador[] = [];
-  coordinador: Coordinador = new CoordinadorImpl();
+  // coordinador: Coordinador = new CoordinadorImpl();
   coordinadorVerDatos: Coordinador = new CoordinadorImpl();
 
   constructor(
@@ -39,16 +39,16 @@ export class AdminCoordinadoresComponent implements OnInit {
   }
 
   onCoordinadorEliminar(coordinador: Coordinador): void {
-    this.experienceService.deleteC(coordinador.id).subscribe((response) => {
+    this.experienceService.deleteC(coordinador.idCoordinador).subscribe((response) => {
       this.router.navigate(['/administracion/coordinadores']);
       this.coordinadores = this.coordinadores.filter((c) => coordinador != c);
       location.reload();
     });
   }
 
-  onCoordinadorEditar(coordinador: Coordinador): void {
-    //let url = `experiences/viaje-form/${viaje.id}`;
-    //location.reload();
-    //this.router.navigate([url]);
+  onCoordinadorModificar(coordinador: Coordinador): void {
+    this.experienceService.updateC(coordinador).subscribe(response => {
+      this.router.navigate(['/administracion/coordinadores']);
+    });
   }
 }

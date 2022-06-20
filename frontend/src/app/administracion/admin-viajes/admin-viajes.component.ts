@@ -10,8 +10,8 @@ import { ViajeImpl } from 'src/app/experiences/models/viaje-impl';
 })
 export class AdminViajesComponent implements OnInit {
   @Input() viaje: Viaje = new ViajeImpl();
-  @Output() viajeSeleccionado = new EventEmitter<Viaje>();
 
+  @Output() viajeSeleccionado = new EventEmitter<Viaje>();
   @Output() viajeEliminar = new EventEmitter<Viaje>();
   @Output() viajeEditar = new EventEmitter<Viaje>();
 

@@ -18,6 +18,8 @@ import { ViajeImpl } from '../models/viaje-impl';
 export class ExperienceService {
   // url de la API
   private host: string = environment.host;
+  // url de los Entretenimientos (API)
+  private urlEndPointE: string = `${this.host}entretenimientos`;
   // url de los Viajes (API)
   private urlEndPointV: string = `${this.host}viajes`;
   // url de las Actividades (API)
@@ -60,7 +62,7 @@ export class ExperienceService {
     viaje.fechaSalida = viajeApi.fechaSalida;
     viaje.numeroNoches = viajeApi.numeroNoches;
     viaje.precioTotal = viajeApi.precioTotal;
-    viaje.valoraciones = viajeApi._links.valoraciones.href;
+    viaje.valoracionesHref = viajeApi._links.valoraciones.href;
     //console.log(viaje);
     return viaje;
   }
@@ -94,17 +96,7 @@ export class ExperienceService {
   }
 
   updateV(viaje: Viaje): Observable<any> {
-    return this.http.patch<any>(`${this.urlEndPointV}/${viaje.id}`, viaje).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
-          return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+    return this.http.patch<any>(`${this.urlEndPointV}/${viaje.id}`, viaje);
   }
 
   getViaje(id: string): Observable<Viaje> {
@@ -141,8 +133,8 @@ export class ExperienceService {
     actividad.nombre = actividadApi.nombre;
     actividad.descripcion = actividadApi.descripcion;
     actividad.ciudad = actividadApi.ciudad;
-    actividad.coordinador = actividadApi._links.coordinador.href;
-    actividad.valoraciones = actividadApi._links.valoraciones.href;
+    actividad.coordinadorHref = actividadApi._links.coordinador.href;
+    actividad.valoracionesHref = actividadApi._links.valoraciones.href;
     //console.log(actividad);
     return actividad;
   }
@@ -228,14 +220,14 @@ export class ExperienceService {
   mapearCoordinador(coordinadorApi: any): Coordinador {
     //console.log(coordinadorApi);
     let coordinador: Coordinador = new CoordinadorImpl();
-    coordinador.id = this.getId(coordinadorApi._links.coordinador.href);
+    coordinador.idCoordinador = this.getId(coordinadorApi._links.coordinador.href);
     coordinador.nombre = coordinadorApi.nombre;
     coordinador.apellidos = coordinadorApi.apellidos;
     coordinador.telefono = coordinadorApi.telefono;
     coordinador.email = coordinadorApi.email;
     coordinador.residencia = coordinadorApi.residencia;
     coordinador.fechaNac = coordinadorApi.fechaNac;
-    coordinador.actividad = coordinadorApi._links.actividad.href;
+    coordinador.actividadHref = coordinadorApi._links.actividad.href;
     coordinador.url = coordinadorApi._links.self.href;
     //console.log(coordinador);
     return coordinador;
@@ -271,7 +263,7 @@ export class ExperienceService {
 
   updateC(coordinador: Coordinador): Observable<any> {
     return this.http
-      .patch<any>(`${this.urlEndPointC}/${coordinador.id}`, coordinador)
+      .patch<any>(`${this.urlEndPointC}/${coordinador.idCoordinador}`, coordinador)
       .pipe(
         catchError((e) => {
           if (e.status === 400) {
@@ -286,14 +278,16 @@ export class ExperienceService {
   }
 
   getCoordinador(id: string): Observable<Coordinador> {
-    return this.http.get<Coordinador>(`${this.urlEndPointA}/${id}/coordinador`).pipe(
-      catchError((e) => {
-        if (e.status !== 401 && e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+    return this.http
+      .get<Coordinador>(`${this.urlEndPointA}/${id}/coordinador`)
+      .pipe(
+        catchError((e) => {
+          if (e.status !== 401 && e.error.mensaje) {
+            console.error(e.error.mensaje);
+          }
+          return throwError(() => new Error(e));
+        })
+      );
   }
 
   /*
@@ -304,7 +298,9 @@ export class ExperienceService {
   }
 
   getValoracionesActividades(actividad: Actividad): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointA}/${actividad.id}/valoraciones`);
+    return this.http.get<any>(
+      `${this.urlEndPointA}/${actividad.id}/valoraciones`
+    );
   }
 
   getValoracionesIdViaje(id: string): Observable<any> {
@@ -346,4 +342,12 @@ export class ExperienceService {
     //console.log(valoracion);
     return valoracion;
   }
+
+  /*
+   * Método Personalizado
+   */
+  getPersonalizado(puntuacion: number): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointE}/search/por-media?puntuacion=${puntuacion}`);
+  }
+
 }

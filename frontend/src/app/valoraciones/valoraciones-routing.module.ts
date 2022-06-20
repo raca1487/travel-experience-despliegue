@@ -9,7 +9,7 @@ const routes: Routes = [
     component: ValoracionComponent
   },
   {
-    path: 'viaje/:id/valoracion-form',
+    path: 'valoracion-form/viaje/:id',
     component: ValoracionFormComponent
   },
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
     component: ValoracionComponent
   },
   {
-    path: 'actividad/:id/valoracion-form',
+    path: 'valoracion-form/actividad/:id',
     component: ValoracionFormComponent
   }
 ];

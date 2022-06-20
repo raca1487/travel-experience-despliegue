@@ -52,8 +52,6 @@ import { CoordinadoresComponent } from './admin-coordinadores/coordinadores/coor
   imports: [
     CommonModule,
     AdministracionRoutingModule,
-    ExperiencesModule,
-    ValoracionesModule,
     FormsModule,
     FontAwesomeModule
   ]

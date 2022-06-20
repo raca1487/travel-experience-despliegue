@@ -16,7 +16,7 @@
               class="mt-5 btn btn-success btn-md"
               (click)="registrarCoordinador()"
             >
-              Dar de Alta
+              Dar de Alta Coordinador
             </button>
           </div>
         </div>
@@ -24,8 +24,8 @@
         <hr class="w-100" />
 
         <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-4" *ngIf="coordinadores.length > 0; else elseCoordinadores">
+          <!-- <div class="col-sm-5"></div>
+          <div class="col-sm-2" *ngIf="coordinadores.length > 0; else elseCoordinadores">
             <div *ngFor="let coordinador of coordinadores">
               <app-coordinadores
                 [coordinador]="coordinador"
@@ -35,11 +35,28 @@
               ></app-coordinadores>
             </div>
           </div>
-          <div class="col-sm-4"></div>
-          <ng-template #elseCoordinadores>
-            <h4 class="card-title"><b>NO EXISTEN COORDINADORES DADOS DE ALTA</b></h4>
-          </ng-template>
+          <div class="col-sm-5"></div> -->
+          <!-- <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1"></div> -->
+          <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-center"><b>Id</b></div>
+          <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center"><b>Nombre Completo</b></div>
+          <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center"><b>Fecha Nacimiento</b></div>
+          <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-center"><b>Teléfono</b></div>
+          <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center"><b>Email</b></div>
+          <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center"><b>Residencia</b></div>
+          <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center"><b>Modificar / Eliminar</b></div>
         </div>
+        <div *ngIf="coordinadores.length > 0; else elseCoordinadores">
+          <div *ngFor="let coordinador of coordinadores">
+            <app-coordinadores
+                [coordinador]="coordinador"
+                (coordinadorSeleccionado)="verDatosC($event)"
+                (coordinadorEliminar)="onCoordinadorEliminar($event)"
+            ></app-coordinadores>
+          </div>
+        </div>
+        <ng-template #elseCoordinadores>
+          <h4 class="card-title"><b>NO EXISTEN COORDINADORES DADOS DE ALTA</b></h4>
+        </ng-template>
       </div>
       <!-- FIN COORDINADORES -->
     </div>

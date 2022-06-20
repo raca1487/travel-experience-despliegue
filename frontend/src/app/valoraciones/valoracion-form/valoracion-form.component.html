@@ -101,41 +101,13 @@
     </div>
   </div>
 
-  <div class="form-row py-2">
-    <div class="col-lg-4 col-md-12">
-      <label>Entretenimiento (url): <sup class="text-danger">*</sup></label>
-      <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="valoracion.entretenimiento"
-        placeholder="url"
-        name="entretenimiento"
-        required
-        #entretenimiento="ngModel"
-        [ngClass]="{
-          'is-invalid':
-          entretenimiento.invalid && (entretenimiento.dirty || entretenimiento.touched),
-          'is-valid': !entretenimiento.invalid
-        }"
-      />
-      <div
-        class="text-danger"
-        *ngIf="entretenimiento.invalid && (entretenimiento.dirty || entretenimiento.touched)"
-      >
-        <div *ngIf="entretenimiento.errors?.['required']">
-          La URL del Entretenimiento es obligatoria
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="form-row justify-content-between pt-5">
     <div class="col-lg-5 col-md-12">
       <button
         id="registro"
         class="btn btn-primary"
         role="button"
-        routerLink="../"
+        routerLink="/home/experiences"
         (click)="registrar()"
         [disabled]="!valoracionForm.form.valid"
       >
@@ -145,7 +117,7 @@
         id="volver"
         type="button"
         class="btn btn-danger"
-        routerLink="../"
+        routerLink="/home/experiences"
         >Cancelar</a
       >
     </div>

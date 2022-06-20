@@ -33,7 +33,7 @@
 <div class="row vista">
   <div class="col-sm-4"></div>
   <!-- <div class="col-sm-1 text-center"><h4><b>ID</b></h4></div> -->
-  <div class="col-sm-4 text-center"><h4><b>NOMBRE</b></h4></div>
+  <div class="col-sm-4 text-center"><h4><b>NOMBRE EXPERIENCIA</b></h4></div>
   <div class="col-sm-3"></div>
 </div>
 
@@ -47,7 +47,7 @@
   <div *ngFor="let actividad of actividades">
     <app-busqueda-item
       [entretenimiento]="actividad"
-      (actividadSeleccionado)="verDatos($event)"
+      (actividadSeleccionada)="verDatos($event)"
     ></app-busqueda-item>
   </div>
 </div>

@@ -1,4 +1,5 @@
-<form #actividadForm="ngForm">
+<section id="datosActividad">
+
   <div class="form-row py-2">
     <div class="col-lg-4 col-md-12">
       <label>Nombre <sup class="text-danger">*</sup></label>
@@ -141,13 +142,13 @@
       <label>Coordinador <sup class="text-danger">*</sup></label>
       <select
         class="form-control"
-        [(ngModel)]="actividad.coordinador"
+        [(ngModel)]="actividad.coordinadorHref"
         name="coordinadores"
 
       >
         <option value="">Seleccione Coordinador</option>
         <option value="n/a">Sin Coordinador</option>
-        <option *ngFor="let coordinador of coordinadores" [ngValue]="actividad.coordinador">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}&nbsp;-&nbsp;{{ coordinador.residencia }}</option>
+        <option *ngFor="let coordinador of coordinadores" [ngValue]="actividad.coordinadorHref">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}&nbsp;-&nbsp;{{ coordinador.residencia }}</option>
       </select>
       <!-- <div class="text-danger" *ngIf="coordinadores.invalid && (coordinadores.dirty || coordinadores.touched)">
         <div *ngIf="coordinadores.errors?.['required']">Campo Obligatorio</div>
@@ -156,18 +157,17 @@
   </div>
 
 
-  <div class="form-row justify-content-between pt-5">
+  <div class="row justify-content-between pt-5">
     <div class="col-lg-5 col-md-12">
       <button
-        id="registro"
         class="btn btn-primary"
-        role="button"
-        routerLink="../"
-        (click)="modificarActividad(actividad)"
-        [disabled]="!actividadForm.form.valid"
+        data-toggle="modal"
+        (click)="modificarActividad(this.actividad)"
+        data-dismiss="modal"
       >
         Modificar Actividad
       </button>
     </div>
   </div>
-</form>
+
+</section>

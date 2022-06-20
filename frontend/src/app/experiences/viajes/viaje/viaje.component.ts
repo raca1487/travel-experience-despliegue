@@ -48,14 +48,8 @@ export class ViajeComponent implements OnInit {
 
   nuevaValoracion(): void {
     this.url = `${environment.host}viajes/${this.id}`;
-    this.router.navigate([`/home/experiences/viaje/${this.viaje.id}/valoracion-form`]);
-    // console.log(this.url);
+    this.router.navigate([`/home/experiences/valoracion-form/viaje/${this.id}`]);
+    console.log(this.url);
   }
 
-  // cargarValoraciones(viaje: Viaje): void {
-  //   this.valoraciones = [];
-  //   this.experienceService.getValoraciones(viaje.valoraciones).subscribe((response) => {
-  //       this.valoraciones = this.experienceService.extraerValoraciones(response);
-  //     });
-  // }
 }

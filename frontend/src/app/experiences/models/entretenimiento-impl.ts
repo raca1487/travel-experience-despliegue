@@ -4,7 +4,7 @@ export class EntretenimientoImpl implements Entretenimiento {
   id: string = "";
   nombre: string = "";
   descripcion: string = "";
-  valoraciones: any[] = [];
+  valoracionesHref: any[] = [];
 
   constructor() {}
 

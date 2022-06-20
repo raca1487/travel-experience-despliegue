@@ -20,7 +20,7 @@ export class BusquedaItemComponent implements OnInit {
 
   @Output() entretenimientoSeleccionado = new EventEmitter<Entretenimiento>();
   @Output() viajeSeleccionado = new EventEmitter<Viaje>();
-  @Output() actividadSeleccionado = new EventEmitter<Actividad>();
+  @Output() actividadSeleccionada = new EventEmitter<Actividad>();
 
   faEye = faEye;
 

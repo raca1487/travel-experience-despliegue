@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Actividad } from 'src/app/experiences/models/actividad';
 import { ActividadImpl } from 'src/app/experiences/models/actividad-impl';
 import { Coordinador } from 'src/app/experiences/models/coordinador';
@@ -41,13 +41,13 @@ export class AdminExperiencesComponent implements OnInit {
           (this.actividades =
             this.experienceService.extraerActividades(response))
       );
-    this.experienceService
-      .getCoordinador(this.actividad.id)
-      .subscribe(
-        (response) =>
-          (this.coordinador =
-            this.experienceService.mapearCoordinador(response))
-      );
+    // this.experienceService
+    //   .getCoordinador(this.actividadVerDatos.id)
+    //   .subscribe(
+    //     (response) =>
+    //       (this.coordinador =
+    //         this.experienceService.mapearCoordinador(response))
+    //   );
   }
 
   verDatosV(viaje: Viaje): void {
@@ -76,9 +76,9 @@ export class AdminExperiencesComponent implements OnInit {
   }
 
   onViajeEditar(viaje: Viaje): void {
-    //let url = `experiences/viaje-form/${viaje.id}`;
-    //location.reload();
-    //this.router.navigate([url]);
+    this.experienceService.updateV(viaje).subscribe(response => {
+      this.router.navigate(['/administracion/experiences']);
+    });
   }
 
   // CRUD Actividades
@@ -94,10 +94,10 @@ export class AdminExperiencesComponent implements OnInit {
     });
   }
 
-  onActividadEditar(actividad: Actividad): void {
-    //let url = `experiences/actividad-form/${actividad.id}`;
-    //location.reload();
-    //this.router.navigate([url]);
-  }
+  // onActividadEditar(actividad: Actividad): void {
+  //   this.experienceService.updateA(actividad).subscribe(response => {
+  //     this.router.navigate(['/administracion/experiences']);
+  //   });
+  // }
 
 }

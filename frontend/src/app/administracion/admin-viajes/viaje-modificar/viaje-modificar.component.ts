@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Viaje } from 'src/app/experiences/models/viaje';
 import { ViajeImpl } from 'src/app/experiences/models/viaje-impl';
 import { ExperienceService } from 'src/app/experiences/service/experience.service';
@@ -11,13 +12,18 @@ import { ExperienceService } from 'src/app/experiences/service/experience.servic
 export class ViajeModificarComponent implements OnInit {
   @Input() viaje: Viaje = new ViajeImpl();
 
-  constructor(private experienceService: ExperienceService) {}
+  @Output() viajeModificar = new EventEmitter<Viaje>();
+
+  constructor(
+    private experienceService: ExperienceService,
+    private router: Router,
+    private activateRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
   }
 
-  modificarViaje(viaje: Viaje): void {
-    this.experienceService.updateV(viaje).subscribe();
+  modificarViaje(): void {
+    this.viajeModificar.emit(this.viaje);
   }
-
 }

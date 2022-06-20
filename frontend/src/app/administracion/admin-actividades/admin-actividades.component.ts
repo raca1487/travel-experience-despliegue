@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { faEye, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { Actividad } from 'src/app/experiences/models/actividad';
 import { ActividadImpl } from 'src/app/experiences/models/actividad-impl';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-admin-actividades',
@@ -19,7 +21,7 @@ export class AdminActividadesComponent implements OnInit {
   faEdit = faPenToSquare;
   faTrash = faTrashCan;
 
-  constructor() { }
+  constructor(private activateRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -32,10 +34,6 @@ export class AdminActividadesComponent implements OnInit {
     if (confirm('Va a eliminar una Actividad, ¿está usted seguro de la operación que va a realizar?')) {
       this.actividadEliminar.emit(this.actividad);
     }
-  }
-
-  editarA(): void {
-    this.actividadEditar.emit(this.actividad);
   }
 
 }

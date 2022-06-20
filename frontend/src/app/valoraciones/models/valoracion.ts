@@ -1,5 +1,5 @@
 export interface Valoracion {
-  id: string;
+  idValoracion: string;
   titulo: string;
   comentario: string;
   puntuacion: number;

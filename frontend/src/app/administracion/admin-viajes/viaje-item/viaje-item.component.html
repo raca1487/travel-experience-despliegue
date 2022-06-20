@@ -5,6 +5,7 @@
     <h4 class="card-text"><b>
       {{viaje.nombre}}</b>
     </h4>
+    <p class="car-text">{{ viaje.descripcion }}</p>
     <p class="card-text"><b>Fecha Salida:</b>&nbsp;{{ viaje.fechaSalida | date: 'dd-MM-YYYY' }}</p>
     <p class="card-text"><b>Duración:</b>&nbsp;{{ viaje.numeroNoches }} noches</p>
     <p class="card-text"><b>Precio:</b>&nbsp;{{ viaje.precioTotal }} €</p>

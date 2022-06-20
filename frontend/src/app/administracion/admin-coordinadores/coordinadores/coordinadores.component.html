@@ -1,4 +1,4 @@
-<div class="p-2 m-1 card">
+<!-- <div class="p-2 m-1 card">
   <div class="card-body">
     <h3 class="card-title text-success">
       Id: <b>{{ coordinador.id }}</b>
@@ -21,5 +21,36 @@
     </div>
 
   </div>
+
+</div> -->
+
+<div class="row mb-2">
+
+  <hr class='w-100'>
+
+  <!-- <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1"></div> -->
+  <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-center">{{ coordinador.idCoordinador }}</div>
+  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}</div>
+  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">{{ coordinador.fechaNac | date: "dd-MM-YYYY" }}</div>
+  <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-center">{{ coordinador.telefono }}</div>
+  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">{{ coordinador.email }}</div>
+  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">{{ coordinador.residencia }}</div>
+  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">
+    <div class="icons">
+      <a data-toggle="modal" data-target="#modalCoordinador" (click)='seleccionarCoordinador(coordinador)'>
+        <fa-icon [icon]="faEye" class="fa-2x" style="color:green"></fa-icon>
+      </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a data-toggle="modal" data-target="#modalCoordinadorModificar">
+        <fa-icon [icon]="faEdit" class="fa-2x" style="color:var(--color-yellow)"></fa-icon>
+      </a>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a>
+        <fa-icon [icon]="faTrash" class="fa-2x" style="color:red" (click)="eliminarC()"></fa-icon>
+      </a>
+    </div>
+  </div>
+
+
 
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Actividad } from 'src/app/experiences/models/actividad';
 import { ActividadImpl } from 'src/app/experiences/models/actividad-impl';
 import { Coordinador } from 'src/app/experiences/models/coordinador';
@@ -13,6 +13,8 @@ export class ActividadModificarComponent implements OnInit {
   @Input() actividad: Actividad = new ActividadImpl();
   @Input() coordinadores: Coordinador[] = [];
 
+  @Output() actividadModificar = new EventEmitter<Actividad>();
+
   constructor(private experienceService: ExperienceService) { }
 
   ngOnInit(): void {
@@ -22,6 +24,7 @@ export class ActividadModificarComponent implements OnInit {
   }
 
   modificarActividad(actividad: Actividad): void {
+    // this.actividadModificar.emit(this.actividad);
     this.experienceService.updateA(actividad).subscribe();
   }
 

@@ -14,4 +14,8 @@ export class HeaderPrincipalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  desplegable() {
+
+  }
+
 }

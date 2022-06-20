@@ -1,4 +1,4 @@
-<section id="datosViaje">
+<form #viajeForm="ngForm" id="datosViaje">
 
   <div class="form-row py-2">
     <label>Nombre <sup class="text-danger">*</sup></label>
@@ -147,13 +147,17 @@
     </div>
   </div>
 
-  <button
-    class="btn btn-success"
-    data-toggle="modal"
-    (click)="modificarViaje(viaje)"
-    data-dismiss="modal"
-  >
-    Modificar Viaje
-  </button>
+  <div class="form-row justify-content-between pt-5">
+    <div class="col-lg-5 col-md-12">
+      <button
+        class="btn btn-primary"
+        data-toggle="modal"
+        (click)="modificarViaje()"
+        data-dismiss="modal"
+      >
+        Modificar Viaje
+      </button>
+    </div>
+  </div>
 
-</section>
+</form>

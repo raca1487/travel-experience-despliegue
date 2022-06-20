@@ -1,7 +1,7 @@
 import { Valoracion } from "./valoracion";
 
 export class ValoracionImpl implements Valoracion {
-  id: string = "";
+  idValoracion: string = "";
   titulo: string = "";
   comentario: string = "";
   puntuacion: number = 0;

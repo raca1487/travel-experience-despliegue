@@ -1,10 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Actividad } from 'src/app/experiences/models/actividad';
-import { ActividadImpl } from 'src/app/experiences/models/actividad-impl';
-import { Viaje } from 'src/app/experiences/models/viaje';
-import { ViajeImpl } from 'src/app/experiences/models/viaje-impl';
-import { ExperienceService } from 'src/app/experiences/service/experience.service';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 import { Valoracion } from '../models/valoracion';
 import { ValoracionImpl } from '../models/valoracion-impl';
 import { ValoracionService } from '../service/valoracion.service';
@@ -16,18 +12,33 @@ import { ValoracionService } from '../service/valoracion.service';
 })
 export class ValoracionFormComponent implements OnInit {
   valoracion: Valoracion = new ValoracionImpl();
+  id: string = '';
+  host: string = environment.host;
+  fechaActual: Date = new Date();
 
   constructor(
     private valoracionService: ValoracionService,
     private router: Router,
+    private activateRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.id = this.activateRoute.snapshot.params['id'];
+    console.log('id = ', this.id);
+    console.log('fecha = ', this.cambiarFormatoFecha(this.fechaActual));
   }
 
   registrar(): void {
+    this.valoracion.entretenimiento = `${this.host}entretenimientos/${this.id}`;
+    this.valoracion.fechaPublicacion = this.cambiarFormatoFecha(this.fechaActual);
     this.valoracionService.create(this.valoracion).subscribe((response) => {
       this.router.navigate(['/home/experiences']);
     });
+  }
+
+  cambiarFormatoFecha(fecha: Date): string {
+    return `${fecha.getFullYear}-${fecha.getMonth() < 10 ? '0' + fecha.getMonth() : fecha.getMonth()}
+      -${fecha.getDay() < 10 ? '0' + fecha.getDay() : fecha.getDay()}
+      T${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`;
   }
 }

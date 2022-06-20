@@ -7,6 +7,7 @@
 :root {
   --color-blue: #1c658c;
   --color-dark-blue: #0f4d6e;
+  --color-blue-trex: #282c9d;
   --color-yellow: #f6d860;
   --color-green: #a2b44d;
   --color-dark: #333;
@@ -34,5 +35,15 @@
     0deg,
     rgba(162, 180, 77, 1) 2%,
     rgba(255, 255, 255, 1) 100%
+  );
+  --color-blue-gradient: linear-gradient(
+    180deg,
+    rgba(33, 113, 243, 1) 2%,
+    rgba(12, 19, 132, 1) 100%
+  );
+  --color-dark-blue-gradient: linear-gradient(
+    180deg,
+    rgba(15, 77, 110, 1) 2%,
+    rgba(12, 19, 132, 1) 100%
   );
 }

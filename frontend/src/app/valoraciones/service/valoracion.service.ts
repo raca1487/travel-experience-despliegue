@@ -113,7 +113,7 @@ export class ValoracionService {
   }
 
   getViaje(valoracion: Valoracion): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointVal}/${valoracion.id}/entretenimiento`);
+    return this.http.get<any>(`${this.urlEndPointVal}/${valoracion.idValoracion}/entretenimiento`);
   }
 
   getValoracionesDeViaje(viaje: Viaje): Observable<any> {
@@ -142,14 +142,14 @@ export class ValoracionService {
     actividad.nombre = actividadApi.nombre;
     actividad.descripcion = actividadApi.descripcion;
     actividad.ciudad = actividadApi.ciudad;
-    actividad.coordinador = actividadApi._links.coordinador.href;
-    actividad.valoraciones = actividadApi._links.valoraciones.href;
+    actividad.coordinadorHref = actividadApi._links.coordinador.href;
+    actividad.valoracionesHref = actividadApi._links.valoraciones.href;
 
     return actividad;
   }
 
   getActividad(valoracion: Valoracion): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointVal}/${valoracion.id}/entretenimiento`);
+    return this.http.get<any>(`${this.urlEndPointVal}/${valoracion.idValoracion}/entretenimiento`);
   }
 
   getValoracionesDeActividad(actividad: Actividad): Observable<any> {
