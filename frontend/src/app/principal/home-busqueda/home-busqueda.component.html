@@ -1,0 +1,56 @@
+<div class="encabezado text-center">
+  <h1>Busca tu Experiencia Favorita</h1>
+</div>
+
+<div class="cuerpo text-center">
+  <h4>Escoja una puntuación de Valoración deseada para filtro de búsqueda</h4>
+  <div class="form-inline">
+    <label>Puntuación (0-10):&nbsp;&nbsp;</label>
+    <select name="selectPunt" class="form-select" [(ngModel)]="getPuntuacion">
+      <option value="0" (change)="setPuntuacion(0)">0</option>
+      <option value="1" (change)="setPuntuacion(1)">1</option>
+      <option value="2" (change)="setPuntuacion(2)">2</option>
+      <option value="3" (change)="setPuntuacion(3)">3</option>
+      <option value="4" (change)="setPuntuacion(4)">4</option>
+      <option value="5" (change)="setPuntuacion(5)">5</option>
+      <option value="6" (change)="setPuntuacion(6)">6</option>
+      <option value="7" (change)="setPuntuacion(7)">7</option>
+      <option value="8" (change)="setPuntuacion(8)">8</option>
+      <option value="9" (change)="setPuntuacion(9)">9</option>
+      <option value="10" (change)="setPuntuacion(10)">10</option>
+    </select>
+  </div>
+
+  <button
+    type="button"
+    class="btn btn-primary btn-md"
+    (click)="filtrarPersonalizado(getPuntuacion)"
+  >
+    Buscar
+  </button>
+</div>
+
+<div class="row vista">
+  <div class="col-sm-4"></div>
+  <!-- <div class="col-sm-1 text-center"><h4><b>ID</b></h4></div> -->
+  <div class="col-sm-4 text-center"><h4><b>NOMBRE</b></h4></div>
+  <div class="col-sm-3"></div>
+</div>
+
+<div *ngIf="viajes.length > 0; else elseEntretenimientos">
+  <div *ngFor="let viaje of viajes">
+    <app-busqueda-item
+      [entretenimiento]="viaje"
+      (viajeSeleccionado)="verDatos($event)"
+    ></app-busqueda-item>
+  </div>
+  <div *ngFor="let actividad of actividades">
+    <app-busqueda-item
+      [entretenimiento]="actividad"
+      (actividadSeleccionado)="verDatos($event)"
+    ></app-busqueda-item>
+  </div>
+</div>
+<ng-template #elseEntretenimientos>
+    <h5 class="card-title text-center">NO EXISTEN EXPERIENCIAS CON ESE CRITERO DE BÚSQUEDA</h5>
+</ng-template>

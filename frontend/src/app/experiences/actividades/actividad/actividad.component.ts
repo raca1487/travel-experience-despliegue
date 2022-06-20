@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Valoracion } from 'src/app/valoraciones/models/valoracion';
 import { ValoracionService } from 'src/app/valoraciones/service/valoracion.service';
+import { environment } from 'src/environments/environment.prod';
 import { Actividad } from '../../models/actividad';
 import { ActividadImpl } from '../../models/actividad-impl';
 import { Coordinador } from '../../models/coordinador';
@@ -17,6 +18,8 @@ export class ActividadComponent implements OnInit {
   @Input() actividad: Actividad = new ActividadImpl();
   @Input() coordinador: Coordinador = new CoordinadorImpl();
   valoraciones: Valoracion[] = [];
+  url: string = "";
+  id: string = ""
 
   constructor(
     private experienceService: ExperienceService,
@@ -26,8 +29,8 @@ export class ActividadComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let id: string = this.cargarActividad();
-    this.experienceService.getActividad(id).subscribe((response) => {
+    this.id = this.cargarActividad();
+    this.experienceService.getActividad(this.id).subscribe((response) => {
       this.actividad = this.experienceService.mapearActividad(response);
     });
 
@@ -35,7 +38,7 @@ export class ActividadComponent implements OnInit {
       this.valoraciones = this.valoracionService.extraerValoraciones(response);
     });
 
-    this.experienceService.getCoordinador(id).subscribe((response) => {
+    this.experienceService.getCoordinador(this.id).subscribe((response) => {
       this.coordinador = this.experienceService.mapearCoordinador(response);
     });
   }
@@ -46,14 +49,9 @@ export class ActividadComponent implements OnInit {
     return idBarraNavegacion;
   }
 
-  // cargarCoordinador(actividad: Actividad): string {
-  //   let urlCoordinador: string = actividad.coordinador;
-  //   let idCoordinador: string = this.experienceService.getId(urlCoordinador);
-  //   console.log(idCoordinador);
-  //   return idCoordinador;
-  // }
-
   nuevaValoracion(): void {
-    this.router.navigate([`/home/experiences/actividad/${this.actividad.id}/valoracion-form`]);
+    this.router.navigate([`/home/experiences/valoracion-form/actividad/${this.actividad.id}`]);
+    this.url = `${environment.host}actividades/${this.id}`;
+    console.log(this.url);
   }
 }

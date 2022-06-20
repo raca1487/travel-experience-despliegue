@@ -10,6 +10,8 @@ import { MainPrincipalComponent } from './shell-principal/main-principal/main-pr
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeBusquedaComponent } from './home-busqueda/home-busqueda.component';
+import { BusquedaItemComponent } from './home-busqueda/busqueda-item/busqueda-item.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ShellPrincipalComponent,
     HeaderPrincipalComponent,
     FooterPrincipalComponent,
-    MainPrincipalComponent
+    MainPrincipalComponent,
+    HomeBusquedaComponent,
+    BusquedaItemComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,42 @@
+.encabezado {
+  margin-top: 10%;
+  font-family: "Permanent Marker";
+  color: var(--color-blue);
+}
+
+.cuerpo {
+  margin-top: 3%;
+  font-family: "Fredoka";
+  color: var(--color-blue);
+}
+
+.form-inline {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-md {
+  margin-top: 2%;
+  margin-bottom: 3%;
+  border: 1px solid var(--color-blue);
+  border-radius: 5px;
+  background-color: var(--color-blue);
+  size: 3vw;
+}
+.btn-md:hover {
+  border: 1px solid var(--color-blue);
+  border-radius: 5px;
+  background-color: var(--color-dark-blue);
+  color: var(--color-yellow);
+}
+
+.vista {
+  font-family: "Fredoka";
+  color: var(--color-blue);
+}
+
+.card-title {
+  margin-top: 1%;
+  margin-bottom: 10%;
+}
