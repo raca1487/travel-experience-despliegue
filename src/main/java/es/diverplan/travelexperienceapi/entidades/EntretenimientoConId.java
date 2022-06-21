@@ -42,7 +42,7 @@ public class EntretenimientoConId extends Entretenimiento {
 	}
 	
 	@Override
-	@OneToMany(cascade = CascadeType.ALL, targetEntity = ValoracionConId.class, mappedBy = "entretenimiento")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = ValoracionConId.class, mappedBy = "entretenimiento", orphanRemoval = true)
 	public List<Valoracion> getValoraciones() {
 		return super.getValoraciones();
 	}
