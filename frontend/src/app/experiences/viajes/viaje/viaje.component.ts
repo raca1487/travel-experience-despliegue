@@ -18,7 +18,7 @@ export class ViajeComponent implements OnInit {
   // valoracionVerDatos: Valoracion = new ValoracionImpl();
   valoraciones: Valoracion[] = [];
   id: string = "";
-  url: string = "";
+  // url: string = "";
 
   faPlaneUp = faPlaneUp;
 
@@ -47,9 +47,9 @@ export class ViajeComponent implements OnInit {
   }
 
   nuevaValoracion(): void {
-    this.url = `${environment.host}viajes/${this.id}`;
+    // this.url = `${environment.host}viajes/${this.id}`;
     this.router.navigate([`/home/experiences/valoracion-form/viaje/${this.id}`]);
-    console.log(this.url);
+    // console.log(this.url);
   }
 
 }

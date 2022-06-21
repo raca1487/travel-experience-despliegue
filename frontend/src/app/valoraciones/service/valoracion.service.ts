@@ -47,6 +47,7 @@ export class ValoracionService {
   mapearValoracion(valoracionApi: any): Valoracion {
     //console.log(valoracionApi);
     let valoracion: Valoracion = new ValoracionImpl();
+    valoracion.idValoracion = this.getId(valoracionApi._links.valoracion.href);
     valoracion.titulo = valoracionApi.titulo;
     valoracion.comentario = valoracionApi.comentario;
     valoracion.puntuacion = valoracionApi.puntuacion;
