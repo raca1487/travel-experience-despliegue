@@ -43,7 +43,7 @@ public class EntretenimientoDAOImpl implements EntretenimientoDAOCustom {
 		List<EntretenimientoConId> experiencias = entretenimientoDAO.findAll();
 		Set<EntretenimientoConId> experienciasFiltradas = new HashSet<EntretenimientoConId>();
 		for (EntretenimientoConId experiencia : experiencias) {
-			if (experiencia.valoracionAverage() >= puntuacion) {
+			if (experiencia.mediaValoraciones() >= puntuacion) {
 				experienciasFiltradas.add(experiencia);
 			}
 		}

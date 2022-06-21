@@ -52,5 +52,18 @@ public class EntretenimientoConId extends Entretenimiento {
 		super.addValoracion(valoracion);
 		valoracion.setEntretenimiento(this);
 	}
+	
+	public int mediaValoraciones() {
+		int acumulador = 0;
+		int media = 0;
+		int tamano = getValoraciones().size();
+		for (Valoracion valoracion : getValoraciones()) {
+			acumulador += valoracion.getPuntuacion();
+			media = acumulador / tamano;
+		}
+		
+		return media;
+		
+	}
 
 }
