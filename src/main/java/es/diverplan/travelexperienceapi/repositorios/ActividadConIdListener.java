@@ -34,7 +34,7 @@ public class ActividadConIdListener {
 		if (actividad.getCoordinador() == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La Actividad tiene que tener un Coordinador");
 		}
-		if (actividad.getCiudad() == null) {
+		if (actividad.getCiudad().equals(null)) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La Actividad tiene que tener asignada una ciudad");
 		}
 	}

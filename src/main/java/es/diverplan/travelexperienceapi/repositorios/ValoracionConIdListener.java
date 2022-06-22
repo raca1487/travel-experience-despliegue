@@ -31,8 +31,12 @@ public class ValoracionConIdListener {
 	
 	@PrePersist
 	public void preRegistrarValoracion(ValoracionConId valoracion) throws Exception {
-		if (valoracion.getPuntuacion() < 0 | valoracion.getPuntuacion() > 10) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La puntuacion tiene que ser entre 0 y 10");
+		if (valoracion.getPuntuacion() < 0) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La puntuacion tiene que ser mayor que 0");
+		}
+
+		if (valoracion.getPuntuacion() > 10) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La puntuacion tiene que ser menor que 10");
 		}
 	}
 
