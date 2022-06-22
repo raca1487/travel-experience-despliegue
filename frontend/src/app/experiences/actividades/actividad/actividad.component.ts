@@ -32,11 +32,6 @@ export class ActividadComponent implements OnInit {
     this.experienceService.getActividad(this.id).subscribe((response) => {
       this.actividad = this.experienceService.mapearActividad(response);
     });
-
-    this.valoracionService.getValoraciones().subscribe((response) => {
-      this.valoraciones = this.valoracionService.extraerValoraciones(response);
-    });
-
     this.experienceService.getCoordinador(this.id).subscribe((response) => {
       this.coordinador = this.experienceService.mapearCoordinador(response);
     });

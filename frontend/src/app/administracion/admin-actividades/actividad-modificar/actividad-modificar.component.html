@@ -1,4 +1,4 @@
-<section id="datosActividad">
+<form *ngIf="actividad" id="datosActividad">
 
   <div class="form-row py-2">
     <div class="col-lg-4 col-md-12">
@@ -144,13 +144,14 @@
         class="form-control"
         [(ngModel)]="actividad.coordinador"
         name="coordinadores"
-
+        required
+        #coord="ngModel"
       >
         <option *ngFor="let coordinador of coordinadores" [ngValue]="coordinador.url">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}&nbsp;-&nbsp;{{ coordinador.residencia }}</option>
       </select>
-      <!-- <div class="text-danger" *ngIf="coordinadores.invalid && (coordinadores.dirty || coordinadores.touched)">
-        <div *ngIf="coordinadores.errors?.['required']">Campo Obligatorio</div>
-      </div> -->
+      <div class="text-danger" *ngIf="coord.invalid && (coord.dirty || coord.touched)">
+        <div *ngIf="coord.errors?.['required']">Campo Obligatorio</div>
+      </div>
     </div>
   </div>
 
@@ -168,4 +169,4 @@
     </div>
   </div>
 
-</section>
+</form>

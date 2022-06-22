@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExperienceService } from 'src/app/experiences/service/experience.service';
 import { Valoracion } from '../models/valoracion';
+import { ValoracionService } from '../service/valoracion.service';
 
 @Component({
   selector: 'app-valoracion',
@@ -18,13 +19,19 @@ export class ValoracionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.experienceService.getValoracionesIdViaje(this.activateRoute.snapshot.params['id']).subscribe((response) =>
-          this.valoraciones = this.experienceService.extraerValoracionEntretenimiento(response)
+    this.experienceService
+      .getValoracionesIdViaje(this.activateRoute.snapshot.params['id'])
+      .subscribe(
+        (response) =>
+          (this.valoraciones =
+            this.experienceService.extraerValoracionEntretenimiento(response))
       );
-
-      this.experienceService.getValoracionesIdActividad(this.activateRoute.snapshot.params['id']).subscribe((response) =>
-        this.valoraciones = this.experienceService.extraerValoracionEntretenimiento(response)
+    this.experienceService
+      .getValoracionesIdActividad(this.activateRoute.snapshot.params['id'])
+      .subscribe(
+        (response) =>
+          (this.valoraciones =
+            this.experienceService.extraerValoracionEntretenimiento(response))
       );
-
   }
 }

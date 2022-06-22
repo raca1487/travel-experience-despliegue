@@ -303,6 +303,10 @@ export class ExperienceService {
       ;
   }
 
+  getCoordinadorUrl(url: string): Observable<Coordinador> {
+    return this.http.get<Coordinador>(`${url}`);
+  }
+
   /*
    * Métodos para conseguir un listado de Valoraciones y mapearlos desde la API
    */

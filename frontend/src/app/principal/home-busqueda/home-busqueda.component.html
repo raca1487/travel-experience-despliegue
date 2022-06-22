@@ -37,7 +37,7 @@
   <div class="col-sm-3"></div>
 </div>
 
-<div *ngIf="viajes.length > 0; else elseEntretenimientos">
+<div *ngIf="viajes.length > 0 || actividades.length > 0; else elseEntretenimientos">
   <div *ngFor="let viaje of viajes">
     <app-busqueda-item
       [entretenimiento]="viaje"

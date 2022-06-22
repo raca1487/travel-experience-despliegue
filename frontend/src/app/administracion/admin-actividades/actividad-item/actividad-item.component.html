@@ -1,4 +1,4 @@
-<div class="card">
+<div *ngIf="actividad" class="card" (mouseenter)="actualizar()">
 
   <div class="card-body">
     <h4 class="card-title text-success"><b>Id:&nbsp;</b>{{ actividad.id }}</h4>
@@ -7,7 +7,7 @@
     </h4>
     <p class="card-text">{{ actividad.descripcion }}</p>
     <p class="card-text"><b>Ciudad:</b>&nbsp;{{ actividad.ciudad }}</p>
-    <!-- <p class="card-text"><b>Coordinador:</b>&nbsp;{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}</p> -->
+    <p *ngIf="coordinador.nombre" class="card-text"><b>Coordinador:</b>&nbsp;{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}</p>
     <!-- <p class="card-text"><b>Coordinador:</b>&nbsp;{{ actividad.coordinador }}</p> -->
   </div>
 

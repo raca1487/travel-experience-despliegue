@@ -30,12 +30,8 @@ export class ViajeComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.cargarViaje();
-
     this.experienceService.getViaje(this.id).subscribe((response) => {
       this.viaje = this.experienceService.mapearViaje(response);
-    });
-    this.valoracionService.getValoraciones().subscribe((response) => {
-      this.valoraciones = this.valoracionService.extraerValoraciones(response);
     });
   }
 
