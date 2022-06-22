@@ -23,7 +23,7 @@ export class ValoracionService {
   getId(url: string): string {
     let posicionFinal: number = url.lastIndexOf('/');
     let numId: string = url.slice(posicionFinal + 1, url.length);
-    //console.log(numId);
+
     return numId;
   }
 
@@ -36,7 +36,10 @@ export class ValoracionService {
 
   extraerValoraciones(respuestaApi: any): Valoracion[] {
     const valoraciones: Valoracion[] = [];
-
+    let respuesta: any = respuestaApi._embedded.valoraciones;
+    if (respuesta === undefined) {
+      console.info("No hay Valoraciones");
+    } else
     respuestaApi._embedded.valoraciones.forEach((vl: any) => {
       valoraciones.push(this.mapearValoracion(vl));
     });
@@ -45,7 +48,6 @@ export class ValoracionService {
   }
 
   mapearValoracion(valoracionApi: any): Valoracion {
-    //console.log(valoracionApi);
     let valoracion: Valoracion = new ValoracionImpl();
     valoracion.idValoracion = this.getId(valoracionApi._links.valoracion.href);
     valoracion.titulo = valoracionApi.titulo;
@@ -53,7 +55,7 @@ export class ValoracionService {
     valoracion.puntuacion = valoracionApi.puntuacion;
     valoracion.fechaPublicacion = valoracionApi.fechaPublicacion;
     valoracion.entretenimiento = valoracionApi._links.entretenimiento.href;
-    //console.log(valoracion);
+
     return valoracion;
   }
 
@@ -75,14 +77,16 @@ export class ValoracionService {
   }
 
   getValoracion(id: string): Observable<any> {
-    return this.http.get<Valoracion>(`${this.urlEndPointVal}/${id}`).pipe(
-      catchError((e) => {
-        if (e.status !== 401 && e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(e);
-      })
-    );
+    return this.http.get<Valoracion>(`${this.urlEndPointVal}/${id}`)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.status !== 401 && e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(e);
+    //   })
+    // )
+    ;
   }
 
   /*
@@ -94,6 +98,10 @@ export class ValoracionService {
 
   extraerViajes(respuestaApi: any): Viaje[] {
     const viajes: Viaje[] = [];
+    let respuesta = respuestaApi._embedded.viajes;
+    if (respuesta === undefined) {
+      console.info("No hay Viajes");
+    } else
     respuestaApi._embedded.viajes.forEach((v: any) => {
       viajes.push(this.mapearViaje(v));
     });
@@ -118,7 +126,7 @@ export class ValoracionService {
   }
 
   getValoracionesDeViaje(viaje: Viaje): Observable<any> {
-    return this.http.get<any>(`${this.host}/viajes/${viaje.id}/valoraciones`);
+    return this.http.get<any>(`${this.host}viajes/${viaje.id}/valoraciones`);
   }
 
   /*
@@ -130,6 +138,10 @@ export class ValoracionService {
 
   extraerActividades(respuestaApi: any): Actividad[] {
     const actividades: Actividad[] = [];
+    let respuesta = respuestaApi._embedded.actividades;
+    if (respuesta === undefined) {
+      console.info("No hay Actividades");
+    } else
     respuestaApi._embedded.actividades.forEach((a: any) => {
       actividades.push(this.mapearActividad(a));
     });
@@ -143,7 +155,7 @@ export class ValoracionService {
     actividad.nombre = actividadApi.nombre;
     actividad.descripcion = actividadApi.descripcion;
     actividad.ciudad = actividadApi.ciudad;
-    actividad.coordinadorHref = actividadApi._links.coordinador.href;
+    actividad.coordinador = actividadApi._links.coordinador.href;
     actividad.valoracionesHref = actividadApi._links.valoraciones.href;
 
     return actividad;
@@ -154,7 +166,7 @@ export class ValoracionService {
   }
 
   getValoracionesDeActividad(actividad: Actividad): Observable<any> {
-    return this.http.get<any>(`${this.host}/actividades/${actividad.id}/valoraciones`);
+    return this.http.get<any>(`${this.host}actividades/${actividad.id}/valoraciones`);
   }
 
 }

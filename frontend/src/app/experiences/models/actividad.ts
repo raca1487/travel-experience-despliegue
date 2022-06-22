@@ -5,5 +5,5 @@ export interface Actividad extends Entretenimiento {
   //nombre: string;
   //descripcion: string;
   ciudad: string;
-  coordinadorHref: string;
+  coordinador: string;
 }

@@ -1,0 +1,26 @@
+<section class="viajes">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md">
+        <div class="row">
+          <div class="col">
+            <h1>Viajes TREX</h1>
+          </div>
+        </div>
+
+        <hr class="w-100" />
+
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4" *ngIf="viajes.length > 0; else elseViajes">
+            <div *ngFor="let viaje of viajes">
+              <app-viajes [viaje]="viaje"></app-viajes>
+            </div>
+          </div>
+          <div class="col-sm-4"></div>
+          <ng-template #elseViajes>
+            <h4 class="card-title"><b>NO HAY VIAJES DISPONIBLES</b></h4>
+          </ng-template>
+        </div>
+
+      </div>

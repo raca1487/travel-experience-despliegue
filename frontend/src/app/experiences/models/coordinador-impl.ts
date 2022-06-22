@@ -8,7 +8,6 @@ export class CoordinadorImpl implements Coordinador {
   email: string = "";
   fechaNac: string = "";
   residencia: string = "";
-  actividadHref: string = "";
   url: string = "";
 
   constructor() {}

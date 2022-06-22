@@ -142,13 +142,11 @@
       <label>Coordinador <sup class="text-danger">*</sup></label>
       <select
         class="form-control"
-        [(ngModel)]="actividad.coordinadorHref"
+        [(ngModel)]="actividad.coordinador"
         name="coordinadores"
 
       >
-        <option value="">Seleccione Coordinador</option>
-        <option value="n/a">Sin Coordinador</option>
-        <option *ngFor="let coordinador of coordinadores" [ngValue]="actividad.coordinadorHref">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}&nbsp;-&nbsp;{{ coordinador.residencia }}</option>
+        <option *ngFor="let coordinador of coordinadores" [ngValue]="coordinador.url">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}&nbsp;-&nbsp;{{ coordinador.residencia }}</option>
       </select>
       <!-- <div class="text-danger" *ngIf="coordinadores.invalid && (coordinadores.dirty || coordinadores.touched)">
         <div *ngIf="coordinadores.errors?.['required']">Campo Obligatorio</div>

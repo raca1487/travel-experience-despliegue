@@ -1,0 +1,14 @@
+/*Experiences Style*/
+.actividades h1 {
+  font-family: "Permanent Marker";
+  color: var(--color-blue);
+  padding-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+.col-md {
+  text-align: center;
+  padding: 2%;
+  margin-top: 5%;
+}
+

@@ -33,7 +33,7 @@ export class ExperienceService {
   getId(url: string): string {
     let posicionFinal: number = url.lastIndexOf('/');
     let numId: string = url.slice(posicionFinal + 1, url.length);
-    //console.log(numId);
+
     return numId;
   }
 
@@ -46,15 +46,18 @@ export class ExperienceService {
 
   extraerViajes(respuestaApi: any): Viaje[] {
     const viajes: Viaje[] = [];
+    let respuesta: any = respuestaApi._embedded.viajes;
+    if (respuesta === undefined) {
+      console.info("No hay Viajes");
+    } else
     respuestaApi._embedded.viajes.forEach((vj: any) => {
       viajes.push(this.mapearViaje(vj));
     });
-    //console.log(viajes);
+
     return viajes;
   }
 
   mapearViaje(viajeApi: any): Viaje {
-    //console.log(viajeApi);
     let viaje: Viaje = new ViajeImpl();
     viaje.id = this.getId(viajeApi._links.viaje.href);
     viaje.nombre = viajeApi.nombre;
@@ -63,7 +66,7 @@ export class ExperienceService {
     viaje.numeroNoches = viajeApi.numeroNoches;
     viaje.precioTotal = viajeApi.precioTotal;
     viaje.valoracionesHref = viajeApi._links.valoraciones.href;
-    //console.log(viaje);
+
     return viaje;
   }
 
@@ -100,14 +103,16 @@ export class ExperienceService {
   }
 
   getViaje(id: string): Observable<Viaje> {
-    return this.http.get<Viaje>(`${this.urlEndPointV}/${id}`).pipe(
-      catchError((e) => {
-        if (e.status !== 401 && e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+    return this.http.get<Viaje>(`${this.urlEndPointV}/${id}`)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.status !== 401 && e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error(e));
+    //   })
+    // )
+    ;
   }
 
   /*
@@ -119,23 +124,26 @@ export class ExperienceService {
 
   extraerActividades(respuestaApi: any): Actividad[] {
     const actividades: Actividad[] = [];
+    let respuesta: any = respuestaApi._embedded.actividades;
+    if (respuesta === undefined) {
+      console.info("No hay Actividades");
+    } else
     respuestaApi._embedded.actividades.forEach((ac: any) => {
       actividades.push(this.mapearActividad(ac));
     });
-    //console.log(actividades);
+
     return actividades;
   }
 
   mapearActividad(actividadApi: any): Actividad {
-    //console.log(actividadApi);
     let actividad: Actividad = new ActividadImpl();
     actividad.id = this.getId(actividadApi._links.actividad.href);
     actividad.nombre = actividadApi.nombre;
     actividad.descripcion = actividadApi.descripcion;
     actividad.ciudad = actividadApi.ciudad;
-    actividad.coordinadorHref = actividadApi._links.coordinador.href;
+    actividad.coordinador = actividadApi._links.coordinador.href;
     actividad.valoracionesHref = actividadApi._links.valoraciones.href;
-    //console.log(actividad);
+
     return actividad;
   }
 
@@ -184,14 +192,16 @@ export class ExperienceService {
   }
 
   getActividad(id: string): Observable<Actividad> {
-    return this.http.get<Actividad>(`${this.urlEndPointA}/${id}`).pipe(
-      catchError((e) => {
-        if (e.status !== 401 && e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+    return this.http.get<Actividad>(`${this.urlEndPointA}/${id}`)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.status !== 401 && e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error(e));
+    //   })
+    // )
+    ;
   }
 
   /*
@@ -210,15 +220,18 @@ export class ExperienceService {
 
   extraerCoordinadores(respuestaApi: any): Coordinador[] {
     const coordinadores: Coordinador[] = [];
+    let respuesta: any = respuestaApi._embedded.coordinadores;
+    if (respuesta === undefined) {
+      console.info("No hay Coordinadores");
+    } else
     respuestaApi._embedded.coordinadores.forEach((c: any) => {
       coordinadores.push(this.mapearCoordinador(c));
     });
-    //console.log(coordinadores);
+
     return coordinadores;
   }
 
   mapearCoordinador(coordinadorApi: any): Coordinador {
-    //console.log(coordinadorApi);
     let coordinador: Coordinador = new CoordinadorImpl();
     coordinador.idCoordinador = this.getId(coordinadorApi._links.coordinador.href);
     coordinador.nombre = coordinadorApi.nombre;
@@ -227,9 +240,8 @@ export class ExperienceService {
     coordinador.email = coordinadorApi.email;
     coordinador.residencia = coordinadorApi.residencia;
     coordinador.fechaNac = coordinadorApi.fechaNac;
-    coordinador.actividadHref = coordinadorApi._links.actividad.href;
     coordinador.url = coordinadorApi._links.self.href;
-    //console.log(coordinador);
+
     return coordinador;
   }
 
@@ -280,14 +292,15 @@ export class ExperienceService {
   getCoordinador(id: string): Observable<Coordinador> {
     return this.http
       .get<Coordinador>(`${this.urlEndPointA}/${id}/coordinador`)
-      .pipe(
-        catchError((e) => {
-          if (e.status !== 401 && e.error.mensaje) {
-            console.error(e.error.mensaje);
-          }
-          return throwError(() => new Error(e));
-        })
-      );
+      // .pipe(
+      //   catchError((e) => {
+      //     if (e.status !== 401 && e.error.mensaje) {
+      //       console.error(e.error.mensaje);
+      //     }
+      //     return throwError(() => new Error(e));
+      //   })
+      // )
+      ;
   }
 
   /*
@@ -298,9 +311,7 @@ export class ExperienceService {
   }
 
   getValoracionesActividades(actividad: Actividad): Observable<any> {
-    return this.http.get<any>(
-      `${this.urlEndPointA}/${actividad.id}/valoraciones`
-    );
+    return this.http.get<any>(`${this.urlEndPointA}/${actividad.id}/valoraciones`);
   }
 
   getValoracionesIdViaje(id: string): Observable<any> {
@@ -313,33 +324,37 @@ export class ExperienceService {
 
   extraerValoracionEntretenimiento(respuestaApi: any): any[] {
     const valoraciones: any[] = [];
-
-    if (respuestaApi._embedded.valoraciones) {
-      respuestaApi._embedded.valoraciones.forEach((vl: any) => {
-        valoraciones.push(vl);
-      });
-    }
+    let respuesta: any = respuestaApi._embedded.valoraciones;
+    if (respuesta === undefined) {
+      console.info("No hay Valoraciones");
+    } else
+    respuestaApi._embedded.valoraciones.forEach((vl: any) => {
+      valoraciones.push(vl);
+    });
 
     return valoraciones;
   }
 
   extraerValoraciones(respuestaApi: any): Valoracion[] {
     const valoraciones: Valoracion[] = [];
+    let respuesta: any = respuestaApi._embedded.valoraciones;
+    if (respuesta === undefined) {
+      console.info("No hay Valoraciones");
+    } else
     respuestaApi._embedded.valoraciones.forEach((vl: any) => {
       valoraciones.push(this.mapearValoracion(vl));
     });
-    //console.log(valoraciones);
+
     return valoraciones;
   }
 
   mapearValoracion(valoracionApi: any): Valoracion {
-    //console.log(valoracionApi);
     let valoracion: Valoracion = new ValoracionImpl();
     valoracion.titulo = valoracionApi.titulo;
     valoracion.comentario = valoracionApi.comentario;
     valoracion.puntuacion = valoracionApi.puntuacion;
     valoracion.entretenimiento = valoracionApi._links.entretenimiento.href;
-    //console.log(valoracion);
+
     return valoracion;
   }
 

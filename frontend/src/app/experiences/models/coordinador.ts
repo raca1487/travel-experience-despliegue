@@ -6,6 +6,5 @@ export interface Coordinador {
   email: string;
   fechaNac: string;
   residencia: string;
-  actividadHref: string;
   url: string;
 }

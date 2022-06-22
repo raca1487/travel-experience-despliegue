@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faPlaneUp } from '@fortawesome/free-solid-svg-icons';
 import { Valoracion } from 'src/app/valoraciones/models/valoracion';
+import { ValoracionImpl } from 'src/app/valoraciones/models/valoracion-impl';
 import { ValoracionService } from 'src/app/valoraciones/service/valoracion.service';
-import { environment } from 'src/environments/environment.prod';
 import { Viaje } from '../../models/viaje';
 import { ViajeImpl } from '../../models/viaje-impl';
 import { ExperienceService } from '../../service/experience.service';
@@ -15,10 +15,9 @@ import { ExperienceService } from '../../service/experience.service';
 })
 export class ViajeComponent implements OnInit {
   @Input() viaje: Viaje = new ViajeImpl();
-  // valoracionVerDatos: Valoracion = new ValoracionImpl();
+  valoracionVerDatos: Valoracion = new ValoracionImpl();
   valoraciones: Valoracion[] = [];
   id: string = "";
-  // url: string = "";
 
   faPlaneUp = faPlaneUp;
 
@@ -47,9 +46,7 @@ export class ViajeComponent implements OnInit {
   }
 
   nuevaValoracion(): void {
-    // this.url = `${environment.host}viajes/${this.id}`;
     this.router.navigate([`/home/experiences/valoracion-form/viaje/${this.id}`]);
-    // console.log(this.url);
   }
 
 }

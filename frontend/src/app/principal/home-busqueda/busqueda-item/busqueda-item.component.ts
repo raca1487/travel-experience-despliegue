@@ -30,10 +30,10 @@ export class BusquedaItemComponent implements OnInit {
   }
 
   navegarV() {
-    this.router.navigate([`/home/experiences/viaje/${this.entretenimiento.id}`]);
+    this.router.navigate([`/home/experiences/entretenimiento/${this.entretenimiento.id}`]);
   }
   navegarA() {
-    this.router.navigate([`/home/experiences/actividad/${this.entretenimiento.id}`]);
+    this.router.navigate([`/home/experiences/entretenimiento/${this.entretenimiento.id}`]);
   }
 
 }

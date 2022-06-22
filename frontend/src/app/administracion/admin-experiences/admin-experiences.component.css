@@ -25,6 +25,10 @@
   font-family: "Fredoka";
 }
 
+.card-title h4 {
+  text-align: center;
+}
+
 .modal {
   font-family: "Fredoka";
 }
@@ -35,5 +39,7 @@
 }
 
 #volver-admin {
-  margin: 5% 0 5% 45%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
 }

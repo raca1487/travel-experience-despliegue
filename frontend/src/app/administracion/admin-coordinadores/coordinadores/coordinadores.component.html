@@ -28,25 +28,25 @@
 
   <hr class='w-100'>
 
-  <!-- <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1"></div> -->
-  <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-center">{{ coordinador.idCoordinador }}</div>
-  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}</div>
-  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">{{ coordinador.fechaNac | date: "dd-MM-YYYY" }}</div>
-  <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-center">{{ coordinador.telefono }}</div>
-  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">{{ coordinador.email }}</div>
-  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">{{ coordinador.residencia }}</div>
+  <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1"></div>
+  <!-- <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-center">{{ coordinador.idCoordinador }}</div> -->
+  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3 text-left">{{ coordinador.nombre }}&nbsp;{{ coordinador.apellidos }}</div>
+  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-left">{{ coordinador.fechaNac | date: "dd-MM-YYYY" }}</div>
+  <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-left">{{ coordinador.telefono }}</div>
+  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-left">{{ coordinador.email }}</div>
+  <div class="col-10 col-sm-10 col-md-1 col-lg-1 col-xl-1 text-left">{{ coordinador.residencia }}</div>
   <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2 text-center">
     <div class="icons">
       <a data-toggle="modal" data-target="#modalCoordinador" (click)='seleccionarCoordinador(coordinador)'>
-        <fa-icon [icon]="faEye" class="fa-2x" style="color:green"></fa-icon>
+        <fa-icon [icon]="faEye" style="color:green"></fa-icon>
       </a>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <a data-toggle="modal" data-target="#modalCoordinadorModificar">
-        <fa-icon [icon]="faEdit" class="fa-2x" style="color:var(--color-yellow)"></fa-icon>
+        <fa-icon [icon]="faEdit" style="color:var(--color-yellow)"></fa-icon>
       </a>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <a>
-        <fa-icon [icon]="faTrash" class="fa-2x" style="color:red" (click)="eliminarC()"></fa-icon>
+        <fa-icon [icon]="faTrash" style="color:red" (click)="eliminarC()"></fa-icon>
       </a>
     </div>
   </div>

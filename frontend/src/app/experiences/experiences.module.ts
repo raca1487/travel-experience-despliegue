@@ -10,6 +10,8 @@ import { ActividadesComponent } from './actividades/actividades.component';
 import { ActividadComponent } from './actividades/actividad/actividad.component';
 import { CommunityModule } from '../community/community.module';
 import { ValoracionesModule } from '../valoraciones/valoraciones.module';
+import { ExperiencesViajesComponent } from './experiences-viajes/experiences-viajes.component';
+import { ExperiencesActividadesComponent } from './experiences-actividades/experiences-actividades.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ValoracionesModule } from '../valoraciones/valoraciones.module';
     ViajesComponent,
     ViajeComponent,
     ActividadesComponent,
-    ActividadComponent
+    ActividadComponent,
+    ExperiencesViajesComponent,
+    ExperiencesActividadesComponent
   ],
   imports: [
     CommonModule,

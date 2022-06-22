@@ -16,8 +16,9 @@ import { ExperienceService } from 'src/app/experiences/service/experience.servic
 export class AdminExperiencesComponent implements OnInit {
   viajes: Viaje[] = [];
   actividades: Actividad[] = [];
-  actividad: Actividad = new ActividadImpl();
-  coordinador: Coordinador = new CoordinadorImpl();
+  coordinadores: Coordinador[] = [];
+  // actividad: Actividad = new ActividadImpl();
+  // coordinador: Coordinador = new CoordinadorImpl();
   viajeVerDatos: Viaje = new ViajeImpl();
   actividadVerDatos: Actividad = new ActividadImpl();
   coordinadorVerDatos: Coordinador = new CoordinadorImpl();
@@ -41,13 +42,13 @@ export class AdminExperiencesComponent implements OnInit {
           (this.actividades =
             this.experienceService.extraerActividades(response))
       );
-    // this.experienceService
-    //   .getCoordinador(this.actividadVerDatos.id)
-    //   .subscribe(
-    //     (response) =>
-    //       (this.coordinador =
-    //         this.experienceService.mapearCoordinador(response))
-    //   );
+    this.experienceService
+      .getCoordinadores()
+      .subscribe(
+        (response) =>
+          (this.coordinadores =
+            this.experienceService.extraerCoordinadores(response))
+      );
   }
 
   verDatosV(viaje: Viaje): void {

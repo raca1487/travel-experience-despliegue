@@ -1,0 +1,25 @@
+<section class="actividades">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md">
+        <div class="row">
+          <div class="col">
+            <h1>Actividades TREX</h1>
+          </div>
+        </div>
+
+        <hr class="w-100" />
+
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4" *ngIf="actividades.length > 0; else elseActividades">
+            <div *ngFor="let actividad of actividades">
+              <app-actividades [actividad]="actividad"></app-actividades>
+            </div>
+          </div>
+          <div class="col-sm-4"></div>
+          <ng-template #elseActividades>
+            <h4 class="card-title"><b>NO HAY ACTIVIDADES DISPONIBLES</b></h4>
+          </ng-template>
+        </div>
+      </div>

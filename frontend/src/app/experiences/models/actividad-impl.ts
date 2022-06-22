@@ -6,7 +6,7 @@ export class ActividadImpl extends EntretenimientoImpl implements Actividad {
   //nombre: string = "";
   //descripcion: string = "";
   ciudad: string = "";
-  coordinadorHref: string = "";
+  coordinador: string = "";
 
   constructor() {
     super();

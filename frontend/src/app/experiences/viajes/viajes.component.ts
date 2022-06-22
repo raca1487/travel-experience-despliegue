@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faEye, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 import { Viaje } from '../models/viaje';
 import { ViajeImpl } from '../models/viaje-impl';
 
@@ -12,28 +12,13 @@ export class ViajesComponent implements OnInit {
   @Input() viaje: Viaje = new ViajeImpl();
   @Output() viajeSeleccionado = new EventEmitter<Viaje>();
 
-  @Output() viajeEliminar = new EventEmitter<Viaje>();
-  @Output() viajeEditar = new EventEmitter<Viaje>();
-
-  faEye = faEye;
-  faEdit = faPenToSquare;
-  faTrash = faTrashCan;
-
-  static logged: boolean = false;
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   seleccionarViaje(viaje: Viaje): void {
-    this.viajeSeleccionado.emit(viaje);
-  }
-
-  eliminarV(): void {
-    if (confirm('Va a eliminar un Viaje, ¿está usted seguro de la operación que va a realizar?')) {
-      this.viajeEliminar.emit(this.viaje);
-    }
+    this.router.navigate([`/home/experiences/viaje/${viaje.id}`]);
   }
 
 }

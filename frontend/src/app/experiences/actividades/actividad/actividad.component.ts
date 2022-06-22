@@ -18,7 +18,6 @@ export class ActividadComponent implements OnInit {
   @Input() actividad: Actividad = new ActividadImpl();
   @Input() coordinador: Coordinador = new CoordinadorImpl();
   valoraciones: Valoracion[] = [];
-  url: string = "";
   id: string = ""
 
   constructor(
@@ -51,7 +50,5 @@ export class ActividadComponent implements OnInit {
 
   nuevaValoracion(): void {
     this.router.navigate([`/home/experiences/valoracion-form/actividad/${this.actividad.id}`]);
-    this.url = `${environment.host}actividades/${this.id}`;
-    console.log(this.url);
   }
 }

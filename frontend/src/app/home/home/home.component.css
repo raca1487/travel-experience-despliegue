@@ -1,22 +1,23 @@
 .logo-home {
+  display: flex;
+  justify-content: center;
   margin-top: 5%;
-  margin-left: 37%;
 }
 
-#contact {
+#login {
   font-family: "Fredoka";
   padding: 25px;
   margin: 50px 0;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   border-radius: 25px;
 }
-.container-contact {
+.container-login {
   max-width: 400px;
   width: 100%;
   margin: 0 auto;
   position: relative;
 }
-.container-contact h2 {
+.container-login h2 {
   font-family: "Permanent Marker";
   text-align: center;
   color: var(--color-blue-trex);
@@ -24,8 +25,8 @@
   margin-top: 35px;
 }
 
-#contact input[type="text"],
-#contact input[type="password"] {
+#login input[type="text"],
+#login input[type="password"] {
   font: 400 12px/16px /*"Indie Flower", */"Roboto", Helvetica, Arial, sans-serif;
   /* font-style: italic; */
 }
@@ -36,20 +37,20 @@ fieldset {
   padding: 0;
   width: 100%;
 }
-#contact input[type="text"],
-#contact input[type="password"]  {
+#login input[type="text"],
+#login input[type="password"]  {
   width: 100%;
   border: 1px solid var(--color-blue);
   background: var(--color-light);
   margin: 0 0 5px;
   padding: 10px;
 }
-#contact input[type="text"],
-#contact input[type="password"]:hover {
+#login input[type="text"],
+#login input[type="password"]:hover {
   transition: all 0.3s linear;
   border: 1px solid var(--color-blue);
 }
-#contact button {
+#login button {
   font-family: "Fredoka";
   cursor: pointer;
   width: 100%;
@@ -60,14 +61,14 @@ fieldset {
   padding: 10px;
   font-size: 15px;
 }
-#contact button:hover {
+#login button:hover {
   background: var(--color-dark-blue-gradient);
   color: var(--color-yellow);
   transition: all 0.3s linear;
   font-style: italic;
 }
 
-#contact input:focus {
+#login input:focus {
   outline: 0;
   border: 2px solid rgb(117, 117, 117);
 }

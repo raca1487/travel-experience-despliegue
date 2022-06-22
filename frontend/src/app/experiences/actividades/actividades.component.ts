@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faEye, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 import { Actividad } from '../models/actividad';
 import { ActividadImpl } from '../models/actividad-impl';
 
@@ -12,30 +12,13 @@ export class ActividadesComponent implements OnInit {
   @Input() actividad: Actividad = new ActividadImpl();
   @Output() actividadSeleccionada = new EventEmitter<Actividad>();
 
-  @Output() actividadEliminar = new EventEmitter<Actividad>();
-  @Output() actividadEditar = new EventEmitter<Actividad>();
-
-  faEye = faEye;
-  faEdit = faPenToSquare;
-  faTrash = faTrashCan;
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   seleccionarActividad(actividad: Actividad): void {
-    this.actividadSeleccionada.emit(actividad);
-  }
-
-  eliminarA(): void {
-    if (confirm('Va a eliminar una Actividad, ¿está usted seguro de la operación que va a realizar?')) {
-      this.actividadEliminar.emit(this.actividad);
-    }
-  }
-
-  editarA(): void {
-    this.actividadEditar.emit(this.actividad);
+    this.router.navigate([`/home/experiences/actividad/${actividad.id}`]);
   }
 
 }

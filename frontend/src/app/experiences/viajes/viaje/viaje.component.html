@@ -44,8 +44,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col">
-            <button class="btn btn-success btn-md" (click)="nuevaValoracion()">Nueva Valoración</button>
+          <div class="col botonera">
+            <button class="btn btn-success btn-lg" (click)="nuevaValoracion()">Nueva Valoración</button>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
       <div>
-        <app-valoracion></app-valoracion>
+        <app-valoracion *ngIf="valoracionVerDatos"></app-valoracion>
       </div>
     </div>
     <div class="col-sm-3"></div>
@@ -68,8 +68,14 @@
 
 </section>
 
-<div id="volver">
+<div class="col botonera">
   <a type="button" routerLink="/home/experiences" class="btn btn-md btn-danger">
     Volver a Experiencias
+  </a>
+</div>
+
+<div class="col botonera">
+  <a type="button" routerLink="/home/experiences/viajes" class="btn btn-md btn-danger">
+    Volver a Viajes
   </a>
 </div>

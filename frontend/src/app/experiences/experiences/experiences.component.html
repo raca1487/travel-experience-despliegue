@@ -15,11 +15,9 @@
           <div class="col-sm-3"></div>
           <div class="col-sm-6" *ngIf="viajes.length > 0; else elseViajes">
             <div *ngFor="let viaje of viajes">
-              <app-viajes
+              <app-viajes *ngIf="viajeVerDatos"
                 [viaje]="viaje"
                 (viajeSeleccionado)="verDatosV($event)"
-                (viajeEliminar)="onViajeEliminar($event)"
-
               ></app-viajes>
             </div>
           </div>
@@ -48,11 +46,9 @@
             *ngIf="actividades.length > 0; else elseActividades"
           >
             <div *ngFor="let actividad of actividades">
-              <app-actividades
+              <app-actividades *ngIf="actividadVerDatos"
                 [actividad]="actividad"
                 (actividadSeleccionada)="verDatosA($event)"
-                (actividadEliminar)="onActividadEliminar($event)"
-                (actividadEditar)="onActividadEditar($event)"
               ></app-actividades>
             </div>
           </div>
