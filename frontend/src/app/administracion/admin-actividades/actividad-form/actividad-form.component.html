@@ -11,8 +11,8 @@
 
 <form #actividadForm="ngForm">
   <div class="form-row py-2">
-    <div class="col-lg-8 col-md-12">
-      <label>Nombre <sup class="text-danger">*</sup></label>
+    <div class="col-lg col-md form-inline">
+      <label>Nombre <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <input
         type="text"
         class="form-control"
@@ -41,8 +41,8 @@
   </div>
 
   <div class="form-row py-2">
-    <div class="col-lg-8 col-md-12">
-      <label>Descripción <sup class="text-danger">*</sup></label>
+    <div class="col-lg col-md form-inline">
+      <label>Descripción <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <textarea
         type="text"
         class="form-control"
@@ -74,8 +74,8 @@
   </div>
 
   <div class="form-row py-2">
-    <div class="col-lg-8 col-md-12">
-      <label>Ciudad <sup class="text-danger">*</sup></label>
+    <div class="col-lg col-md form-inline">
+      <label>Ciudad <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <select
         class="form-control"
         [(ngModel)]="actividad.ciudad"
@@ -148,8 +148,8 @@
   </div>
 
   <div class="form-row py-2">
-    <div class="col-lg-8 col-md-12">
-      <label>Coordinador <sup class="text-danger">*</sup></label>
+    <div class="col-lg col-md form-inline">
+      <label>Coordinador <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <select
         class="form-control"
         [(ngModel)]="actividad.coordinador"
@@ -171,7 +171,6 @@
         id="registro"
         class="btn btn-primary"
         role="button"
-        routerLink="/administracion/experiences"
         (click)="registrar()"
         [disabled]="!actividadForm.form.valid"
       >

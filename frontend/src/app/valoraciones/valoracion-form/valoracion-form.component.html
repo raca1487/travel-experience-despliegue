@@ -73,7 +73,7 @@
 
   <div class="form-row py-2">
     <div class="col-lg-4 col-md-12">
-      <label>Puntuación (0-10): <sup class="text-danger">*</sup></label>
+      <label>Calificación: <sup class="text-danger">*</sup></label>
       <input
         type="number"
         class="form-control"
@@ -82,7 +82,7 @@
         name="puntuacion"
         required
         min="0"
-        max="10"
+        max="5"
         #puntuacion="ngModel"
         [ngClass]="{
           'is-invalid':
@@ -100,6 +100,19 @@
       </div>
     </div>
   </div>
+
+  <!-- <p class="clasificacion">
+    <input id="radio1" type="radio" name="estrellas" class="form-control" [(ngModel)]="valoracion.puntuacion" value="1" />
+    <label class="estrella" for="radio1"><fa-icon [icon]="faStar"></fa-icon></label>
+    <input id="radio2" type="radio" name="estrellas" class="form-control" [(ngModel)]="valoracion.puntuacion" value="2" />
+    <label class="estrella" for="radio2"><fa-icon [icon]="faStar"></fa-icon></label>
+    <input id="radio3" type="radio" name="estrellas" class="form-control" [(ngModel)]="valoracion.puntuacion" value="3" />
+    <label class="estrella" for="radio3"><fa-icon [icon]="faStar"></fa-icon></label>
+    <input id="radio4" type="radio" name="estrellas" class="form-control" [(ngModel)]="valoracion.puntuacion" value="4" />
+    <label class="estrella" for="radio4"><fa-icon [icon]="faStar"></fa-icon></label>
+    <input id="radio5" type="radio" name="estrellas" class="form-control" [(ngModel)]="valoracion.puntuacion" value="5" />
+    <label class="estrella" for="radio5"><fa-icon [icon]="faStar"></fa-icon></label>
+  </p> -->
 
   <div class="form-row justify-content-between pt-5">
     <div class="col-lg-5 col-md-12">

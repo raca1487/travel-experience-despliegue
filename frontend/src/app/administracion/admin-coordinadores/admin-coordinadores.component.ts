@@ -35,7 +35,7 @@ export class AdminCoordinadoresComponent implements OnInit {
 
   // CRUD Coordinadores
   registrarCoordinador() {
-    this.router.navigate(['/administracion/coordinador-form/N']);
+    this.router.navigate(['/administracion/coordinador-form']);
   }
 
   onCoordinadorEliminar(coordinador: Coordinador): void {

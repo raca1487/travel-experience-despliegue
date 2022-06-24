@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment.prod';
 import { Valoracion } from '../models/valoracion';
 import { ValoracionImpl } from '../models/valoracion-impl';
@@ -16,6 +17,8 @@ export class ValoracionFormComponent implements OnInit {
   host: string = environment.host;
   fechaActual: Date = new Date();
 
+  faStar = faStar;
+
   constructor(
     private valoracionService: ValoracionService,
     private router: Router,
@@ -24,8 +27,8 @@ export class ValoracionFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params['id'];
-    console.log('id = ', this.id);
-    console.log('fecha = ', this.cambiarFormatoFecha(this.fechaActual));
+    // console.log('id = ', this.id);
+    // console.log('fecha = ', this.cambiarFormatoFecha(this.fechaActual));
   }
 
   registrar(): void {

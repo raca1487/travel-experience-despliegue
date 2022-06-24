@@ -9,9 +9,36 @@
           <p class="card-text">
             {{ valoracion.comentario }}
           </p>
-          <p class="card-text">
-            Puntuación: <b>{{ valoracion.puntuacion }}*</b>
+          <!-- <p class="card-text">
+            Puntuación: <b>{{ valoracion.puntuacion }}&nbsp;<fa-icon [icon]="faStar" class="star"></fa-icon></b>
+          </p> -->
+
+          <p *ngIf="valoracion.puntuacion == 5">
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
           </p>
+          <p *ngIf="valoracion.puntuacion == 4">
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+          </p>
+          <p *ngIf="valoracion.puntuacion == 3">
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+          </p>
+          <p *ngIf="valoracion.puntuacion == 2">
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+          </p>
+          <p *ngIf="valoracion.puntuacion == 1">
+            <fa-icon [icon]="faStar" class="star"></fa-icon>
+          </p>
+
           <p class="card-text text-right">
             <small>
               Fecha Publicación:

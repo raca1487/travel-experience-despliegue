@@ -63,17 +63,19 @@ export class ValoracionService {
    * CRUD de Valoraciones
    */
   create(valoracion: Valoracion): Observable<any> {
-    return this.http.post(`${this.urlEndPointVal}`, valoracion).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
-          return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error('test'));
-      })
-    );
+    return this.http.post(`${this.urlEndPointVal}`, valoracion)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.status === 400) {
+    //       return throwError(() => new Error(e));
+    //     }
+    //     if (e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error('test'));
+    //   })
+    // )
+    ;
   }
 
   getValoracion(id: string): Observable<any> {

@@ -11,8 +11,8 @@
 
 <form #viajeForm="ngForm">
   <div class="form-row py-2">
-    <div class="col-lg-4 col-md-12">
-      <label>Nombre <sup class="text-danger">*</sup></label>
+    <div class="col-lg-6 col-md-12 form-inline">
+      <label>Nombre <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <input
         type="text"
         class="form-control"
@@ -41,8 +41,8 @@
   </div>
 
   <div class="form-row py-2">
-    <div class="col-lg-4 col-md-12">
-      <label>Descripción <sup class="text-danger">*</sup></label>
+    <div class="col-lg-6 col-md-12 form-inline">
+      <label>Descripción <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <textarea
         type="text"
         class="form-control"
@@ -72,8 +72,8 @@
   </div>
 
   <div class="form-row py-2">
-    <div class="col-lg-4 col-md-12">
-      <label>Fecha de Salida <sup class="text-danger">*</sup></label>
+    <div class="col-lg-6 col-md-12 form-inline">
+      <label>Fecha de Salida <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <input
         type="date"
         class="form-control"
@@ -98,8 +98,8 @@
   </div>
 
   <div class="form-row py-2">
-    <div class="col-lg-4 col-md-12">
-      <label>Número de Noches <sup class="text-danger">*</sup></label>
+    <div class="col-lg-6 col-md-12 form-inline">
+      <label>Número de Noches <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <input
         type="number"
         class="form-control"
@@ -129,8 +129,8 @@
   </div>
 
   <div class="form-row py-2">
-    <div class="col-lg-4 col-md-12">
-      <label>Importe total <sup class="text-danger">*</sup></label>
+    <div class="col-lg-6 col-md-12 form-inline">
+      <label>Importe total <sup class="text-danger mr-3">*</sup></label>&nbsp;&nbsp;&nbsp;
       <input
         type="number"
         class="form-control"
@@ -165,7 +165,6 @@
         id="registro"
         class="btn btn-primary"
         role="button"
-        routerLink="/administracion/experiences"
         (click)="registrar()"
         [disabled]="!viajeForm.form.valid"
       >

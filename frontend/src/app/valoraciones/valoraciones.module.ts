@@ -5,6 +5,7 @@ import { ValoracionesRoutingModule } from './valoraciones-routing.module';
 import { ValoracionComponent } from './valoracion/valoracion.component';
 import { ValoracionFormComponent } from './valoracion-form/valoracion-form.component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ValoracionesRoutingModule,
+    FontAwesomeModule,
     FormsModule
   ],
   exports: [

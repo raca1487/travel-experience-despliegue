@@ -31,7 +31,6 @@
                 [viaje]="viaje"
                 (viajeSeleccionado)="verDatosV($event)"
                 (viajeEliminar)="onViajeEliminar($event)"
-
               ></app-admin-viajes>
             </div>
           </div>
@@ -91,11 +90,14 @@
 </section>
 
 <div id="volver-admin">
-  <a type="button" routerLink="/administracion/home" class="btn btn-md btn-danger">
+  <a
+    type="button"
+    routerLink="/administracion/home"
+    class="btn btn-md btn-danger"
+  >
     Volver a la pantalla de Administración
   </a>
 </div>
-
 
 <!-- Modal Viaje -->
 <div
@@ -158,7 +160,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-viaje-modificar [viaje]="viajeVerDatos" (viajeModificar)="onViajeEditar($event)"></app-viaje-modificar>
+        <app-viaje-modificar
+          [viaje]="viajeVerDatos"
+          (viajeModificar)="onViajeEditar($event)"
+        ></app-viaje-modificar>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-warning" data-dismiss="modal">
@@ -194,7 +199,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-actividad-item [actividad]="actividadVerDatos"></app-actividad-item>
+        <app-actividad-item
+          [actividad]="actividadVerDatos"
+        ></app-actividad-item>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-warning" data-dismiss="modal">
@@ -230,7 +237,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-actividad-modificar [actividad]="actividadVerDatos"></app-actividad-modificar>
+        <app-actividad-modificar
+          [actividad]="actividadVerDatos"
+        ></app-actividad-modificar>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-warning" data-dismiss="modal">
@@ -240,3 +249,37 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Actividades Eliminar
+<div
+  class="modal"
+  id="modalActividadEliminar"
+  role="dialog"
+  aria-labelledby="modalActividadEliminarLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalActividadEliminarLabel">¡¡¡ Aviso !!!</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">Va a eliminar un Actividad, ¿¿ está usted segur@ de la operación que va a realizar ??</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="onActividadEliminar(actividadVerDatos)" data-dismiss="modal">
+          Aceptar
+        </button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->

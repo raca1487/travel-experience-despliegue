@@ -29,9 +29,10 @@ export class AdminViajesComponent implements OnInit {
   }
 
   eliminarV(): void {
-    if (confirm('Va a eliminar un Viaje, ¿está usted seguro de la operación que va a realizar?')) {
-      this.viajeEliminar.emit(this.viaje);
-    }
+    // if (confirm('Va a eliminar un Viaje, ¿está usted seguro de la operación que va a realizar?')) {
+    //   this.viajeEliminar.emit(this.viaje);
+    // }
+    this.viajeEliminar.emit(this.viaje);
   }
 
 }

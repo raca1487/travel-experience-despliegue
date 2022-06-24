@@ -20,10 +20,41 @@
       </a>
       &nbsp;&nbsp;&nbsp;
       <a>
-        <fa-icon [icon]="faTrash" class="fa-2x" style="color:red" (click)="eliminarV()"></fa-icon>
+        <fa-icon [icon]="faTrash" class="fa-2x" style="color:red" data-toggle="modal" data-target="#modalViajeEliminar" (click)="eliminarV()"></fa-icon>
       </a>
     </div>
 
   </div>
 
+</div>
+
+<!-- Modal Viaje Eliminar -->
+<div
+  class="modal"
+  id="modalViajeEliminar"
+  role="dialog"
+  aria-labelledby="modalViajeEliminarLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalViajeEliminarLabel">¡¡¡ Aviso importante !!!</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">Se ha eliminado un Viaje</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

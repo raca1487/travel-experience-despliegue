@@ -42,13 +42,6 @@ export class AdminExperiencesComponent implements OnInit {
           (this.actividades =
             this.experienceService.extraerActividades(response))
       );
-    this.experienceService
-      .getCoordinadores()
-      .subscribe(
-        (response) =>
-          (this.coordinadores =
-            this.experienceService.extraerCoordinadores(response))
-      );
   }
 
   verDatosV(viaje: Viaje): void {
@@ -70,15 +63,15 @@ export class AdminExperiencesComponent implements OnInit {
 
   onViajeEliminar(viaje: Viaje): void {
     this.experienceService.deleteV(viaje.id).subscribe((response) => {
-      this.router.navigate(['/administracion/experiences']);
+      // this.router.navigate(['/administracion/home']);
       this.viajes = this.viajes.filter((v) => viaje != v);
-      location.reload();
+      // location.reload();
     });
   }
 
   onViajeEditar(viaje: Viaje): void {
     this.experienceService.updateV(viaje).subscribe(response => {
-      this.router.navigate(['/administracion/experiences']);
+      this.router.navigate(['/administracion/home']);
     });
   }
 
@@ -89,9 +82,9 @@ export class AdminExperiencesComponent implements OnInit {
 
   onActividadEliminar(actividad: Actividad): void {
     this.experienceService.deleteA(actividad.id).subscribe((response) => {
-      this.router.navigate(['/administracion/experiences']);
+      // this.router.navigate(['/administracion/home']);
       this.actividades = this.actividades.filter((a) => actividad != a);
-      location.reload();
+      // location.reload();
     });
   }
 

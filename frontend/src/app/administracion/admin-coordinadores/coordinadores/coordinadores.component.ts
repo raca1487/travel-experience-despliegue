@@ -29,9 +29,10 @@ export class CoordinadoresComponent implements OnInit {
   }
 
   eliminarC(): void {
-    if (confirm('Va a dar de baja a un Coordinador, ¿está usted seguro de la operación que va a realizar?')) {
-      this.coordinadorEliminar.emit(this.coordinador);
-    }
+    // if (confirm('Va a dar de baja a un Coordinador, ¿está usted seguro de la operación que va a realizar?')) {
+    //   this.coordinadorEliminar.emit(this.coordinador);
+    // };
+    this.coordinadorEliminar.emit(this.coordinador);
   }
 
 }

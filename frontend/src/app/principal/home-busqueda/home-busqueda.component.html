@@ -5,7 +5,7 @@
 <div class="cuerpo text-center">
   <h4>Escoja una puntuación de Valoración deseada para filtro de búsqueda</h4>
   <div class="form-inline">
-    <label>Puntuación (0-10):&nbsp;&nbsp;</label>
+    <label>Puntuación (0-5):&nbsp;&nbsp;</label>
     <select name="selectPunt" class="form-select" [(ngModel)]="getPuntuacion">
       <option value="0" (change)="setPuntuacion(0)">0</option>
       <option value="1" (change)="setPuntuacion(1)">1</option>
@@ -13,11 +13,6 @@
       <option value="3" (change)="setPuntuacion(3)">3</option>
       <option value="4" (change)="setPuntuacion(4)">4</option>
       <option value="5" (change)="setPuntuacion(5)">5</option>
-      <option value="6" (change)="setPuntuacion(6)">6</option>
-      <option value="7" (change)="setPuntuacion(7)">7</option>
-      <option value="8" (change)="setPuntuacion(8)">8</option>
-      <option value="9" (change)="setPuntuacion(9)">9</option>
-      <option value="10" (change)="setPuntuacion(10)">10</option>
     </select>
   </div>
 

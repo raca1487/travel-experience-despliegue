@@ -9,6 +9,7 @@ import { Actividad } from '../models/actividad';
 import { ActividadImpl } from '../models/actividad-impl';
 import { Coordinador } from '../models/coordinador';
 import { CoordinadorImpl } from '../models/coordinador-impl';
+import { Entretenimiento } from '../models/entretenimiento';
 import { Viaje } from '../models/viaje';
 import { ViajeImpl } from '../models/viaje-impl';
 
@@ -74,28 +75,32 @@ export class ExperienceService {
    * CRUD de Viajes
    */
   createV(viaje: Viaje): Observable<any> {
-    return this.http.post(this.urlEndPointV, viaje).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
-          return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error('test'));
-      })
-    );
+    return this.http.post(this.urlEndPointV, viaje)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.status === 400) {
+    //       return throwError(() => new Error(e));
+    //     }
+    //     if (e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error('test'));
+    //   })
+    // )
+    ;
   }
 
   deleteV(id: string): Observable<Viaje> {
-    return this.http.delete<Viaje>(`${this.urlEndPointV}/${id}`).pipe(
-      catchError((e) => {
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+    return this.http.delete<Viaje>(`${this.urlEndPointV}/${id}`)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error(e));
+    //   })
+    // )
+    ;
   }
 
   updateV(viaje: Viaje): Observable<any> {
@@ -151,44 +156,49 @@ export class ExperienceService {
    * CRUD de Actividades
    */
   createA(actividad: Actividad): Observable<any> {
-    return this.http.post(this.urlEndPointA, actividad).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
-          return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error('test'));
-      })
-    );
+    return this.http.post(this.urlEndPointA, actividad)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.status === 400) {
+    //       return throwError(() => new Error(e));
+    //     }
+    //     if (e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error('test'));
+    //   })
+    // )
+    ;
   }
 
   deleteA(id: string): Observable<Actividad> {
-    return this.http.delete<Actividad>(`${this.urlEndPointA}/${id}`).pipe(
-      catchError((e) => {
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+    return this.http.delete<Actividad>(`${this.urlEndPointA}/${id}`)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error(e));
+    //   })
+    // )
+    ;
   }
 
   updateA(actividad: Actividad): Observable<any> {
     return this.http
       .patch<any>(`${this.urlEndPointA}/${actividad.id}`, actividad)
-      .pipe(
-        catchError((e) => {
-          if (e.status === 400) {
-            return throwError(() => new Error(e));
-          }
-          if (e.error.mensaje) {
-            console.error(e.error.mensaje);
-          }
-          return throwError(() => new Error(e));
-        })
-      );
+      // .pipe(
+      //   catchError((e) => {
+      //     if (e.status === 400) {
+      //       return throwError(() => new Error(e));
+      //     }
+      //     if (e.error.mensaje) {
+      //       console.error(e.error.mensaje);
+      //     }
+      //     return throwError(() => new Error(e));
+      //   })
+      // )
+      ;
   }
 
   getActividad(id: string): Observable<Actividad> {
@@ -208,14 +218,16 @@ export class ExperienceService {
    * Métodos para conseguir un listado de Coordinadores y mapearlos desde la API
    */
   getCoordinadores(): Observable<any> {
-    return this.http.get<any>(this.urlEndPointC).pipe(
-      catchError((e) => {
-        if (e.status !== 401 && e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+    return this.http.get<any>(this.urlEndPointC)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.status !== 401 && e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error(e));
+    //   })
+    // )
+    ;
   }
 
   extraerCoordinadores(respuestaApi: any): Coordinador[] {
@@ -249,49 +261,53 @@ export class ExperienceService {
    * CRUD de Coordinadores
    */
   createC(coordinador: Coordinador): Observable<any> {
-    return this.http.post(this.urlEndPointC, coordinador).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
-          return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error('test'));
-      })
-    );
+    return this.http.post(this.urlEndPointC, coordinador)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.status === 400) {
+    //       return throwError(() => new Error(e));
+    //     }
+    //     if (e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error('test'));
+    //   })
+    // )
+    ;
   }
 
   deleteC(id: string): Observable<Coordinador> {
-    return this.http.delete<Coordinador>(`${this.urlEndPointC}/${id}`).pipe(
-      catchError((e) => {
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+    return this.http.delete<Coordinador>(`${this.urlEndPointC}/${id}`)
+    // .pipe(
+    //   catchError((e) => {
+    //     if (e.error.mensaje) {
+    //       console.error(e.error.mensaje);
+    //     }
+    //     return throwError(() => new Error(e));
+    //   })
+    // )
+    ;
   }
 
   updateC(coordinador: Coordinador): Observable<any> {
     return this.http
       .patch<any>(`${this.urlEndPointC}/${coordinador.idCoordinador}`, coordinador)
-      .pipe(
-        catchError((e) => {
-          if (e.status === 400) {
-            return throwError(() => new Error(e));
-          }
-          if (e.error.mensaje) {
-            console.error(e.error.mensaje);
-          }
-          return throwError(() => new Error(e));
-        })
-      );
+      // .pipe(
+      //   catchError((e) => {
+      //     if (e.status === 400) {
+      //       return throwError(() => new Error(e));
+      //     }
+      //     if (e.error.mensaje) {
+      //       console.error(e.error.mensaje);
+      //     }
+      //     return throwError(() => new Error(e));
+      //   })
+      // )
+      ;
   }
 
   getCoordinador(id: string): Observable<Coordinador> {
-    return this.http
-      .get<Coordinador>(`${this.urlEndPointA}/${id}/coordinador`)
+    return this.http.get<Coordinador>(`${this.urlEndPointA}/${id}/coordinador`)
       // .pipe(
       //   catchError((e) => {
       //     if (e.status !== 401 && e.error.mensaje) {
@@ -310,20 +326,8 @@ export class ExperienceService {
   /*
    * Métodos para conseguir un listado de Valoraciones y mapearlos desde la API
    */
-  getValoracionesViajes(viaje: Viaje): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointV}/${viaje.id}/valoraciones`);
-  }
-
-  getValoracionesActividades(actividad: Actividad): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointA}/${actividad.id}/valoraciones`);
-  }
-
-  getValoracionesIdViaje(id: string): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointV}/${id}/valoraciones`);
-  }
-
-  getValoracionesIdActividad(id: string): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointA}/${id}/valoraciones`);
+  getValoracionesEntretenimientos(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointE}/${id}/valoraciones`);
   }
 
   extraerValoracionEntretenimiento(respuestaApi: any): any[] {
@@ -337,29 +341,6 @@ export class ExperienceService {
     });
 
     return valoraciones;
-  }
-
-  extraerValoraciones(respuestaApi: any): Valoracion[] {
-    const valoraciones: Valoracion[] = [];
-    let respuesta: any = respuestaApi._embedded.valoraciones;
-    if (respuesta === undefined) {
-      console.info("No hay Valoraciones");
-    } else
-    respuestaApi._embedded.valoraciones.forEach((vl: any) => {
-      valoraciones.push(this.mapearValoracion(vl));
-    });
-
-    return valoraciones;
-  }
-
-  mapearValoracion(valoracionApi: any): Valoracion {
-    let valoracion: Valoracion = new ValoracionImpl();
-    valoracion.titulo = valoracionApi.titulo;
-    valoracion.comentario = valoracionApi.comentario;
-    valoracion.puntuacion = valoracionApi.puntuacion;
-    valoracion.entretenimiento = valoracionApi._links.entretenimiento.href;
-
-    return valoracion;
   }
 
   /*

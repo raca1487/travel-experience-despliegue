@@ -11,7 +11,7 @@
 .card-title {
   /*font-family: "Bangers";*/
   color: var(--color-blue);
-  text-align: center;
+  /* text-align: center; */
 }
 
 .card-text {
@@ -20,4 +20,8 @@
 
 .valoraciones {
   font-family: "Fredoka";
+}
+
+.star {
+  color: orange;
 }

@@ -11,7 +11,8 @@ export class CanActivateViaLoggingAdministrador implements CanActivateChild {
         // si el usuario no está loggeado como administrador le dará un alert y le llevará a "/"
         if (!HomeComponent.admin) {
             this.router.navigate(['/']);
-            alert('Debes identificarte como administrador para continuar');
+            // alert('Debes identificarte como administrador para continuar');
+
             return false;
         }
 
