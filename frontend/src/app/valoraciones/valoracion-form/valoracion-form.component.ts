@@ -40,7 +40,7 @@ export class ValoracionFormComponent implements OnInit {
   }
 
   cambiarFormatoFecha(fecha: Date): string {
-    return `${fecha.getUTCFullYear()}-${fecha.getMonth() + 1 < 10 ? '0' + (fecha.getMonth() + 1) : fecha.getMonth() + 1}-${fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate()}T${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}.${fecha.getMilliseconds()}Z`;
+    return `${fecha.getUTCFullYear()}-${fecha.getMonth() + 1 < 10 ? '0' + (fecha.getMonth() + 1) : fecha.getMonth() + 1}-${fecha.getDate() < 10 ? '0' + fecha.getDate() : fecha.getDate()}T${fecha.getHours()}:${fecha.getMinutes() < 10 ? '0' + fecha.getMinutes() : fecha.getMinutes()}:${fecha.getSeconds()}.${fecha.getMilliseconds()}Z`;
   }
 
 }
