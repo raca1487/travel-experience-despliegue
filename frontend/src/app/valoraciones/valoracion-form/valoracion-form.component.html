@@ -95,7 +95,13 @@
         *ngIf="puntuacion.invalid && (puntuacion.dirty || puntuacion.touched)"
       >
         <div *ngIf="puntuacion.errors?.['required']">
-          La Puntuación de la Valoración es obligatoria
+          La Calificación de la Valoración es obligatoria
+        </div>
+        <div *ngIf="puntuacion.errors?.['min']">
+          La Calificacion no puede ser 0 o negativa
+        </div>
+        <div *ngIf="puntuacion.errors?.['max']">
+          La Calificacion no pueder ser mayor que 5
         </div>
       </div>
     </div>
